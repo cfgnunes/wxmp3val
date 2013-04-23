@@ -13,14 +13,14 @@
 
 enum
 {
-    TOOL_SCAN    = 0,
-    TOOL_FIX     = 1,
+    TOOL_SCAN = 0,
+    TOOL_FIX = 1,
 };
 
 class Progress
 {
 public:
-    Progress (wxWindow* parent, ConfigBase* configBase, wxListCtrl* listFiles, int workType);
+    Progress(wxWindow* parent, ConfigBase* configBase, wxListCtrl* listFiles, int workType);
     virtual ~Progress();
     void Execute();
 

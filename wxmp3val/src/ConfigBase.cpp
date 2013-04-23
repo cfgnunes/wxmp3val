@@ -12,7 +12,7 @@ ConfigBase::ConfigBase(const wxString & appName)
     config = new wxConfig(appName);
 
     // If there isn't a setting, writes a new one with default values
-    if(!config->Exists(CONFIG_GENERAL_GROUP))
+    if (!config->Exists(CONFIG_GENERAL_GROUP))
         setDefaultConfig();
 }
 
@@ -39,10 +39,10 @@ wxString ConfigBase::getStringToolOptions()
 {
     wxString toolOptions;
 
-    if(getKeepTimestamp())
+    if (getKeepTimestamp())
         toolOptions.append(wxT("-t "));
 
-    if(getDeleteBackup())
+    if (getDeleteBackup())
         toolOptions.append(wxT("-nb "));
 
     toolOptions.Trim();
@@ -50,6 +50,7 @@ wxString ConfigBase::getStringToolOptions()
 }
 
 //gets...
+
 wxString ConfigBase::getLastOpenDir()
 {
     wxString value = wxEmptyString;
@@ -79,6 +80,7 @@ bool ConfigBase::getDeleteBackup()
 }
 
 //sets...
+
 void ConfigBase::setLastOpenDir(wxString value)
 {
     config->Write(CONFIG_SYSTEM_GROUP + CONFIG_STR_LastOpenDir, value);

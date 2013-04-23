@@ -16,11 +16,11 @@
 #include <wx/statusbr.h>
 //*)
 
-class frmMain: public wxFrame
+class frmMain : public wxFrame
 {
 public:
 
-    frmMain(wxWindow* parent,wxWindowID id=wxID_ANY,const wxPoint& pos=wxDefaultPosition,const wxSize& size=wxDefaultSize);
+    frmMain(wxWindow* parent, wxWindowID id = wxID_ANY, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxDefaultSize);
     virtual ~frmMain();
 
     //(*Declarations(frmMain)
