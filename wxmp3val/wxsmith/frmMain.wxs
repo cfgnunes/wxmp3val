@@ -9,6 +9,7 @@
 			<pos>184,208</pos>
 			<size>520,450</size>
 			<style>wxLC_REPORT</style>
+			<handler function="OnlstFilesDeleteItem" entry="EVT_LIST_DELETE_ITEM" />
 			<handler function="OnlstFilesClick" entry="EVT_LIST_ITEM_SELECTED" />
 			<handler function="OnlstFilesClick" entry="EVT_LIST_ITEM_DESELECTED" />
 			<handler function="OnlstFilesItemRClick" entry="EVT_LIST_ITEM_RIGHT_CLICK" />

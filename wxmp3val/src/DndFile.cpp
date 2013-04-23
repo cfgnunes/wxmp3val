@@ -5,7 +5,7 @@
 
 #include "DndFile.h"
 
-DndFile::DndFile(wxListCtrl *owner)
+DndFile::DndFile(wxListCtrl *owner, ArrayOfFiles *lstFilesData):lstFilesData(lstFilesData)
 {
     m_owner = owner;
 }
@@ -23,16 +23,16 @@ bool DndFile::OnDropFiles(wxCoord x, wxCoord y, const wxArrayString& filenames)
     for ( size_t n = 0; n < filenames.GetCount(); n++ )
     {
         if(wxFileName::DirExists(filenames[n]))
-            InsertFileListDir(m_owner, filenames[n]);
+            InsertFileListDir(filenames[n]);
         else
             files.Add(filenames[n]);
     }
-    InsertFileList(m_owner, files);
+    InsertFileList(files);
 
     return true;
 }
 
-void DndFile::InsertFileList(wxListCtrl* m_owner, const wxArrayString& filenames)
+void DndFile::InsertFileList(const wxArrayString& filenames)
 {
     wxFileName file;
     size_t nFiles = filenames.GetCount();
@@ -55,7 +55,8 @@ void DndFile::InsertFileList(wxListCtrl* m_owner, const wxArrayString& filenames
             }
             if(!repeated)
             {
-                m_owner->InsertItem(n, filenames[n]);
+                m_owner->InsertItem(m_owner->GetItemCount(), file.GetFullName());
+                lstFilesData->Add(new FileInfo(filenames[n]));
 
                 // Workaround to force wxListCtrl update insert event (on Windows)
                 if(m_owner->GetItemCount() == 1)
@@ -68,12 +69,12 @@ void DndFile::InsertFileList(wxListCtrl* m_owner, const wxArrayString& filenames
     }
 }
 
-void DndFile::InsertFileListDir(wxListCtrl* m_owner, const wxString& dirname)
+void DndFile::InsertFileListDir(const wxString& dirname)
 {
     wxArrayString files;
     wxDir::GetAllFiles (dirname, &files);
 
-    InsertFileList(m_owner, files);
+    InsertFileList(files);
 }
 
 bool DndFile::CheckValidExtension(const wxFileName& file)

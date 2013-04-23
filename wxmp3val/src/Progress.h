@@ -6,6 +6,7 @@
 #ifndef PROGRESS_H
 #define PROGRESS_H
 
+#include "FileInfo.h"
 #include "ConfigBase.h"
 #include "Global.h"
 
@@ -20,7 +21,7 @@ enum
 class Progress
 {
 public:
-    Progress(wxWindow* parent, ConfigBase* configBase, wxListCtrl* listFiles, int workType);
+    Progress(wxWindow* parent, ConfigBase* configBase, wxListCtrl* listFiles, ArrayOfFiles* lstFilesData, int workType);
     virtual ~Progress();
     void Execute();
 
@@ -32,6 +33,7 @@ private:
     wxWindow* parent;
     ConfigBase* configBase;
     wxListCtrl* listFiles;
+    ArrayOfFiles* lstFilesData;
     int workType;
     wxArrayString inputString;
 };

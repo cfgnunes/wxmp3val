@@ -9,8 +9,8 @@
 #include <wx/progdlg.h>
 #include <wx/msgdlg.h>
 
-Progress::Progress(wxWindow* parent, ConfigBase* configBase, wxListCtrl* listFiles, int workType)
-: parent(parent), configBase(configBase), listFiles(listFiles), workType(workType)
+Progress::Progress(wxWindow* parent, ConfigBase* configBase, wxListCtrl* listFiles, ArrayOfFiles* lstFilesData, int workType)
+: parent(parent), configBase(configBase), listFiles(listFiles), lstFilesData(lstFilesData), workType(workType)
 {
     //ctor
 }
@@ -44,7 +44,8 @@ void Progress::Execute()
 void Progress::ProcessFile(int fileIterator)
 {
     wxString fullCommand = configBase->getToolExecutable();
-    wxFileName filenameInput(listFiles->GetItemText(fileIterator));
+    FileInfo fileInfo = lstFilesData->Item(fileIterator);
+    wxFileName filenameInput = fileInfo.getFileName();;
 
     if (workType == TOOL_FIX)
         fullCommand.append(wxT(" -f ") + configBase->getStringToolOptions());

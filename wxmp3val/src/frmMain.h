@@ -7,13 +7,14 @@
 #define FRMMAIN_H
 
 #include "ConfigBase.h"
+#include "FileInfo.h"
 
 //(*Headers(frmMain)
+#include <wx/toolbar.h>
 #include <wx/listctrl.h>
 #include <wx/menu.h>
-#include <wx/toolbar.h>
-#include <wx/frame.h>
 #include <wx/statusbr.h>
+#include <wx/frame.h>
 //*)
 
 class frmMain : public wxFrame
@@ -24,23 +25,23 @@ public:
     virtual ~frmMain();
 
     //(*Declarations(frmMain)
-    wxToolBarToolBase* ToolBarItem4;
-    wxToolBar* ToolBar1;
-    wxMenu Menu1;
-    wxToolBarToolBase* ToolBarItem3;
-    wxMenuItem* MenuItem14;
-    wxMenuItem* MenuItem15;
-    wxMenuItem* MenuItem13;
-    wxToolBarToolBase* ToolBarItem6;
-    wxMenuItem* MenuItem12;
-    wxToolBarToolBase* ToolBarItem1;
-    wxStatusBar* StatusBar1;
     wxToolBarToolBase* ToolBarItem5;
+    wxStatusBar* StatusBar1;
+    wxMenuItem* MenuItem12;
+    wxToolBarToolBase* ToolBarItem6;
     wxListCtrl* lstFiles;
-    wxToolBarToolBase* ToolBarItem8;
-    wxMenuBar* MenuBar1;
-    wxToolBarToolBase* ToolBarItem2;
+    wxMenuItem* MenuItem15;
     wxToolBarToolBase* ToolBarItem7;
+    wxToolBarToolBase* ToolBarItem2;
+    wxToolBar* ToolBar1;
+    wxToolBarToolBase* ToolBarItem4;
+    wxToolBarToolBase* ToolBarItem1;
+    wxMenuBar* MenuBar1;
+    wxToolBarToolBase* ToolBarItem3;
+    wxMenuItem* MenuItem13;
+    wxToolBarToolBase* ToolBarItem8;
+    wxMenu Menu1;
+    wxMenuItem* MenuItem14;
     //*)
 
 protected:
@@ -90,12 +91,14 @@ private:
     void mnuScan(wxCommandEvent& event);
     void mnuFix(wxCommandEvent& event);
     void mnuAddDirectory(wxCommandEvent& event);
+    void OnlstFilesDeleteItem(wxListEvent& event);
     //*)
 
     void updateStatusBar();
     void updateDisabledControls();
     void loadResources();
     ConfigBase *configBase;
+    ArrayOfFiles *lstFilesData;
 
     DECLARE_EVENT_TABLE()
 };

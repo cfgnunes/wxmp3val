@@ -1,4 +1,4 @@
-F/*
+/*
  * This file is part of the wxMP3val and licensed under the GNU General Public License, version 3
  * http://www.gnu.org/licenses/gpl-3.0.html
  */
@@ -9,7 +9,7 @@ F/*
 #include <wx/string.h>
 
 const wxString	APP_NAME = wxT("wxMP3val");
-const wxString	APP_VERSION = wxT("2.3");
+const wxString	APP_VERSION = wxT("2.3.1");
 const wxString	APP_NAME_WITH_VERSION = APP_NAME + wxT(" v") + APP_VERSION;
 
 const wxString	APP_AUTHOR = wxT("Cristiano Nunes");
