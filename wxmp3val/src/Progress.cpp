@@ -44,7 +44,7 @@ void Progress::Execute()
 void Progress::ProcessFile(int fileIterator)
 {
     wxString fullCommand = configBase->getToolExecutable();
-    FileInfo fileInfo = lstFilesData->Item(fileIterator);
+    FileInfo& fileInfo = lstFilesData->Item(fileIterator);
     wxFileName filenameInput = fileInfo.getFileName();;
 
     if (workType == TOOL_FIX)
