@@ -45,7 +45,7 @@ void Progress::ProcessFile(int fileIterator)
 {
     wxString fullCommand = configBase->getToolExecutable();
     FileInfo& fileInfo = lstFilesData->Item(fileIterator);
-    wxFileName filenameInput = fileInfo.getFileName();;
+    wxFileName filenameInput = fileInfo.getFileName();
 
     if (workType == TOOL_FIX)
         fullCommand.append(wxT(" -f ") + configBase->getStringToolOptions());
