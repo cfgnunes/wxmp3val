@@ -100,7 +100,7 @@ msgstr "Adicionar pasta"
 
 #: frmAbout.cpp:106
 msgid "Author: "
-msgstr "Autor:"
+msgstr "Autor: "
 
 #: frmMain.cpp:196
 msgid "CBR"
@@ -136,7 +136,7 @@ msgstr "REPARADO"
 
 #: Progress.cpp:97
 msgid "FIXED: "
-msgstr "REPARADO:"
+msgstr "REPARADO: "
 
 #: frmMain.cpp:193
 msgid "File"
@@ -245,7 +245,7 @@ msgstr ""
 
 #: frmMain.cpp:347
 msgid "Using MP3val version: "
-msgstr "Utilizando o MP3val versão:"
+msgstr "Utilizando o MP3val versão: "
 
 #: frmMain.cpp:194
 msgid "Version"
@@ -253,7 +253,7 @@ msgstr "Versão"
 
 #: frmAbout.cpp:105
 msgid "Version "
-msgstr "Versão"
+msgstr "Versão "
 
 #: Progress.cpp:28
 msgid "Wait..."
