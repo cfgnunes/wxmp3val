@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-04-25 22:38-0300\n"
-"PO-Revision-Date: 2013-04-25 23:17-0300\n"
+"POT-Creation-Date: 2013-04-26 19:09-0300\n"
+"PO-Revision-Date: 2013-04-26 20:13-0300\n"
 "Last-Translator: Cristiano Nunes <cfgnunes@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -16,93 +16,44 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: frmMain.cpp:114
-msgid "&About"
-msgstr "&Sobre"
-
-#: frmMain.cpp:107
+#: frmMain.cpp:106
 msgid "&Actions"
 msgstr "&Ações"
 
-#: frmMain.cpp:87
-#: frmMain.cpp:139
-msgid "&Add Files"
-msgstr "&Adicionar Arquivos"
-
-#: frmMain.cpp:96
-msgid "&Clear List"
-msgstr "&Limpar Lista"
-
-#: frmMain.cpp:143
-msgid "&Clear list"
-msgstr "&Limpar Lista"
-
-#: frmMain.cpp:101
+#: frmMain.cpp:100
 msgid "&Edit"
 msgstr "&Editar"
 
-#: frmMain.cpp:92
+#: frmMain.cpp:91
 msgid "&File"
 msgstr "&Arquivo"
 
-#: frmMain.cpp:116
+#: frmMain.cpp:115
 msgid "&Help"
 msgstr "&Ajuda"
-
-#: frmMain.cpp:109
-msgid "&MP3val Website"
-msgstr "&Site do MP3val"
-
-#: frmMain.cpp:94
-msgid "&Remove Files"
-msgstr "&Remover Arquivos"
-
-#: frmMain.cpp:141
-msgid "&Remove files"
-msgstr "&Remover arquivos"
-
-#: frmMain.cpp:103
-msgid "&Scan"
-msgstr "&Verificar"
-
-#: frmMain.cpp:99
-msgid "&Settings"
-msgstr "&Configurações"
-
-#: frmMain.cpp:111
-msgid "&wxMP3val Website"
-msgstr "&Site do wxMP3val"
 
 #: frmSettings.cpp:49
 msgid "..."
 msgstr "..."
 
-#: frmMain.cpp:134
+#: frmMain.cpp:113
+#: frmMain.cpp:133
 msgid "About"
 msgstr "Sobre"
 
-#: frmAbout.cpp:50
-msgid "About..."
-msgstr "Sobre..."
-
-#: frmMain.cpp:85
-#: frmMain.cpp:137
-msgid "Add F&older"
-msgstr "Adici&onar Pasta"
-
-#: frmMain.cpp:126
+#: frmMain.cpp:86
+#: frmMain.cpp:125
+#: frmMain.cpp:138
 msgid "Add files"
 msgstr "Adicionar arquivos"
 
-#: frmMain.cpp:125
+#: frmMain.cpp:84
+#: frmMain.cpp:124
+#: frmMain.cpp:136
 msgid "Add folder"
-msgstr "Adicionar pasta"
+msgstr "Adicionar diretório"
 
-#: frmAbout.cpp:106
-msgid "Author: "
-msgstr "Autor: "
-
-#: frmMain.cpp:196
+#: frmMain.cpp:195
 msgid "CBR"
 msgstr "CBR"
 
@@ -110,37 +61,35 @@ msgstr "CBR"
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: frmMain.cpp:128
-msgid "Clear files"
-msgstr "Limpar arquivos"
+#: frmMain.cpp:95
+#: frmMain.cpp:127
+#: frmMain.cpp:142
+msgid "Clear list"
+msgstr "Limpar lista"
 
 #: frmSettings.cpp:56
 msgid "Delete bakup files"
 msgstr "Remover arquivos de backup"
 
-#: Progress.cpp:37
+#: Progress.cpp:38
 msgid "Do you want to stop process now?"
 msgstr "Deseja para o processo agora?"
 
-#: frmMain.cpp:90
-msgid "E&xit"
-msgstr "&Sair"
+#: frmMain.cpp:89
+msgid "Exit"
+msgstr "Sair"
 
-#: frmAbout.cpp:110
-msgid "E-mail: "
-msgstr "E-mail: "
-
-#: Progress.cpp:116
+#: Progress.cpp:117
 msgid "FIXED"
 msgstr "REPARADO"
 
-#: Progress.cpp:97
-msgid "FIXED: "
-msgstr "REPARADO: "
-
-#: frmMain.cpp:193
+#: frmMain.cpp:192
 msgid "File"
 msgstr "Arquivo"
+
+#: frmMain.cpp:356
+msgid "Free front-end for the MP3val"
+msgstr "Livre front-end para o MP3val"
 
 #: frmSettings.cpp:63
 msgid "General"
@@ -154,13 +103,16 @@ msgstr "Manter data de modificação dos arquivos"
 msgid "MP3val executable"
 msgstr "Executável do MP3val"
 
-#: frmMain.cpp:349
+#: frmMain.cpp:348
 msgid "MP3val not found!"
 msgstr "MP3val não encontrado!"
 
-#: frmAbout.cpp:93
+#: frmMain.cpp:108
+msgid "MP3val website"
+msgstr "Site do MP3val"
+
 #: frmSettings.cpp:68
-#: Progress.cpp:108
+#: Progress.cpp:109
 msgid "OK"
 msgstr "OK"
 
@@ -168,117 +120,80 @@ msgstr "OK"
 msgid "Other options"
 msgstr "Outras opções"
 
-#: Progress.cpp:112
+#: Progress.cpp:113
 msgid "PROBLEM"
 msgstr "PROBLEMA"
 
-#: Progress.cpp:37
-msgid "Process"
-msgstr "Processo"
-
-#: Progress.cpp:34
+#: Progress.cpp:35
 #, c-format
 msgid "Processed %i files of %i."
 msgstr "Processado %i arquivos de %i."
 
-#: Progress.cpp:29
+#: Progress.cpp:30
 #, c-format
 msgid "Processed 0 files of %i."
 msgstr "Processado 0 arquivos de %i."
 
-#: frmMain.cpp:105
-msgid "Re&pair"
-msgstr "Re&parar"
+#: Progress.cpp:29
+msgid "Progress"
+msgstr "Progresso"
 
-#: frmMain.cpp:127
+#: frmMain.cpp:93
+#: frmMain.cpp:126
+#: frmMain.cpp:140
 msgid "Remove files"
 msgstr "Remover arquivos"
 
-#: frmMain.cpp:131
+#: frmMain.cpp:104
+#: frmMain.cpp:130
 msgid "Repair"
 msgstr "Reparar"
 
 #: frmSettings.cpp:66
-msgid "Restore Defaults"
-msgstr "Restaurar Padrões"
+msgid "Restore defaults"
+msgstr "Restaurar padrões"
 
-#: frmMain.cpp:130
+#: frmMain.cpp:102
+#: frmMain.cpp:129
 msgid "Scan"
 msgstr "Verificar"
 
-#: frmMain.cpp:240
+#: frmMain.cpp:239
 msgid "Select directory"
 msgstr "Selecionar diretório"
 
+#: frmMain.cpp:217
 #: frmSettings.cpp:74
 msgid "Select file"
 msgstr "Selecionar arquivo"
 
-#: frmMain.cpp:218
-msgid "Select files"
-msgstr "Selecionar arquivos"
-
-#: frmMain.cpp:133
+#: frmMain.cpp:98
+#: frmMain.cpp:132
 #: frmSettings.cpp:41
 msgid "Settings"
 msgstr "Configurações"
 
-#: frmMain.cpp:197
+#: frmMain.cpp:196
 msgid "State"
 msgstr "Estado"
 
-#: frmMain.cpp:195
+#: frmMain.cpp:194
 msgid "Tags"
 msgstr "Tags"
 
-#: frmAbout.cpp:83
-msgid ""
-"This program is licensed under the terms\n"
-"of the GNU General Public License version 3:\n"
-"\n"
-"Available online under:"
-msgstr ""
-"Este programa está licenciado sobre os termos\n"
-"do GNU General Public License versão 3:\n"
-"\n"
-"Disponível online em:"
-
-#: frmMain.cpp:347
+#: frmMain.cpp:346
 msgid "Using MP3val version: "
-msgstr "Utilizando o MP3val versão: "
+msgstr "Utilizando MP3val versão: "
 
-#: frmMain.cpp:194
+#: frmMain.cpp:193
 msgid "Version"
 msgstr "Versão"
 
-#: frmAbout.cpp:105
-msgid "Version "
-msgstr "Versão "
-
-#: Progress.cpp:28
+#: Progress.cpp:29
 msgid "Wait..."
 msgstr "Aguarde..."
 
-#: frmAbout.cpp:107
-msgid "Website: "
-msgstr "Website: "
-
-#: Progress.cpp:28
-msgid "Working progress"
-msgstr "Progresso de trabalho"
-
-#: frmAbout.cpp:56
-#: frmAbout.cpp:62
-#: frmAbout.cpp:67
-#: frmAbout.cpp:70
-#: frmAbout.cpp:72
-#: frmAbout.cpp:76
-#: frmAbout.cpp:78
-#: frmAbout.cpp:85
-msgid "label"
-msgstr "label"
-
-#: Progress.cpp:94
-msgid "tags in the file"
-msgstr "tags no arquivo"
+#: frmMain.cpp:110
+msgid "wxMP3val website"
+msgstr "Site do wxMP3val"
 
