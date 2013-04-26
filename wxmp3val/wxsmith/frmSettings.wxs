@@ -68,7 +68,7 @@
 				<object class="wxBoxSizer" variable="BoxSizer10" member="no">
 					<object class="sizeritem">
 						<object class="wxButton" name="ID_BUTTON1" variable="btnDefault" member="yes">
-							<label>Restore Defaults</label>
+							<label>Restore defaults</label>
 							<handler function="OnbtnDefaultClick" entry="EVT_BUTTON" />
 						</object>
 						<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>

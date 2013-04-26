@@ -4,6 +4,7 @@
  */
 
 #include "Progress.h"
+#include "Global.h"
 
 #include <wx/filename.h>
 #include <wx/progdlg.h>
@@ -25,7 +26,7 @@ void Progress::Execute()
     int maxValue = listFiles->GetItemCount();
     bool cont = true;
 
-    wxProgressDialog dialog(_("Working progress"), _("Wait..."), maxValue, parent, wxPD_CAN_ABORT | wxPD_APP_MODAL | wxPD_ELAPSED_TIME | wxPD_ESTIMATED_TIME | wxPD_REMAINING_TIME);
+    wxProgressDialog dialog(_("Progress"), _("Wait..."), maxValue, parent, wxPD_CAN_ABORT | wxPD_APP_MODAL | wxPD_ELAPSED_TIME | wxPD_ESTIMATED_TIME | wxPD_REMAINING_TIME);
     dialog.Update(0, wxString::Format(_("Processed 0 files of %i."), maxValue));
     for (int i = 0; i < maxValue; i++)
     {
@@ -34,7 +35,7 @@ void Progress::Execute()
         cont = dialog.Update(i + 1, wxString::Format(_("Processed %i files of %i."), i + 1, maxValue));
         if (!cont)
         {
-            if (wxMessageBox(_("Do you want to stop process now?"), _("Process"), wxYES_NO | wxICON_QUESTION) == wxYES)
+            if (wxMessageBox(_("Do you want to stop process now?"), APP_NAME, wxYES_NO | wxICON_QUESTION) == wxYES)
                 break;
             dialog.Resume();
         }
@@ -91,10 +92,10 @@ void Progress::ProcessOutputString(int fileIterator)
             if (tempString.StartsWith(_T("WARNING: ")))
                 warningCount++;
 
-            if (tempString.Find(_("tags in the file")) != wxNOT_FOUND)
+            if (tempString.Find(_T("tags in the file")) != wxNOT_FOUND)
                 warningCount--;
 
-            if (tempString.StartsWith(_("FIXED: ")))
+            if (tempString.StartsWith(_T("FIXED: ")))
                 flagState = 2;
         }
 

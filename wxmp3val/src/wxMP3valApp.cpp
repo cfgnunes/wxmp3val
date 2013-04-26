@@ -60,6 +60,6 @@ void wxMP3valApp::selectLanguage(int lang)
 {
     delete m_locale;
     m_locale = new wxLocale(lang);
-    m_locale->AddCatalogLookupPathPrefix(RESOURCE_DIR + _T("lang"));
-    m_locale->AddCatalog( _T("wxmp3val") );
+    m_locale->AddCatalogLookupPathPrefix(RESOURCE_DIR + _T("msg"));
+    m_locale->AddCatalog(_T("wxmp3val"));
 }
