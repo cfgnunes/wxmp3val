@@ -9,14 +9,14 @@
 #include "ConfigBase.h"
 
 //(*Headers(frmSettings)
-#include <wx/notebook.h>
-#include <wx/sizer.h>
-#include <wx/textctrl.h>
 #include <wx/checkbox.h>
-#include <wx/panel.h>
-#include <wx/filedlg.h>
-#include <wx/button.h>
 #include <wx/dialog.h>
+#include <wx/sizer.h>
+#include <wx/notebook.h>
+#include <wx/button.h>
+#include <wx/filedlg.h>
+#include <wx/panel.h>
+#include <wx/textctrl.h>
 //*)
 
 class frmSettings : public wxDialog
@@ -27,16 +27,16 @@ public:
     virtual ~frmSettings();
 
     //(*Declarations(frmSettings)
-    wxButton* btnToolExecutable;
-    wxNotebook* Notebook1;
-    wxButton* btnCancel;
+    wxCheckBox* chkKeepTimestamps;
+    wxPanel* Panel6;
     wxTextCtrl* txtToolExecutable;
     wxFileDialog* FileDialog1;
+    wxNotebook* Notebook1;
     wxButton* btnOK;
-    wxPanel* Panel6;
-    wxCheckBox* chkKeepTimestamps;
+    wxButton* btnCancel;
     wxCheckBox* chkDeleteBackup;
     wxButton* btnDefault;
+    wxButton* btnToolExecutable;
     //*)
 
 protected:

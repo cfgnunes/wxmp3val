@@ -8,21 +8,21 @@
 
 #include <wx/string.h>
 
-const wxString	APP_NAME = wxT("wxMP3val");
-const wxString	APP_VERSION = wxT("2.3.1");
-const wxString	APP_NAME_WITH_VERSION = APP_NAME + wxT(" v") + APP_VERSION;
+const wxString	APP_NAME = _T("wxMP3val");
+const wxString	APP_VERSION = _T("2.4");
+const wxString	APP_NAME_WITH_VERSION = APP_NAME + _T(" v") + APP_VERSION;
 
-const wxString	APP_AUTHOR = wxT("Cristiano Nunes");
-const wxString	APP_WEBSITE = wxT("http://sourceforge.net/projects/wxmp3val/");
-const wxString	APP_EMAIL = wxT("cfgnunes@gmail.com");
+const wxString	APP_AUTHOR = _T("Cristiano Nunes");
+const wxString	APP_WEBSITE = _T("http://sourceforge.net/projects/wxmp3val/");
+const wxString	APP_EMAIL = _T("cfgnunes@gmail.com");
 
-const wxString  APP_WILDCARD_EXT = wxT("MP3 files (*.mp3)|*.mp3;*.MP3");
-const wxString  APP_OPEN_EXT = wxT("mp3");
+const wxString  APP_WILDCARD_EXT = _T("MP3 files (*.mp3)|*.mp3;*.MP3");
+const wxString  APP_OPEN_EXT = _T("mp3");
 
 #ifdef __LINUX__
-const wxString	RESOURCE_DIR = wxT("/usr/share/wxmp3val/resource/");
+const wxString	RESOURCE_DIR = _T("/usr/share/wxmp3val/resource/");
 #else
-const wxString	RESOURCE_DIR = wxT("resource/");
+const wxString	RESOURCE_DIR = _T("resource/");
 #endif
 
 #endif // GLOBAL_H_INCLUDED

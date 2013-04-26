@@ -40,10 +40,10 @@ wxString ConfigBase::getStringToolOptions()
     wxString toolOptions;
 
     if (getKeepTimestamp())
-        toolOptions.append(wxT("-t "));
+        toolOptions.append(_T("-t "));
 
     if (getDeleteBackup())
-        toolOptions.append(wxT("-nb "));
+        toolOptions.append(_T("-nb "));
 
     toolOptions.Trim();
     return toolOptions;

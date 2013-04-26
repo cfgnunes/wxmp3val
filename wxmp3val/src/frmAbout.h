@@ -7,13 +7,13 @@
 #define FRMABOUT_H
 
 //(*Headers(frmAbout)
-#include <wx/sizer.h>
-#include <wx/stattext.h>
-#include <wx/statline.h>
-#include <wx/hyperlink.h>
-#include <wx/statbmp.h>
-#include <wx/button.h>
 #include <wx/dialog.h>
+#include <wx/sizer.h>
+#include <wx/button.h>
+#include <wx/hyperlink.h>
+#include <wx/statline.h>
+#include <wx/stattext.h>
+#include <wx/statbmp.h>
 //*)
 
 class frmAbout : public wxDialog
@@ -24,21 +24,21 @@ public:
     virtual ~frmAbout();
 
     //(*Declarations(frmAbout)
-    wxStaticBitmap* StaticBitmap2;
-    wxHyperlinkCtrl* linkEmail;
-    wxStaticBitmap* StaticBitmap1;
+    wxStaticLine* StaticLine2;
+    wxStaticText* lblEmail;
+    wxStaticText* lblAppName;
     wxStaticText* StaticText1;
+    wxHyperlinkCtrl* linkEmail;
+    wxStaticLine* StaticLine1;
     wxStaticText* lblVersion;
+    wxStaticLine* StaticLine3;
     wxStaticText* lblWebsite;
     wxStaticText* lblAuthor;
-    wxHyperlinkCtrl* HyperlinkCtrl1;
-    wxButton* btnOK;
-    wxStaticLine* StaticLine2;
-    wxStaticText* lblAppName;
-    wxStaticLine* StaticLine3;
-    wxStaticLine* StaticLine1;
     wxHyperlinkCtrl* linkWebsite;
-    wxStaticText* lblEmail;
+    wxStaticBitmap* StaticBitmap1;
+    wxButton* btnOK;
+    wxHyperlinkCtrl* linkLicense;
+    wxStaticBitmap* StaticBitmap2;
     //*)
 
 protected:

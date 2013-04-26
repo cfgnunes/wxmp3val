@@ -10,20 +10,20 @@
 #include <wx/config.h>
 
 // Config Group Strings
-const wxString	CONFIG_SYSTEM_GROUP				= wxT("/System/");
-const wxString	CONFIG_GENERAL_GROUP			= wxT("/General/");
+const wxString	CONFIG_SYSTEM_GROUP				= _T("/System/");
+const wxString	CONFIG_GENERAL_GROUP			= _T("/General/");
 
 // Config Strings
-const wxString	CONFIG_STR_LastOpenDir			= wxT("LastOpenDir");
+const wxString	CONFIG_STR_LastOpenDir			= _T("LastOpenDir");
 
-const wxString	CONFIG_STR_ToolExecutable	    = wxT("ToolExecutable");
-const wxString	CONFIG_STR_KeepTimestamp		= wxT("KeepTimestamp");
-const wxString	CONFIG_STR_DeleteBackup			= wxT("DeleteBackup");
+const wxString	CONFIG_STR_ToolExecutable	    = _T("ToolExecutable");
+const wxString	CONFIG_STR_KeepTimestamp		= _T("KeepTimestamp");
+const wxString	CONFIG_STR_DeleteBackup			= _T("DeleteBackup");
 
 // Default Values
 const wxString	DEFAULT_VALUE_LastOpenDir		= wxEmptyString;
 
-const wxString	DEFAULT_VALUE_ToolExecutable	= wxT("mp3val");
+const wxString	DEFAULT_VALUE_ToolExecutable	= _T("mp3val");
 const bool		DEFAULT_VALUE_KeepTimestamp		= true;
 const bool		DEFAULT_VALUE_DeleteBackup  	= true;
 

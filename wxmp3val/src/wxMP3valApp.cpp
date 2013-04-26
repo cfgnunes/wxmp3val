@@ -28,6 +28,8 @@
 
 #include "wxMP3valApp.h"
 
+#include "Global.h"
+
 //(*AppHeaders
 #include "frmMain.h"
 #include <wx/image.h>
@@ -37,6 +39,10 @@ IMPLEMENT_APP(wxMP3valApp);
 
 bool wxMP3valApp::OnInit()
 {
+    // Load language translation
+    m_locale = NULL;
+    selectLanguage(wxLANGUAGE_DEFAULT);
+
     //(*AppInitialize
     bool wxsOK = true;
     wxInitAllImageHandlers();
@@ -48,4 +54,13 @@ bool wxMP3valApp::OnInit()
     }
     //*)
     return wxsOK;
+}
+
+void wxMP3valApp::selectLanguage(int lang)
+{
+    delete m_locale;
+    m_locale = new wxLocale(lang);
+    m_locale->AddCatalogLookupPathPrefix(RESOURCE_DIR + _T("lang"));
+    //wxMessageBox(m_locale->GetName());
+    m_locale->AddCatalog( _T("wxmp3val") );
 }

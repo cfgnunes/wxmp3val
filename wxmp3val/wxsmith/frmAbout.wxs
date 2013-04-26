@@ -21,7 +21,7 @@
 							<orient>wxVERTICAL</orient>
 							<object class="sizeritem">
 								<object class="wxStaticText" name="ID_STATICTEXT2" variable="lblAppName" member="yes">
-									<label>Label</label>
+									<label>label</label>
 									<size>304,13</size>
 									<font>
 										<weight>bold</weight>
@@ -33,7 +33,7 @@
 							</object>
 							<object class="sizeritem">
 								<object class="wxStaticText" name="ID_STATICTEXT1" variable="lblVersion" member="yes">
-									<label>Label</label>
+									<label>label</label>
 								</object>
 								<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
 								<border>5</border>
@@ -52,7 +52,7 @@
 							</object>
 							<object class="sizeritem">
 								<object class="wxStaticText" name="ID_STATICTEXT4" variable="lblAuthor" member="yes">
-									<label>Label</label>
+									<label>label</label>
 								</object>
 								<flag>wxTOP|wxBOTTOM|wxLEFT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
 								<border>5</border>
@@ -61,14 +61,14 @@
 								<object class="wxBoxSizer" variable="BoxSizer6" member="no">
 									<object class="sizeritem">
 										<object class="wxStaticText" name="ID_STATICTEXT6" variable="lblEmail" member="yes">
-											<label>Label</label>
+											<label>label</label>
 										</object>
 										<flag>wxTOP|wxBOTTOM|wxLEFT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
 									</object>
 									<object class="sizeritem">
 										<object class="wxHyperlinkCtrl" name="ID_HYPERLINKCTRL2" variable="linkEmail" member="yes">
-											<label>link</label>
+											<label>label</label>
 										</object>
 										<flag>wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
@@ -81,14 +81,14 @@
 								<object class="wxBoxSizer" variable="BoxSizer5" member="no">
 									<object class="sizeritem">
 										<object class="wxStaticText" name="ID_STATICTEXT5" variable="lblWebsite" member="yes">
-											<label>Label</label>
+											<label>label</label>
 										</object>
 										<flag>wxTOP|wxBOTTOM|wxLEFT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
 									</object>
 									<object class="sizeritem">
 										<object class="wxHyperlinkCtrl" name="ID_HYPERLINKCTRL1" variable="linkWebsite" member="yes">
-											<label>link</label>
+											<label>label</label>
 										</object>
 										<flag>wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
@@ -112,8 +112,8 @@
 								<border>5</border>
 							</object>
 							<object class="sizeritem">
-								<object class="wxHyperlinkCtrl" name="ID_HYPERLINKCTRL3" variable="HyperlinkCtrl1" member="yes">
-									<label>http://www.gnu.org/licenses/gpl-3.0.html</label>
+								<object class="wxHyperlinkCtrl" name="ID_HYPERLINKCTRL3" variable="linkLicense" member="yes">
+									<label>label</label>
 								</object>
 								<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
 								<border>5</border>

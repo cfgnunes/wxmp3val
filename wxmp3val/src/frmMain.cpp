@@ -340,13 +340,13 @@ void frmMain::updateStatusBar()
     wxArrayString inputString;
 
     // Execute external application
-    wxExecute(configBase->getToolExecutable() + wxT(" -v"), inputString, wxEXEC_NODISABLE);
+    wxExecute(configBase->getToolExecutable() + _T(" -v"), inputString, wxEXEC_NODISABLE);
 
     // Show the version of tool
     if (!inputString.IsEmpty())
-        StatusBar1->SetStatusText(wxT("Using MP3val version: ") + inputString.Item(0).AfterLast(' '), 1);
+        StatusBar1->SetStatusText(_("Using MP3val version: ") + inputString.Item(0).AfterLast(' '), 1);
     else
-        StatusBar1->SetStatusText(wxT("MP3val not found!"), 1);
+        StatusBar1->SetStatusText(_("MP3val not found!"), 1);
 }
 
 void frmMain::mnuAbout(wxCommandEvent& event)
@@ -357,12 +357,12 @@ void frmMain::mnuAbout(wxCommandEvent& event)
 
 void frmMain::mnuWebsite(wxCommandEvent& event)
 {
-    wxLaunchDefaultBrowser(wxT("http://sourceforge.net/projects/wxmp3val/"));
+    wxLaunchDefaultBrowser(_T("http://sourceforge.net/projects/wxmp3val/"));
 }
 
 void frmMain::mnuToolWebsite(wxCommandEvent& event)
 {
-    wxLaunchDefaultBrowser(wxT("http://mp3val.sourceforge.net/"));
+    wxLaunchDefaultBrowser(_T("http://mp3val.sourceforge.net/"));
 }
 
 void frmMain::loadResources()
@@ -388,3 +388,4 @@ void frmMain::OnlstFilesDeleteItem(wxListEvent& event)
     lstFilesData->Detach(event.GetIndex());
     updateDisabledControls();
 }
+
