@@ -30,10 +30,6 @@ msgstr ""
 msgid "&Help"
 msgstr ""
 
-#: frmSettings.cpp:49
-msgid "..."
-msgstr ""
-
 #: frmMain.cpp:113 frmMain.cpp:133
 msgid "About"
 msgstr ""
