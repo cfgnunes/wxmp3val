@@ -82,7 +82,6 @@ frmSettings::frmSettings(wxWindow* parent, ConfigBase* configBase, wxWindowID id
     Connect(ID_BUTTON4,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&frmSettings::OnbtnCancelClick);
     //*)
 
-
     // Set labels of controls
     setLabelsControls();
 
