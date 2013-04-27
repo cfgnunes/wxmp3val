@@ -170,3 +170,19 @@ msgstr ""
 #: frmMain.cpp:110
 msgid "wxMP3val website"
 msgstr ""
+
+#: Progress box
+msgid "Elapsed time : "
+msgstr ""
+
+msgid "Estimated time : "
+msgstr ""
+
+msgid "Remaining time : "
+msgstr ""
+
+msgid "Close"
+msgstr ""
+
+msgid "unknown"
+msgstr ""

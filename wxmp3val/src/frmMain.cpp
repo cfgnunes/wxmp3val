@@ -189,10 +189,10 @@ frmMain::frmMain(wxWindow* parent, wxWindowID id, const wxPoint& pos, const wxSi
     loadResources();
 
     // Title List
-    lstFiles->InsertColumn(0, _("File"), wxLIST_FORMAT_LEFT, 400);
+    lstFiles->InsertColumn(0, _("File"), wxLIST_FORMAT_LEFT, 350);
     lstFiles->InsertColumn(1, _("Version"), wxLIST_FORMAT_LEFT, 100);
     lstFiles->InsertColumn(2, _("Tags"), wxLIST_FORMAT_LEFT, 100);
-    lstFiles->InsertColumn(3, _("CBR"), wxLIST_FORMAT_LEFT, 40);
+    lstFiles->InsertColumn(3, _("CBR"), wxLIST_FORMAT_LEFT, 80);
     lstFiles->InsertColumn(4, _("State"), wxLIST_FORMAT_LEFT, 80);
 
     // Updates the status bar

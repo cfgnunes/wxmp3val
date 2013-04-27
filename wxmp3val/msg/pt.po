@@ -187,3 +187,18 @@ msgstr "Aguarde..."
 msgid "wxMP3val website"
 msgstr "Site do wxMP3val"
 
+#: Progress box
+msgid "Elapsed time : "
+msgstr "Tempo decorrido: "
+
+msgid "Estimated time : "
+msgstr "Tempo estimado: "
+
+msgid "Remaining time : "
+msgstr "Tempo restante: "
+
+msgid "Close"
+msgstr "Fechar"
+
+msgid "unknown"
+msgstr "desconhecido"
