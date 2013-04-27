@@ -18,6 +18,7 @@ LINKFLAGS = $(COMMON_LINK_FLAGS) `wx-config --libs std,aui --debug=no --unicode=
 all:
 	@g++ $(CPPFLAGS) -c $(SRC_DIR)/*.cpp
 	@g++ -o $(APP_NAME) *.o $(LINKFLAGS)
+
 	@mkdir -p ./resource/msg/pt_BR/
 	@msgfmt ./msg/pt_BR.po -o ./resource/msg/pt_BR/$(APP_NAME).mo
 
