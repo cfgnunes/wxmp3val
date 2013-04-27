@@ -118,15 +118,10 @@ msgstr "Outras opções"
 msgid "PROBLEM"
 msgstr "PROBLEMA"
 
-#: Progress.cpp:35
+#: Progress.cpp:30 Progress.cpp:35
 #, c-format
 msgid "Processed %i files of %i."
 msgstr "Processado %i arquivos de %i."
-
-#: Progress.cpp:30
-#, c-format
-msgid "Processed 0 files of %i."
-msgstr "Processado 0 arquivos de %i."
 
 #: Progress.cpp:29
 msgid "Progress"

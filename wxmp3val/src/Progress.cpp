@@ -27,7 +27,7 @@ void Progress::Execute()
     bool cont = true;
 
     wxProgressDialog dialog(_("Progress"), _("Wait..."), maxValue, parent, wxPD_CAN_ABORT | wxPD_APP_MODAL | wxPD_ELAPSED_TIME | wxPD_ESTIMATED_TIME | wxPD_REMAINING_TIME);
-    dialog.Update(0, wxString::Format(_("Processed 0 files of %i."), maxValue));
+    dialog.Update(0, wxString::Format(_("Processed %i files of %i."), 0, maxValue));
     for (int i = 0; i < maxValue; i++)
     {
         ProcessFile(i);
