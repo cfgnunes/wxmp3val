@@ -23,7 +23,6 @@
 										</object>
 										<object class="sizeritem">
 											<object class="wxButton" name="ID_BUTTON5" variable="btnToolExecutable" member="yes">
-												<label>...</label>
 												<size>22,22</size>
 												<handler function="OnbtnToolExecutableClick" entry="EVT_BUTTON" />
 											</object>

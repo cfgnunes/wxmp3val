@@ -65,6 +65,7 @@ private:
     void updateValueControls();
     void defaultValueControls();
     void saveValuesConfig();
+    void setLabelsControls();
 
     ConfigBase* configBase;
     DECLARE_EVENT_TABLE()
