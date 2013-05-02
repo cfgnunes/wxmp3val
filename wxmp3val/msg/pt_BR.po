@@ -6,13 +6,13 @@ msgstr ""
 "Project-Id-Version: wxMP3val\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-04-26 19:09-0300\n"
-"PO-Revision-Date: 2013-04-26 22:08-0300\n"
+"PO-Revision-Date: 2013-05-01 22:04-0300\n"
 "Last-Translator: Cristiano Nunes <cfgnunes@gmail.com>\n"
 "Language-Team: \n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
 
 #: frmMain.cpp:106
 msgid "&Actions"
@@ -30,20 +30,15 @@ msgstr "&Arquivo"
 msgid "&Help"
 msgstr "&Ajuda"
 
-#: frmMain.cpp:113
-#: frmMain.cpp:133
+#: frmMain.cpp:113 frmMain.cpp:133
 msgid "About"
 msgstr "Sobre"
 
-#: frmMain.cpp:86
-#: frmMain.cpp:125
-#: frmMain.cpp:138
+#: frmMain.cpp:86 frmMain.cpp:125 frmMain.cpp:138
 msgid "Add files"
 msgstr "Adicionar arquivos"
 
-#: frmMain.cpp:84
-#: frmMain.cpp:124
-#: frmMain.cpp:136
+#: frmMain.cpp:84 frmMain.cpp:124 frmMain.cpp:136
 msgid "Add folder"
 msgstr "Adicionar diretório"
 
@@ -55,9 +50,7 @@ msgstr "CBR"
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: frmMain.cpp:95
-#: frmMain.cpp:127
-#: frmMain.cpp:142
+#: frmMain.cpp:95 frmMain.cpp:127 frmMain.cpp:142
 msgid "Clear list"
 msgstr "Limpar lista"
 
@@ -105,8 +98,7 @@ msgstr "MP3val não encontrado!"
 msgid "MP3val website"
 msgstr "Site do MP3val"
 
-#: frmSettings.cpp:68
-#: Progress.cpp:109
+#: frmSettings.cpp:68 Progress.cpp:109
 msgid "OK"
 msgstr "OK"
 
@@ -118,8 +110,7 @@ msgstr "Outras opções"
 msgid "PROBLEM"
 msgstr "PROBLEMA"
 
-#: Progress.cpp:30
-#: Progress.cpp:35
+#: Progress.cpp:30 Progress.cpp:35
 #, c-format
 msgid "Processed %i files of %i."
 msgstr "Processado %i arquivos de %i."
@@ -128,14 +119,11 @@ msgstr "Processado %i arquivos de %i."
 msgid "Progress"
 msgstr "Progresso"
 
-#: frmMain.cpp:93
-#: frmMain.cpp:126
-#: frmMain.cpp:140
+#: frmMain.cpp:93 frmMain.cpp:126 frmMain.cpp:140
 msgid "Remove files"
 msgstr "Remover arquivos"
 
-#: frmMain.cpp:104
-#: frmMain.cpp:130
+#: frmMain.cpp:104 frmMain.cpp:130
 msgid "Repair"
 msgstr "Reparar"
 
@@ -143,8 +131,7 @@ msgstr "Reparar"
 msgid "Restore defaults"
 msgstr "Restaurar padrões"
 
-#: frmMain.cpp:102
-#: frmMain.cpp:129
+#: frmMain.cpp:102 frmMain.cpp:129
 msgid "Scan"
 msgstr "Verificar"
 
@@ -152,14 +139,11 @@ msgstr "Verificar"
 msgid "Select directory"
 msgstr "Selecionar diretório"
 
-#: frmMain.cpp:217
-#: frmSettings.cpp:74
+#: frmMain.cpp:217 frmSettings.cpp:74
 msgid "Select file"
 msgstr "Selecionar arquivo"
 
-#: frmMain.cpp:98
-#: frmMain.cpp:132
-#: frmSettings.cpp:41
+#: frmMain.cpp:98 frmMain.cpp:132 frmSettings.cpp:41
 msgid "Settings"
 msgstr "Configurações"
 
@@ -189,13 +173,13 @@ msgstr "Site do wxMP3val"
 
 #: Progress box
 msgid "Elapsed time : "
-msgstr "Tempo decorrido: "
+msgstr "Tempo decorrido : "
 
 msgid "Estimated time : "
-msgstr "Tempo estimado: "
+msgstr "Tempo estimado : "
 
 msgid "Remaining time : "
-msgstr "Tempo restante: "
+msgstr "Tempo restante : "
 
 msgid "Close"
 msgstr "Fechar"
