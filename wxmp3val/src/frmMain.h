@@ -10,11 +10,12 @@
 #include "FileInfo.h"
 
 //(*Headers(frmMain)
-#include <wx/toolbar.h>
 #include <wx/listctrl.h>
 #include <wx/menu.h>
-#include <wx/statusbr.h>
+#include <wx/toolbar.h>
 #include <wx/frame.h>
+#include <wx/timer.h>
+#include <wx/statusbr.h>
 //*)
 
 class frmMain : public wxFrame
@@ -25,23 +26,24 @@ public:
     virtual ~frmMain();
 
     //(*Declarations(frmMain)
-    wxToolBarToolBase* ToolBarItem5;
-    wxStatusBar* StatusBar1;
-    wxMenuItem* MenuItem12;
-    wxToolBarToolBase* ToolBarItem6;
-    wxListCtrl* lstFiles;
-    wxMenuItem* MenuItem15;
-    wxToolBarToolBase* ToolBarItem7;
-    wxToolBarToolBase* ToolBarItem2;
-    wxToolBar* ToolBar1;
     wxToolBarToolBase* ToolBarItem4;
-    wxToolBarToolBase* ToolBarItem1;
-    wxMenuBar* MenuBar1;
-    wxToolBarToolBase* ToolBarItem3;
-    wxMenuItem* MenuItem13;
-    wxToolBarToolBase* ToolBarItem8;
+    wxToolBar* ToolBar1;
     wxMenu Menu1;
+    wxToolBarToolBase* ToolBarItem3;
     wxMenuItem* MenuItem14;
+    wxMenuItem* MenuItem15;
+    wxMenuItem* MenuItem13;
+    wxToolBarToolBase* ToolBarItem6;
+    wxMenuItem* MenuItem12;
+    wxToolBarToolBase* ToolBarItem1;
+    wxStatusBar* StatusBar1;
+    wxToolBarToolBase* ToolBarItem5;
+    wxListCtrl* lstFiles;
+    wxToolBarToolBase* ToolBarItem8;
+    wxMenuBar* MenuBar1;
+    wxToolBarToolBase* ToolBarItem2;
+    wxTimer Timer1;
+    wxToolBarToolBase* ToolBarItem7;
     //*)
 
 protected:
@@ -73,6 +75,7 @@ protected:
     static const long ID_MENUITEM5;
     static const long ID_MENUITEM12;
     static const long ID_MENUITEM13;
+    static const long ID_TIMER1;
     //*)
 
 private:
@@ -92,13 +95,17 @@ private:
     void mnuFix(wxCommandEvent& event);
     void mnuAddDirectory(wxCommandEvent& event);
     void OnlstFilesDeleteItem(wxListEvent& event);
+    void OnTimer1Trigger(wxTimerEvent& event);
+    void OnlstFilesInsertItem(wxListEvent& event);
     //*)
 
-    void updateStatusBar();
-    void updateDisabledControls();
+    void updateControls();
     void loadResources();
     ConfigBase *configBase;
     ArrayOfFiles *lstFilesData;
+    wxString exeTool;
+    wxArrayString exeInputString;
+    wxArrayString exeInputErrorString;
 
     DECLARE_EVENT_TABLE()
 };

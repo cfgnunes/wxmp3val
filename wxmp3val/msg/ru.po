@@ -1,0 +1,191 @@
+# This file is part of the wxMP3gain and licensed under the GNU General Public License, version 3
+# Cristiano Nunes <cfgnunes@gmail.com>, 2013.
+# Sergey Basalaev <sbasalaev@gmail.com>, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: wxMP3val\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-04-26 19:09-0300\n"
+"PO-Revision-Date: 2013-05-03 12:43+0600\n"
+"Last-Translator: Sergey Basalaev <sbasalaev@gmail.com>\n"
+"Language-Team: Russian\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Poedit 1.5.4\n"
+
+#: frmMain.cpp:106
+msgid "&Actions"
+msgstr "&Действия"
+
+#: frmMain.cpp:100
+msgid "&Edit"
+msgstr "&Правка"
+
+#: frmMain.cpp:91
+msgid "&File"
+msgstr "&Файл"
+
+#: frmMain.cpp:115
+msgid "&Help"
+msgstr "&Справка"
+
+#: frmMain.cpp:113 frmMain.cpp:133
+msgid "About"
+msgstr "О программе"
+
+#: frmMain.cpp:86 frmMain.cpp:125 frmMain.cpp:138
+msgid "Add files"
+msgstr "Добавить файлы"
+
+#: frmMain.cpp:84 frmMain.cpp:124 frmMain.cpp:136
+msgid "Add folder"
+msgstr "Добавить папку"
+
+#: frmMain.cpp:195
+msgid "CBR"
+msgstr "CBR"
+
+#: frmSettings.cpp:70
+msgid "Cancel"
+msgstr "Отмена"
+
+#: frmMain.cpp:95 frmMain.cpp:127 frmMain.cpp:142
+msgid "Clear list"
+msgstr "Очистить список"
+
+#: frmSettings.cpp:56
+msgid "Delete bakup files"
+msgstr "Удалить резервные копии"
+
+#: Progress.cpp:38
+msgid "Do you want to stop process now?"
+msgstr "Хотите остановить процесс сейчас?"
+
+#: frmMain.cpp:89
+msgid "Exit"
+msgstr "Выход"
+
+#: Progress.cpp:117
+msgid "FIXED"
+msgstr "ИСПРАВЛЕНО"
+
+#: frmMain.cpp:192
+msgid "File"
+msgstr "Файл"
+
+#: frmMain.cpp:356
+msgid "Free front-end for the MP3val"
+msgstr "Свободный интерфейс для MP3val"
+
+#: frmSettings.cpp:63
+msgid "General"
+msgstr "Общие"
+
+#: frmSettings.cpp:53
+msgid "Keep file timestamps"
+msgstr "Сохранять метки времени"
+
+#: frmSettings.cpp:46
+msgid "MP3val executable"
+msgstr "исполняемый файл MP3val"
+
+#: frmMain.cpp:348
+msgid "MP3val not found!"
+msgstr "MP3val не найден!"
+
+#: frmMain.cpp:108
+msgid "MP3val website"
+msgstr "веб-сайт MP3val"
+
+#: frmSettings.cpp:68 Progress.cpp:109
+msgid "OK"
+msgstr "Ок"
+
+#: frmSettings.cpp:52
+msgid "Other options"
+msgstr "Другие опции"
+
+#: Progress.cpp:113
+msgid "PROBLEM"
+msgstr "ПРОБЛЕМА"
+
+#: Progress.cpp:30 Progress.cpp:35
+#, c-format
+msgid "Processed %i files of %i."
+msgstr "Обработано %i файлов из %i."
+
+#: Progress.cpp:29
+msgid "Progress"
+msgstr "Прогресс"
+
+#: frmMain.cpp:93 frmMain.cpp:126 frmMain.cpp:140
+msgid "Remove files"
+msgstr "Удалить файлы"
+
+#: frmMain.cpp:104 frmMain.cpp:130
+msgid "Repair"
+msgstr "Восстановить"
+
+#: frmSettings.cpp:66
+msgid "Restore defaults"
+msgstr "Восстановить значения по умолчанию"
+
+#: frmMain.cpp:102 frmMain.cpp:129
+msgid "Scan"
+msgstr "Сканировать"
+
+#: frmMain.cpp:239
+msgid "Select directory"
+msgstr "Выбор дирекории"
+
+#: frmMain.cpp:217 frmSettings.cpp:74
+msgid "Select file"
+msgstr "Выбор файла"
+
+#: frmMain.cpp:98 frmMain.cpp:132 frmSettings.cpp:41
+msgid "Settings"
+msgstr "Настройки"
+
+#: frmMain.cpp:196
+msgid "State"
+msgstr "Статус"
+
+#: frmMain.cpp:194
+msgid "Tags"
+msgstr "Теги"
+
+#: frmMain.cpp:346
+msgid "Using MP3val version: "
+msgstr "Используется MP3val версии:"
+
+#: frmMain.cpp:193
+msgid "Version"
+msgstr "Версия"
+
+#: Progress.cpp:29
+msgid "Wait..."
+msgstr "Ждите..."
+
+#: frmMain.cpp:110
+msgid "wxMP3val website"
+msgstr "Веб-сайт wxMP3val"
+
+#: Progress box
+msgid "Elapsed time : "
+msgstr "Затраченное время:"
+
+msgid "Estimated time : "
+msgstr "Ожидаемое время:"
+
+msgid "Remaining time : "
+msgstr "Оставшееся время:"
+
+msgid "Close"
+msgstr "Закрыть"
+
+msgid "unknown"
+msgstr "неизвестно"

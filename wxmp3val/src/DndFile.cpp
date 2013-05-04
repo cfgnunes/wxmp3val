@@ -1,5 +1,5 @@
 /*
- * This file is part of the wxMP3gain and licensed under the GNU General Public License, version 3
+ * This file is part of the wxMP3val and licensed under the GNU General Public License, version 3
  * http://www.gnu.org/licenses/gpl-3.0.html
  */
 
@@ -48,7 +48,9 @@ void DndFile::InsertFileList(const wxArrayString& filenames)
             bool repeated = false;
             for (int i = 0; i < m_owner->GetItemCount(); i++)
             {
-                if (m_owner->GetItemText(i) == filenames[n])
+                FileInfo& fileInfo = lstFilesData->Item(i);
+                wxFileName filenameInput = fileInfo.getFileName();
+                if (filenameInput.GetFullPath() == filenames[n])
                 {
                     repeated = true;
                 }
@@ -57,13 +59,6 @@ void DndFile::InsertFileList(const wxArrayString& filenames)
             {
                 m_owner->InsertItem(m_owner->GetItemCount(), file.GetFullName());
                 lstFilesData->Add(new FileInfo(filenames[n]));
-
-                // Workaround to force wxListCtrl update insert event (on Windows)
-                if (m_owner->GetItemCount() == 1)
-                {
-                    m_owner->InsertItem(1, _T(""));
-                    m_owner->DeleteItem(1);
-                }
             }
         }
     }
