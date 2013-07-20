@@ -384,8 +384,8 @@ void frmMain::OnTimer1Trigger(wxTimerEvent& event)
         }
 
         // Show the version of tool
-        if (!exeInputErrorString.IsEmpty())
-            StatusBar1->SetStatusText(_("Using MP3val version: ") + exeInputErrorString.Item(0).AfterLast(' '), 0);
+        if (!exeInputString.IsEmpty())
+            StatusBar1->SetStatusText(_("Using MP3val version: ") + exeInputString.Item(0).AfterLast(' '), 0);
         else
             StatusBar1->SetStatusText(_("MP3val not found!"), 0);
     }
