@@ -186,3 +186,6 @@ msgstr "Cerrar"
 
 msgid "unknown"
 msgstr "desconocido"
+
+msgid "files"
+msgstr "archivos"

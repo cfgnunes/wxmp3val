@@ -186,3 +186,6 @@ msgstr "Fechar"
 
 msgid "unknown"
 msgstr "desconhecido"
+
+msgid "files"
+msgstr "arquivos"
