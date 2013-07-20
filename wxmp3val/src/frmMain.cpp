@@ -174,6 +174,9 @@ frmMain::frmMain(wxWindow* parent, wxWindowID id, const wxPoint& pos, const wxSi
     Connect(ID_TIMER1,wxEVT_TIMER,(wxObjectEventFunction)&frmMain::OnTimer1Trigger);
     //*)
 
+    // Disable status bar pane used to display menu and toolbar help
+    SetStatusBarPane(-1);
+
     // Aux list for wxListctrl
     lstFilesData = new ArrayOfFiles();
 
@@ -382,9 +385,9 @@ void frmMain::OnTimer1Trigger(wxTimerEvent& event)
 
         // Show the version of tool
         if (!exeInputErrorString.IsEmpty())
-            StatusBar1->SetStatusText(_("Using MP3val version: ") + exeInputErrorString.Item(0).AfterLast(' '), 2);
+            StatusBar1->SetStatusText(_("Using MP3val version: ") + exeInputErrorString.Item(0).AfterLast(' '), 0);
         else
-            StatusBar1->SetStatusText(_("MP3val not found!"), 2);
+            StatusBar1->SetStatusText(_("MP3val not found!"), 0);
     }
 
     // Show the number of files in list on statusbar
