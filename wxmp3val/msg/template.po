@@ -1,4 +1,4 @@
-# This file is part of the wxMP3gain and licensed under the GNU General Public License, version 3
+# This file is part of the wxMP3val and licensed under the GNU General Public License, version 3
 # Cristiano Nunes <cfgnunes@gmail.com>, 2013.
 #
 msgid ""
