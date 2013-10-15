@@ -1,6 +1,6 @@
 # This file is part of the wxMP3val and licensed under the GNU General Public License, version 3
 # Cristiano Nunes <cfgnunes@gmail.com>, 2013.
-#
+# Carlos Sánchez <carlos1994sanchez@gmail.com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: wxMP3val\n"
