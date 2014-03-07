@@ -20,10 +20,10 @@ FileInfo::~FileInfo()
     //dtor
 }
 
-//sets..
+// Sets..
 
 
-//gets..
+// Gets..
 
 wxFileName FileInfo::getFileName()
 {

@@ -37,13 +37,13 @@ public:
     void setConfigFlush();
     wxString getStringToolOptions();
 
-    //gets...
+    // Gets...
     wxString getLastOpenDir();
     wxString getToolExecutable();
     bool getKeepTimestamp();
     bool getDeleteBackup();
 
-    //sets...
+    // Sets...
     void setLastOpenDir(wxString value);
     void setToolExecutable(wxString value);
     void setKeepTimestamp(bool value);

@@ -49,7 +49,7 @@ wxString ConfigBase::getStringToolOptions()
     return toolOptions;
 }
 
-//gets...
+// Gets...
 
 wxString ConfigBase::getLastOpenDir()
 {
@@ -79,7 +79,7 @@ bool ConfigBase::getDeleteBackup()
     return value;
 }
 
-//sets...
+// Sets...
 
 void ConfigBase::setLastOpenDir(wxString value)
 {
