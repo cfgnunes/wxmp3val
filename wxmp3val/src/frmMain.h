@@ -96,6 +96,7 @@ private:
     void OnlstFilesDeleteItem(wxListEvent& event);
     void OnTimer1Trigger(wxTimerEvent& event);
     void OnlstFilesInsertItem(wxListEvent& event);
+    void OnlstFilesKeyDown(wxListEvent& event);
     //*)
 
     void updateControls();
