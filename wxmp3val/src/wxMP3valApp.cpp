@@ -21,7 +21,7 @@
  * Purpose:   A free front-end for MP3val.
  * Author:    Cristiano Nunes (cfgnunes@gmail.com)
  * Created:   2011-01-07
- * Copyright: Copyright (C) 2011  Cristiano Nunes
+ * Copyright: Copyright (C) 2011 Cristiano Nunes
  * License:   licensed under the GNU General Public License, version 3
  *            http://www.gnu.org/licenses/gpl-3.0.html
  ************************************************************************/
