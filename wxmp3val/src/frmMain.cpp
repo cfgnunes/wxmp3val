@@ -356,17 +356,20 @@ void frmMain::OnlstFilesItemRClick(wxListEvent& event)
 
     // Displays the popup menu when you click a list item
     lstFiles->PopupMenu(&Menu1);
+    event.Skip();
 }
 
 void frmMain::OnlstFilesDeleteItem(wxListEvent& event)
 {
     lstFilesData->Detach(event.GetIndex());
     updateControls();
+    event.Skip();
 }
 
 void frmMain::OnlstFilesInsertItem(wxListEvent& event)
 {
     updateControls();
+    event.Skip();
 }
 
 void frmMain::updateControls()
@@ -418,4 +421,6 @@ void frmMain::OnlstFilesKeyDown(wxListEvent& event)
     int keyCode = event.GetKeyCode();
     if(keyCode == WXK_DELETE)
         mnuRemoveFiles(event);
+
+    event.Skip();
 }
