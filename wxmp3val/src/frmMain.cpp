@@ -143,8 +143,8 @@ frmMain::frmMain(wxWindow* parent, wxWindowID id, const wxPoint& pos, const wxSi
     Center();
 
     Connect(ID_LISTCTRL1, wxEVT_COMMAND_LIST_DELETE_ITEM, (wxObjectEventFunction) & frmMain::OnlstFilesDeleteItem);
-    Connect(ID_LISTCTRL1, wxEVT_COMMAND_LIST_ITEM_SELECTED, (wxObjectEventFunction) & frmMain::OnlstFilesInsertItem);
-    Connect(ID_LISTCTRL1, wxEVT_COMMAND_LIST_ITEM_DESELECTED, (wxObjectEventFunction) & frmMain::OnlstFilesInsertItem);
+    Connect(ID_LISTCTRL1, wxEVT_COMMAND_LIST_ITEM_SELECTED, (wxObjectEventFunction) & frmMain::OnlstFilesItemSelect);
+    Connect(ID_LISTCTRL1, wxEVT_COMMAND_LIST_ITEM_DESELECTED, (wxObjectEventFunction) & frmMain::OnlstFilesItemSelect);
     Connect(ID_LISTCTRL1, wxEVT_COMMAND_LIST_ITEM_RIGHT_CLICK, (wxObjectEventFunction) & frmMain::OnlstFilesItemRClick);
     Connect(ID_LISTCTRL1, wxEVT_COMMAND_LIST_KEY_DOWN, (wxObjectEventFunction) & frmMain::OnlstFilesKeyDown);
     Connect(ID_LISTCTRL1, wxEVT_COMMAND_LIST_INSERT_ITEM, (wxObjectEventFunction) & frmMain::OnlstFilesInsertItem);
@@ -411,5 +411,10 @@ void frmMain::OnlstFilesKeyDown(wxListEvent& event) {
     if (keyCode == WXK_DELETE)
         mnuRemoveFiles(event);
 
+    event.Skip();
+}
+
+void frmMain::OnlstFilesItemSelect(wxListEvent& event) {
+    updateControls();
     event.Skip();
 }
