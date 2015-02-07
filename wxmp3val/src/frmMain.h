@@ -24,6 +24,7 @@ public:
 
     frmMain(wxWindow* parent, wxWindowID id = wxID_ANY, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxDefaultSize);
     virtual ~frmMain();
+    void SetFilesCmdLine(const wxArrayString& filenames);
 
     //(*Declarations(frmMain)
     wxToolBarToolBase* ToolBarItem5;
