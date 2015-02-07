@@ -16,8 +16,7 @@ class FileInfo;
 WX_DECLARE_OBJARRAY(FileInfo, ArrayOfFiles);
 // LIST (end)
 
-class FileInfo : public wxObject
-{
+class FileInfo : public wxObject {
 public:
     FileInfo(const wxString& fileName);
     virtual ~FileInfo();
@@ -25,10 +24,8 @@ public:
     // Gets...
     wxFileName getFileName();
 
-    // Sets...
-
 private:
-    wxFileName fileName;
+    wxFileName m_fileName;
 };
 
-#endif
+#endif // FILEINFO_H

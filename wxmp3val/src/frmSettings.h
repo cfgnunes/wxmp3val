@@ -14,33 +14,28 @@
 #include <wx/sizer.h>
 #include <wx/notebook.h>
 #include <wx/button.h>
-#include <wx/filedlg.h>
 #include <wx/panel.h>
 #include <wx/textctrl.h>
 //*)
 
-class frmSettings : public wxDialog
-{
+class frmSettings : public wxDialog {
 public:
-
     frmSettings(wxWindow* parent, ConfigBase* configBase, wxWindowID id = wxID_ANY);
     virtual ~frmSettings();
 
     //(*Declarations(frmSettings)
-    wxCheckBox* chkKeepTimestamps;
+    wxButton* g_btnToolExecutable;
+    wxCheckBox* g_chkDeleteBackup;
     wxPanel* Panel6;
-    wxTextCtrl* txtToolExecutable;
-    wxFileDialog* FileDialog1;
+    wxCheckBox* g_chkKeepTimestamps;
+    wxButton* g_btnCancel;
+    wxButton* g_btnOK;
     wxNotebook* Notebook1;
-    wxButton* btnOK;
-    wxButton* btnCancel;
-    wxCheckBox* chkDeleteBackup;
-    wxButton* btnDefault;
-    wxButton* btnToolExecutable;
+    wxTextCtrl* g_txtToolExecutable;
+    wxButton* g_btnDefault;
     //*)
 
 protected:
-
     //(*Identifiers(frmSettings)
     static const long ID_TEXTCTRL2;
     static const long ID_BUTTON5;
@@ -54,7 +49,6 @@ protected:
     //*)
 
 private:
-
     //(*Handlers(frmSettings)
     void OnbtnOKClick(wxCommandEvent& event);
     void OnbtnCancelClick(wxCommandEvent& event);
@@ -67,7 +61,7 @@ private:
     void saveValuesConfig();
     void setLabelsControls();
 
-    ConfigBase* configBase;
+    ConfigBase* mp_configBase;
     DECLARE_EVENT_TABLE()
 };
 

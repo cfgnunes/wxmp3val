@@ -10,22 +10,14 @@
 WX_DEFINE_OBJARRAY(ArrayOfFiles);
 // LIST (end)
 
-FileInfo::FileInfo(const wxString& fileName) : fileName(fileName)
-{
-
+FileInfo::FileInfo(const wxString& fileName) : m_fileName(fileName) {
 }
 
-FileInfo::~FileInfo()
-{
-    //dtor
+FileInfo::~FileInfo() {
 }
 
-// Sets..
+// Gets...
 
-
-// Gets..
-
-wxFileName FileInfo::getFileName()
-{
-    return fileName;
+wxFileName FileInfo::getFileName() {
+    return m_fileName;
 }

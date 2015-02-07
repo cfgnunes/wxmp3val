@@ -12,30 +12,26 @@
 
 #include <wx/listctrl.h>
 
-enum
-{
+enum {
     TOOL_SCAN = 0,
     TOOL_FIX = 1,
 };
 
-class Progress
-{
+class Progress {
 public:
     Progress(wxWindow* parent, ConfigBase* configBase, wxListCtrl* listFiles, ArrayOfFiles* lstFilesData, int workType);
     virtual ~Progress();
-    void Execute();
-
-protected:
+    void execute();
 
 private:
-    void ProcessFile(int fileIterator);
-    void ProcessOutputString(int fileIterator);
-    wxWindow* parent;
-    ConfigBase* configBase;
-    wxListCtrl* listFiles;
-    ArrayOfFiles* lstFilesData;
-    int workType;
-    wxArrayString inputString;
+    void processFile(int fileIterator);
+    void processOutputString(int fileIterator);
+    wxWindow* mp_parent;
+    ConfigBase* mp_configBase;
+    wxListCtrl* mp_listFiles;
+    ArrayOfFiles* mp_lstFilesData;
+    int m_workType;
+    wxArrayString m_inputString;
 };
 
-#endif
+#endif // PROGRESS_H

@@ -4,25 +4,21 @@
  */
 
 #include "ConfigBase.h"
-
 #include "Global.h"
 
-ConfigBase::ConfigBase(const wxString & appName)
-{
-    config = new wxConfig(appName);
+ConfigBase::ConfigBase(const wxString& appName) {
+    mp_config = new wxConfig(appName);
 
     // If there isn't a setting, writes a new one with default values
-    if (!config->Exists(CONFIG_GENERAL_GROUP))
+    if (!mp_config->Exists(CONFIG_GENERAL_GROUP))
         setDefaultConfig();
 }
 
-ConfigBase::~ConfigBase()
-{
-    delete config;
+ConfigBase::~ConfigBase() {
+    delete mp_config;
 }
 
-void ConfigBase::setDefaultConfig()
-{
+void ConfigBase::setDefaultConfig() {
     setLastOpenDir(DEFAULT_VALUE_LastOpenDir);
 
     setToolExecutable(DEFAULT_VALUE_ToolExecutable);
@@ -30,13 +26,11 @@ void ConfigBase::setDefaultConfig()
     setDeleteBackup(DEFAULT_VALUE_DeleteBackup);
 }
 
-void ConfigBase::setConfigFlush()
-{
-    config->Flush();
+void ConfigBase::setConfigFlush() {
+    mp_config->Flush();
 }
 
-wxString ConfigBase::getStringToolOptions()
-{
+wxString ConfigBase::getStringToolOptions() {
     wxString toolOptions;
 
     if (getKeepTimestamp())
@@ -51,52 +45,44 @@ wxString ConfigBase::getStringToolOptions()
 
 // Gets...
 
-wxString ConfigBase::getLastOpenDir()
-{
+wxString ConfigBase::getLastOpenDir() {
     wxString value = wxEmptyString;
-    config->Read(CONFIG_SYSTEM_GROUP + CONFIG_STR_LastOpenDir, &value);
+    mp_config->Read(CONFIG_SYSTEM_GROUP + CONFIG_STR_LastOpenDir, &value);
     return value;
 }
 
-wxString ConfigBase::getToolExecutable()
-{
+wxString ConfigBase::getToolExecutable() {
     wxString value = wxEmptyString;
-    config->Read(CONFIG_GENERAL_GROUP + CONFIG_STR_ToolExecutable, &value);
+    mp_config->Read(CONFIG_GENERAL_GROUP + CONFIG_STR_ToolExecutable, &value);
     return value;
 }
 
-bool ConfigBase::getKeepTimestamp()
-{
+bool ConfigBase::getKeepTimestamp() {
     bool value;
-    config->Read(CONFIG_GENERAL_GROUP + CONFIG_STR_KeepTimestamp, &value);
+    mp_config->Read(CONFIG_GENERAL_GROUP + CONFIG_STR_KeepTimestamp, &value);
     return value;
 }
 
-bool ConfigBase::getDeleteBackup()
-{
+bool ConfigBase::getDeleteBackup() {
     bool value;
-    config->Read(CONFIG_GENERAL_GROUP + CONFIG_STR_DeleteBackup, &value);
+    mp_config->Read(CONFIG_GENERAL_GROUP + CONFIG_STR_DeleteBackup, &value);
     return value;
 }
 
 // Sets...
 
-void ConfigBase::setLastOpenDir(wxString value)
-{
-    config->Write(CONFIG_SYSTEM_GROUP + CONFIG_STR_LastOpenDir, value);
+void ConfigBase::setLastOpenDir(wxString value) {
+    mp_config->Write(CONFIG_SYSTEM_GROUP + CONFIG_STR_LastOpenDir, value);
 }
 
-void ConfigBase::setToolExecutable(wxString value)
-{
-    config->Write(CONFIG_GENERAL_GROUP + CONFIG_STR_ToolExecutable, value);
+void ConfigBase::setToolExecutable(wxString value) {
+    mp_config->Write(CONFIG_GENERAL_GROUP + CONFIG_STR_ToolExecutable, value);
 }
 
-void ConfigBase::setKeepTimestamp(bool value)
-{
-    config->Write(CONFIG_GENERAL_GROUP + CONFIG_STR_KeepTimestamp, value);
+void ConfigBase::setKeepTimestamp(bool value) {
+    mp_config->Write(CONFIG_GENERAL_GROUP + CONFIG_STR_KeepTimestamp, value);
 }
 
-void ConfigBase::setDeleteBackup(bool value)
-{
-    config->Write(CONFIG_GENERAL_GROUP + CONFIG_STR_DeleteBackup, value);
+void ConfigBase::setDeleteBackup(bool value) {
+    mp_config->Write(CONFIG_GENERAL_GROUP + CONFIG_STR_DeleteBackup, value);
 }

@@ -5,7 +5,7 @@
 		<size>763,450</size>
 		<pos_arg>1</pos_arg>
 		<size_arg>1</size_arg>
-		<object class="wxListCtrl" name="ID_LISTCTRL1" variable="lstFiles" member="yes">
+		<object class="wxListCtrl" name="ID_LISTCTRL1" variable="g_lstFiles" member="yes">
 			<pos>184,208</pos>
 			<size>520,450</size>
 			<style>wxLC_REPORT</style>
@@ -16,7 +16,7 @@
 			<handler function="OnlstFilesKeyDown" entry="EVT_LIST_KEY_DOWN" />
 			<handler function="OnlstFilesInsertItem" entry="EVT_LIST_INSERT_ITEM" />
 		</object>
-		<object class="wxMenuBar" variable="MenuBar1" member="yes">
+		<object class="wxMenuBar" variable="g_mainMenuBar" member="yes">
 			<object class="wxMenu" variable="Menu2" member="no">
 				<label>&amp;File</label>
 				<object class="wxMenuItem" name="ID_MENUITEM14" variable="MenuItem14" member="yes">
@@ -77,13 +77,13 @@
 				</object>
 			</object>
 		</object>
-		<object class="wxStatusBar" name="ID_STATUSBAR1" variable="StatusBar1" member="yes">
+		<object class="wxStatusBar" name="ID_STATUSBAR1" variable="g_mainStatusBar" member="yes">
 			<fields>3</fields>
 			<widths>-10,-5,-10</widths>
 			<styles>wxSB_NORMAL,wxSB_NORMAL,wxSB_NORMAL</styles>
 			<style>wxST_SIZEGRIP</style>
 		</object>
-		<object class="wxToolBar" name="ID_TOOLBAR1" variable="ToolBar1" member="yes">
+		<object class="wxToolBar" name="ID_TOOLBAR1" variable="g_mainToolBar" member="yes">
 			<style>wxTB_FLAT|wxTB_HORIZONTAL|wxTB_TEXT|wxNO_BORDER</style>
 			<object class="tool" name="ID_TOOLBARITEM8" variable="ToolBarItem1" member="yes">
 				<label>Add folder</label>
@@ -128,7 +128,7 @@
 				<handler function="mnuAbout" entry="EVT_TOOL" />
 			</object>
 		</object>
-		<object class="wxMenu" variable="Menu1" member="yes">
+		<object class="wxMenu" variable="g_mainMenu" member="yes">
 			<object class="wxMenuItem" name="ID_MENUITEM15" variable="MenuItem15" member="yes">
 				<label>Add folder</label>
 				<handler function="mnuAddDirectory" entry="EVT_MENU" />

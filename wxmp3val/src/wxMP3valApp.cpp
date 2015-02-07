@@ -36,10 +36,8 @@
 
 IMPLEMENT_APP(wxMP3valApp);
 
-bool wxMP3valApp::OnInit()
-{
+bool wxMP3valApp::OnInit() {
     // Load language translation
-    delete m_locale;
     m_locale = new wxLocale(wxLANGUAGE_DEFAULT);
     m_locale->AddCatalogLookupPathPrefix(GetResourceDir() + _T("msg"));
     m_locale->AddCatalog(_T("wxmp3val"));
@@ -49,9 +47,9 @@ bool wxMP3valApp::OnInit()
 
     // Read command line files
     m_filesCmdLine = new wxArrayString();
-    for (int i=1; i<argc; i++)
+    for (int i = 1; i < argc; i++)
         m_filesCmdLine->Add(wxString(argv[i]));
-    Frame->SetFilesCmdLine(*m_filesCmdLine);
+    Frame->setFilesCmdLine(*m_filesCmdLine);
 
     Frame->Show();
     SetTopWindow(Frame);
