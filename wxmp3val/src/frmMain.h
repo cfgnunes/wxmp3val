@@ -15,7 +15,6 @@
 #include <wx/menu.h>
 #include <wx/statusbr.h>
 #include <wx/frame.h>
-#include <wx/timer.h>
 //*)
 
 class frmMain : public wxFrame {
@@ -31,7 +30,6 @@ public:
     wxToolBarToolBase* ToolBarItem6;
     wxListCtrl* g_lstFiles;
     wxMenuItem* MenuItem15;
-    wxTimer Timer1;
     wxToolBarToolBase* ToolBarItem7;
     wxToolBarToolBase* ToolBarItem2;
     wxToolBarToolBase* ToolBarItem4;
@@ -73,7 +71,6 @@ protected:
     static const long ID_MENUITEM5;
     static const long ID_MENUITEM12;
     static const long ID_MENUITEM13;
-    static const long ID_TIMER1;
     //*)
 
 private:
@@ -91,7 +88,6 @@ private:
     void mnuFix(wxCommandEvent& event);
     void mnuAddDirectory(wxCommandEvent& event);
     void OnlstFilesDeleteItem(wxListEvent& event);
-    void OnTimer1Trigger(wxTimerEvent& event);
     void OnlstFilesInsertItem(wxListEvent& event);
     void OnlstFilesKeyDown(wxListEvent& event);
     //*)
