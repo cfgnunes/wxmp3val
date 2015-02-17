@@ -22,7 +22,7 @@ public:
     virtual ~FileInfo();
 
     // Gets...
-    wxFileName getFileName();
+    wxFileName getFileName() const;
 
 private:
     wxFileName m_fileName;

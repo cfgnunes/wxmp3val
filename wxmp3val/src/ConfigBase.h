@@ -34,13 +34,13 @@ public:
 
     void setDefaultConfig();
     void setConfigFlush();
-    wxString getStringToolOptions();
+    wxString getStringToolOptions() const;
 
     // Gets...
-    wxString getLastOpenDir();
-    wxString getToolExecutable();
-    bool getKeepTimestamp();
-    bool getDeleteBackup();
+    wxString getLastOpenDir() const;
+    wxString getToolExecutable() const;
+    bool getKeepTimestamp() const;
+    bool getDeleteBackup() const;
 
     // Sets...
     void setLastOpenDir(wxString value);

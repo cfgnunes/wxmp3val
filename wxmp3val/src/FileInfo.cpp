@@ -18,6 +18,6 @@ FileInfo::~FileInfo() {
 
 // Gets...
 
-wxFileName FileInfo::getFileName() {
+wxFileName FileInfo::getFileName() const {
     return m_fileName;
 }

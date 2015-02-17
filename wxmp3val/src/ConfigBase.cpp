@@ -30,7 +30,7 @@ void ConfigBase::setConfigFlush() {
     mp_config->Flush();
 }
 
-wxString ConfigBase::getStringToolOptions() {
+wxString ConfigBase::getStringToolOptions() const {
     wxString toolOptions;
 
     if (getKeepTimestamp())
@@ -45,25 +45,25 @@ wxString ConfigBase::getStringToolOptions() {
 
 // Gets...
 
-wxString ConfigBase::getLastOpenDir() {
+wxString ConfigBase::getLastOpenDir() const {
     wxString value = wxEmptyString;
     mp_config->Read(CONFIG_SYSTEM_GROUP + CONFIG_STR_LastOpenDir, &value);
     return value;
 }
 
-wxString ConfigBase::getToolExecutable() {
+wxString ConfigBase::getToolExecutable() const {
     wxString value = wxEmptyString;
     mp_config->Read(CONFIG_GENERAL_GROUP + CONFIG_STR_ToolExecutable, &value);
     return value;
 }
 
-bool ConfigBase::getKeepTimestamp() {
+bool ConfigBase::getKeepTimestamp() const {
     bool value;
     mp_config->Read(CONFIG_GENERAL_GROUP + CONFIG_STR_KeepTimestamp, &value);
     return value;
 }
 
-bool ConfigBase::getDeleteBackup() {
+bool ConfigBase::getDeleteBackup() const {
     bool value;
     mp_config->Read(CONFIG_GENERAL_GROUP + CONFIG_STR_DeleteBackup, &value);
     return value;
