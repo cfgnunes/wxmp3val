@@ -10,28 +10,28 @@
 
 #include <wx/artprov.h>
 #include <wx/xrc/xmlres.h>
-#include <wx/string.h>
-#include <wx/textctrl.h>
+#include <wx/listctrl.h>
 #include <wx/gdicmn.h>
 #include <wx/font.h>
 #include <wx/colour.h>
 #include <wx/settings.h>
-#include <wx/button.h>
+#include <wx/string.h>
 #include <wx/sizer.h>
-#include <wx/statbox.h>
-#include <wx/checkbox.h>
-#include <wx/panel.h>
 #include <wx/bitmap.h>
 #include <wx/image.h>
 #include <wx/icon.h>
-#include <wx/notebook.h>
-#include <wx/dialog.h>
-#include <wx/listctrl.h>
 #include <wx/menu.h>
 #include <wx/statusbr.h>
 #include <wx/toolbar.h>
 #include <wx/timer.h>
 #include <wx/frame.h>
+#include <wx/textctrl.h>
+#include <wx/button.h>
+#include <wx/statbox.h>
+#include <wx/checkbox.h>
+#include <wx/panel.h>
+#include <wx/notebook.h>
+#include <wx/dialog.h>
 
 ///////////////////////////////////////////////////////////////////////////
 
@@ -46,38 +46,6 @@
 #define ID_WEBSITE 1008
 #define ID_TOOL_WEBSITE 1009
 #define ID_ABOUT 1010
-
-///////////////////////////////////////////////////////////////////////////////
-/// Class Settings
-///////////////////////////////////////////////////////////////////////////////
-class Settings : public wxDialog 
-{
-	private:
-	
-	protected:
-		wxNotebook* m_notebook1;
-		wxPanel* m_panel1;
-		wxTextCtrl* g_txtToolExecutable;
-		wxButton* g_btnToolExecutable;
-		wxCheckBox* g_chkKeepTimestamps;
-		wxCheckBox* g_chkDeleteBackup;
-		wxButton* g_btnDefault;
-		wxButton* g_btnOK;
-		wxButton* g_btnCancel;
-		
-		// Virtual event handlers, overide them in your derived class
-		virtual void OnbtnToolExecutableClick( wxCommandEvent& event ) { event.Skip(); }
-		virtual void OnbtnDefaultClick( wxCommandEvent& event ) { event.Skip(); }
-		virtual void OnbtnOKClick( wxCommandEvent& event ) { event.Skip(); }
-		virtual void OnbtnCancelClick( wxCommandEvent& event ) { event.Skip(); }
-		
-	
-	public:
-		
-		Settings( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Settings"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxDefaultSize, long style = wxDEFAULT_DIALOG_STYLE ); 
-		~Settings();
-	
-};
 
 ///////////////////////////////////////////////////////////////////////////////
 /// Class Main
@@ -136,6 +104,38 @@ class Main : public wxFrame
 		{
 			this->PopupMenu( g_mainMenu, event.GetPosition() );
 		}
+	
+};
+
+///////////////////////////////////////////////////////////////////////////////
+/// Class Settings
+///////////////////////////////////////////////////////////////////////////////
+class Settings : public wxDialog 
+{
+	private:
+	
+	protected:
+		wxNotebook* m_notebook1;
+		wxPanel* m_panel1;
+		wxTextCtrl* g_txtToolExecutable;
+		wxButton* g_btnToolExecutable;
+		wxCheckBox* g_chkKeepTimestamps;
+		wxCheckBox* g_chkDeleteBackup;
+		wxButton* g_btnDefault;
+		wxButton* g_btnOK;
+		wxButton* g_btnCancel;
+		
+		// Virtual event handlers, overide them in your derived class
+		virtual void OnbtnToolExecutableClick( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnbtnDefaultClick( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnbtnOKClick( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnbtnCancelClick( wxCommandEvent& event ) { event.Skip(); }
+		
+	
+	public:
+		
+		Settings( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Settings"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxDefaultSize, long style = wxDEFAULT_DIALOG_STYLE ); 
+		~Settings();
 	
 };
 

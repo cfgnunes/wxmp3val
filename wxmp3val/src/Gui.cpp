@@ -9,89 +9,6 @@
 
 ///////////////////////////////////////////////////////////////////////////
 
-Settings::Settings( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
-{
-	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
-	
-	wxBoxSizer* bSizer2;
-	bSizer2 = new wxBoxSizer( wxVERTICAL );
-	
-	m_notebook1 = new wxNotebook( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0 );
-	m_panel1 = new wxPanel( m_notebook1, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
-	wxBoxSizer* bSizer4;
-	bSizer4 = new wxBoxSizer( wxVERTICAL );
-	
-	wxStaticBoxSizer* sbSizer1;
-	sbSizer1 = new wxStaticBoxSizer( new wxStaticBox( m_panel1, wxID_ANY, wxT("MP3val executable") ), wxHORIZONTAL );
-	
-	g_txtToolExecutable = new wxTextCtrl( m_panel1, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-	sbSizer1->Add( g_txtToolExecutable, 1, wxALL, 5 );
-	
-	g_btnToolExecutable = new wxButton( m_panel1, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 22,22 ), 0 );
-	sbSizer1->Add( g_btnToolExecutable, 0, wxALL, 5 );
-	
-	
-	bSizer4->Add( sbSizer1, 0, wxEXPAND, 5 );
-	
-	wxStaticBoxSizer* sbSizer2;
-	sbSizer2 = new wxStaticBoxSizer( new wxStaticBox( m_panel1, wxID_ANY, wxT("Other options") ), wxVERTICAL );
-	
-	g_chkKeepTimestamps = new wxCheckBox( m_panel1, wxID_ANY, wxT("Keep file timestamps"), wxDefaultPosition, wxDefaultSize, 0 );
-	sbSizer2->Add( g_chkKeepTimestamps, 0, wxALL, 5 );
-	
-	g_chkDeleteBackup = new wxCheckBox( m_panel1, wxID_ANY, wxT("Delete bakup files"), wxDefaultPosition, wxDefaultSize, 0 );
-	sbSizer2->Add( g_chkDeleteBackup, 0, wxALL, 5 );
-	
-	
-	bSizer4->Add( sbSizer2, 0, wxEXPAND, 5 );
-	
-	
-	m_panel1->SetSizer( bSizer4 );
-	m_panel1->Layout();
-	bSizer4->Fit( m_panel1 );
-	m_notebook1->AddPage( m_panel1, wxT("General"), false );
-	
-	bSizer2->Add( m_notebook1, 0, wxEXPAND | wxALL, 5 );
-	
-	wxBoxSizer* bSizer3;
-	bSizer3 = new wxBoxSizer( wxHORIZONTAL );
-	
-	g_btnDefault = new wxButton( this, wxID_ANY, wxT("Restore defaults"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer3->Add( g_btnDefault, 1, wxALL, 5 );
-	
-	g_btnOK = new wxButton( this, wxID_ANY, wxT("OK"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer3->Add( g_btnOK, 1, wxALL, 5 );
-	
-	g_btnCancel = new wxButton( this, wxID_ANY, wxT("Cancel"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer3->Add( g_btnCancel, 1, wxALL, 5 );
-	
-	
-	bSizer2->Add( bSizer3, 1, wxEXPAND, 5 );
-	
-	
-	this->SetSizer( bSizer2 );
-	this->Layout();
-	bSizer2->Fit( this );
-	
-	this->Centre( wxBOTH );
-	
-	// Connect Events
-	g_btnToolExecutable->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Settings::OnbtnToolExecutableClick ), NULL, this );
-	g_btnDefault->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Settings::OnbtnDefaultClick ), NULL, this );
-	g_btnOK->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Settings::OnbtnOKClick ), NULL, this );
-	g_btnCancel->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Settings::OnbtnCancelClick ), NULL, this );
-}
-
-Settings::~Settings()
-{
-	// Disconnect Events
-	g_btnToolExecutable->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Settings::OnbtnToolExecutableClick ), NULL, this );
-	g_btnDefault->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Settings::OnbtnDefaultClick ), NULL, this );
-	g_btnOK->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Settings::OnbtnOKClick ), NULL, this );
-	g_btnCancel->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Settings::OnbtnCancelClick ), NULL, this );
-	
-}
-
 Main::Main( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxFrame( parent, id, title, pos, size, style )
 {
 	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
@@ -285,4 +202,87 @@ Main::~Main()
 	this->Disconnect( wxID_ANY, wxEVT_TIMER, wxTimerEventHandler( Main::OnTimer1Trigger ) );
 	
 	delete g_mainMenu; 
+}
+
+Settings::Settings( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
+{
+	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
+	
+	wxBoxSizer* bSizer2;
+	bSizer2 = new wxBoxSizer( wxVERTICAL );
+	
+	m_notebook1 = new wxNotebook( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0 );
+	m_panel1 = new wxPanel( m_notebook1, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
+	wxBoxSizer* bSizer4;
+	bSizer4 = new wxBoxSizer( wxVERTICAL );
+	
+	wxStaticBoxSizer* sbSizer1;
+	sbSizer1 = new wxStaticBoxSizer( new wxStaticBox( m_panel1, wxID_ANY, wxT("MP3val executable") ), wxHORIZONTAL );
+	
+	g_txtToolExecutable = new wxTextCtrl( m_panel1, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	sbSizer1->Add( g_txtToolExecutable, 1, wxALL, 5 );
+	
+	g_btnToolExecutable = new wxButton( m_panel1, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 22,22 ), 0 );
+	sbSizer1->Add( g_btnToolExecutable, 0, wxALL, 5 );
+	
+	
+	bSizer4->Add( sbSizer1, 0, wxEXPAND, 5 );
+	
+	wxStaticBoxSizer* sbSizer2;
+	sbSizer2 = new wxStaticBoxSizer( new wxStaticBox( m_panel1, wxID_ANY, wxT("Other options") ), wxVERTICAL );
+	
+	g_chkKeepTimestamps = new wxCheckBox( m_panel1, wxID_ANY, wxT("Keep file timestamps"), wxDefaultPosition, wxDefaultSize, 0 );
+	sbSizer2->Add( g_chkKeepTimestamps, 0, wxALL, 5 );
+	
+	g_chkDeleteBackup = new wxCheckBox( m_panel1, wxID_ANY, wxT("Delete bakup files"), wxDefaultPosition, wxDefaultSize, 0 );
+	sbSizer2->Add( g_chkDeleteBackup, 0, wxALL, 5 );
+	
+	
+	bSizer4->Add( sbSizer2, 0, wxEXPAND, 5 );
+	
+	
+	m_panel1->SetSizer( bSizer4 );
+	m_panel1->Layout();
+	bSizer4->Fit( m_panel1 );
+	m_notebook1->AddPage( m_panel1, wxT("General"), false );
+	
+	bSizer2->Add( m_notebook1, 0, wxEXPAND | wxALL, 5 );
+	
+	wxBoxSizer* bSizer3;
+	bSizer3 = new wxBoxSizer( wxHORIZONTAL );
+	
+	g_btnDefault = new wxButton( this, wxID_ANY, wxT("Restore defaults"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer3->Add( g_btnDefault, 1, wxALL, 5 );
+	
+	g_btnOK = new wxButton( this, wxID_ANY, wxT("OK"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer3->Add( g_btnOK, 1, wxALL, 5 );
+	
+	g_btnCancel = new wxButton( this, wxID_ANY, wxT("Cancel"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer3->Add( g_btnCancel, 1, wxALL, 5 );
+	
+	
+	bSizer2->Add( bSizer3, 1, wxEXPAND, 5 );
+	
+	
+	this->SetSizer( bSizer2 );
+	this->Layout();
+	bSizer2->Fit( this );
+	
+	this->Centre( wxBOTH );
+	
+	// Connect Events
+	g_btnToolExecutable->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Settings::OnbtnToolExecutableClick ), NULL, this );
+	g_btnDefault->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Settings::OnbtnDefaultClick ), NULL, this );
+	g_btnOK->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Settings::OnbtnOKClick ), NULL, this );
+	g_btnCancel->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Settings::OnbtnCancelClick ), NULL, this );
+}
+
+Settings::~Settings()
+{
+	// Disconnect Events
+	g_btnToolExecutable->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Settings::OnbtnToolExecutableClick ), NULL, this );
+	g_btnDefault->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Settings::OnbtnDefaultClick ), NULL, this );
+	g_btnOK->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Settings::OnbtnOKClick ), NULL, this );
+	g_btnCancel->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Settings::OnbtnCancelClick ), NULL, this );
+	
 }
