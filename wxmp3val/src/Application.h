@@ -13,8 +13,8 @@ public:
     virtual bool OnInit();
 
 private:
-    wxLocale *m_locale;
-    wxArrayString *m_filesCmdLine;
+    wxLocale *mp_locale;
+    wxArrayString *mp_filesCmdLine;
 };
 
 #endif // APPLICATION_H
