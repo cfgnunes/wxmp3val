@@ -152,13 +152,13 @@ Main::Main( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoin
 	g_mainMenuBar->Append( g_mnbActions, wxT("&Actions") ); 
 	
 	g_mnbHelp = new wxMenu();
-	wxMenuItem* g_mnbWebsite;
-	g_mnbWebsite = new wxMenuItem( g_mnbHelp, ID_MP3VAL_WEBSITE, wxString( wxT("MP3val website") ) , wxEmptyString, wxITEM_NORMAL );
-	g_mnbHelp->Append( g_mnbWebsite );
-	
 	wxMenuItem* g_mnbToolWebsite;
-	g_mnbToolWebsite = new wxMenuItem( g_mnbHelp, ID_WXMP3VAL_WEBSITE, wxString( wxT("wxMP3val website") ) , wxEmptyString, wxITEM_NORMAL );
+	g_mnbToolWebsite = new wxMenuItem( g_mnbHelp, ID_WEBSITE, wxString( wxT("MP3val website") ) , wxEmptyString, wxITEM_NORMAL );
 	g_mnbHelp->Append( g_mnbToolWebsite );
+	
+	wxMenuItem* g_mnbWebsite;
+	g_mnbWebsite = new wxMenuItem( g_mnbHelp, ID_TOOL_WEBSITE, wxString( wxT("wxMP3val website") ) , wxEmptyString, wxITEM_NORMAL );
+	g_mnbHelp->Append( g_mnbWebsite );
 	
 	g_mnbHelp->AppendSeparator();
 	
@@ -232,8 +232,8 @@ Main::Main( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoin
 	this->Connect( g_mnbSettings->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( Main::mnuSettings ) );
 	this->Connect( g_mnbScan->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( Main::mnuScan ) );
 	this->Connect( g_mnbRepair->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( Main::mnuRepair ) );
-	this->Connect( g_mnbWebsite->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( Main::mnuWebsite ) );
 	this->Connect( g_mnbToolWebsite->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( Main::mnuToolWebsite ) );
+	this->Connect( g_mnbWebsite->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( Main::mnuWebsite ) );
 	this->Connect( g_mnbAbout->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( Main::mnuAbout ) );
 	this->Connect( g_tbAddFolder->GetId(), wxEVT_COMMAND_TOOL_CLICKED, wxCommandEventHandler( Main::mnuAddDirectory ) );
 	this->Connect( g_tbAddFiles->GetId(), wxEVT_COMMAND_TOOL_CLICKED, wxCommandEventHandler( Main::mnuAddFiles ) );
@@ -267,8 +267,8 @@ Main::~Main()
 	this->Disconnect( ID_SETTINGS, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( Main::mnuSettings ) );
 	this->Disconnect( ID_SCAN, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( Main::mnuScan ) );
 	this->Disconnect( ID_REPAIR, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( Main::mnuRepair ) );
-	this->Disconnect( ID_MP3VAL_WEBSITE, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( Main::mnuWebsite ) );
-	this->Disconnect( ID_WXMP3VAL_WEBSITE, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( Main::mnuToolWebsite ) );
+	this->Disconnect( ID_WEBSITE, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( Main::mnuToolWebsite ) );
+	this->Disconnect( ID_TOOL_WEBSITE, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( Main::mnuWebsite ) );
 	this->Disconnect( ID_ABOUT, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( Main::mnuAbout ) );
 	this->Disconnect( g_tbAddFolder->GetId(), wxEVT_COMMAND_TOOL_CLICKED, wxCommandEventHandler( Main::mnuAddDirectory ) );
 	this->Disconnect( g_tbAddFiles->GetId(), wxEVT_COMMAND_TOOL_CLICKED, wxCommandEventHandler( Main::mnuAddFiles ) );

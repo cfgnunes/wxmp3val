@@ -43,8 +43,8 @@
 #define ID_SETTINGS 1005
 #define ID_SCAN 1006
 #define ID_REPAIR 1007
-#define ID_MP3VAL_WEBSITE 1008
-#define ID_WXMP3VAL_WEBSITE 1009
+#define ID_WEBSITE 1008
+#define ID_TOOL_WEBSITE 1009
 #define ID_ABOUT 1010
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -120,8 +120,8 @@ class Main : public wxFrame
 		virtual void mnuSettings( wxCommandEvent& event ) { event.Skip(); }
 		virtual void mnuScan( wxCommandEvent& event ) { event.Skip(); }
 		virtual void mnuRepair( wxCommandEvent& event ) { event.Skip(); }
-		virtual void mnuWebsite( wxCommandEvent& event ) { event.Skip(); }
 		virtual void mnuToolWebsite( wxCommandEvent& event ) { event.Skip(); }
+		virtual void mnuWebsite( wxCommandEvent& event ) { event.Skip(); }
 		virtual void mnuAbout( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnTimer1Trigger( wxTimerEvent& event ) { event.Skip(); }
 		
