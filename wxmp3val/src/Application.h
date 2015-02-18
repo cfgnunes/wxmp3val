@@ -3,12 +3,12 @@
  * http://www.gnu.org/licenses/gpl-3.0.html
  */
 
-#ifndef WXMP3VAL_H
-#define WXMP3VAL_H
+#ifndef APPLICATION_H
+#define APPLICATION_H
 
 #include <wx/app.h>
 
-class wxMP3valApp : public wxApp {
+class Application : public wxApp {
 public:
     virtual bool OnInit();
 
@@ -17,4 +17,4 @@ private:
     wxArrayString *m_filesCmdLine;
 };
 
-#endif // WXMP3VAL_H
+#endif // APPLICATION_H

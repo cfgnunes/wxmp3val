@@ -26,32 +26,30 @@
  *            http://www.gnu.org/licenses/gpl-3.0.html
  ************************************************************************/
 
-#include "wxMP3valApp.h"
+#include "Application.h"
 #include "Global.h"
+#include "GuiMain.h"
 
-//(*AppHeaders
-#include "frmMain.h"
 #include <wx/image.h>
-//*)
 
-IMPLEMENT_APP(wxMP3valApp);
+IMPLEMENT_APP(Application);
 
-bool wxMP3valApp::OnInit() {
+bool Application::OnInit() {
     // Load language translation
     m_locale = new wxLocale(wxLANGUAGE_DEFAULT);
     m_locale->AddCatalogLookupPathPrefix(GetResourceDir() + _T("msg"));
     m_locale->AddCatalog(_T("wxmp3val"));
 
     wxInitAllImageHandlers();
-    frmMain* Frame = new frmMain(0);
+    GuiMain* guiMain = new GuiMain(0);
 
     // Read command line files
     m_filesCmdLine = new wxArrayString();
     for (int i = 1; i < argc; i++)
         m_filesCmdLine->Add(wxString(argv[i]));
-    Frame->setFilesCmdLine(*m_filesCmdLine);
+    guiMain->setFilesCmdLine(*m_filesCmdLine);
 
-    Frame->Show();
-    SetTopWindow(Frame);
+    guiMain->Show();
+    SetTopWindow(guiMain);
     return true;
 }
