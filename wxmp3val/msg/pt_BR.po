@@ -14,160 +14,120 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.5.4\n"
 
-#: frmMain.cpp:106
 msgid "&Actions"
 msgstr "&Ações"
 
-#: frmMain.cpp:100
 msgid "&Edit"
 msgstr "&Editar"
 
-#: frmMain.cpp:91
 msgid "&File"
 msgstr "&Arquivo"
 
-#: frmMain.cpp:115
 msgid "&Help"
 msgstr "&Ajuda"
 
-#: frmMain.cpp:113 frmMain.cpp:133
 msgid "About"
 msgstr "Sobre"
 
-#: frmMain.cpp:86 frmMain.cpp:125 frmMain.cpp:138
 msgid "Add files"
 msgstr "Adicionar arquivos"
 
-#: frmMain.cpp:84 frmMain.cpp:124 frmMain.cpp:136
 msgid "Add folder"
 msgstr "Adicionar diretório"
 
-#: frmMain.cpp:195
 msgid "CBR"
 msgstr "CBR"
 
-#: frmSettings.cpp:70
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: frmMain.cpp:95 frmMain.cpp:127 frmMain.cpp:142
 msgid "Clear list"
 msgstr "Limpar lista"
 
-#: frmSettings.cpp:56
 msgid "Delete bakup files"
 msgstr "Remover arquivos de backup"
 
-#: Progress.cpp:38
 msgid "Do you want to stop process now?"
 msgstr "Deseja parar o processo agora?"
 
-#: frmMain.cpp:89
 msgid "Exit"
 msgstr "Sair"
 
-#: Progress.cpp:117
 msgid "FIXED"
 msgstr "REPARADO"
 
-#: frmMain.cpp:192
 msgid "File"
 msgstr "Arquivo"
 
-#: frmMain.cpp:356
 msgid "Free front-end for the MP3val"
 msgstr "Livre front-end para o MP3val"
 
-#: frmSettings.cpp:63
 msgid "General"
 msgstr "Geral"
 
-#: frmSettings.cpp:53
 msgid "Keep file timestamps"
 msgstr "Manter data de modificação dos arquivos"
 
-#: frmMain.cpp:348
 msgid "MP3val not found!"
 msgstr "MP3val não encontrado!"
 
-#: frmMain.cpp:108
 msgid "MP3val website"
 msgstr "Site do MP3val"
 
-#: frmSettings.cpp:68 Progress.cpp:109
 msgid "OK"
 msgstr "OK"
 
-#: frmSettings.cpp:52
 msgid "Other options"
 msgstr "Outras opções"
 
-#: Progress.cpp:113
 msgid "PROBLEM"
 msgstr "PROBLEMA"
 
-#: Progress.cpp:30 Progress.cpp:35
-#, c-format
 msgid "Processed %i files of %i."
 msgstr "Processado %i arquivos de %i."
 
-#: Progress.cpp:29
 msgid "Progress"
 msgstr "Progresso"
 
-#: frmMain.cpp:93 frmMain.cpp:126 frmMain.cpp:140
 msgid "Remove files"
 msgstr "Remover arquivos"
 
-#: frmMain.cpp:104 frmMain.cpp:130
 msgid "Repair"
 msgstr "Reparar"
 
-#: frmSettings.cpp:66
 msgid "Restore defaults"
 msgstr "Restaurar padrões"
 
-#: frmMain.cpp:102 frmMain.cpp:129
 msgid "Scan"
 msgstr "Verificar"
 
-#: frmMain.cpp:239
 msgid "Select directory"
 msgstr "Selecionar diretório"
 
-#: frmMain.cpp:217 frmSettings.cpp:74
 msgid "Select file"
 msgstr "Selecionar arquivo"
 
-#: frmMain.cpp:98 frmMain.cpp:132 frmSettings.cpp:41
 msgid "Settings"
 msgstr "Configurações"
 
-#: frmMain.cpp:196
 msgid "State"
 msgstr "Estado"
 
-#: frmMain.cpp:194
 msgid "Tags"
 msgstr "Tags"
 
-#: frmMain.cpp:346
 msgid "Using MP3val version: "
 msgstr "Utilizando MP3val versão: "
 
-#: frmMain.cpp:193
 msgid "Version"
 msgstr "Versão"
 
-#: Progress.cpp:29
 msgid "Wait..."
 msgstr "Aguarde..."
 
-#: frmMain.cpp:110
 msgid "wxMP3val website"
 msgstr "Site do wxMP3val"
 
-#: Progress box
 msgid "Elapsed time : "
 msgstr "Tempo decorrido : "
 

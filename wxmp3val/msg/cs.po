@@ -16,175 +16,134 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Lokalize 1.5\n"
 
-#: frmMain.cpp:106
 msgid "&Actions"
 msgstr "Č&innosti"
 
-#: frmMain.cpp:100
 msgid "&Edit"
 msgstr "Ú&pravy"
 
-#: frmMain.cpp:91
 msgid "&File"
 msgstr "&Soubor"
 
-#: frmMain.cpp:115
 msgid "&Help"
 msgstr "&Nápověda"
 
-#: frmMain.cpp:113 frmMain.cpp:133
 msgid "About"
 msgstr "O programu"
 
-#: frmMain.cpp:86 frmMain.cpp:125 frmMain.cpp:138
 msgid "Add files"
 msgstr "Přidat soubory"
 
-#: frmMain.cpp:84 frmMain.cpp:124 frmMain.cpp:136
 msgid "Add folder"
 msgstr "Přidat složku"
 
-#: frmMain.cpp:195
 msgid "CBR"
 msgstr "StálDT"
 
-#: frmSettings.cpp:70
 msgid "Cancel"
 msgstr "Zrušit"
 
-#: frmMain.cpp:95 frmMain.cpp:127 frmMain.cpp:142
 msgid "Clear list"
 msgstr "Vyprázdnit seznam"
 
-#: frmSettings.cpp:56
 msgid "Delete bakup files"
 msgstr "Smazat záložní soubory"
 
-#: Progress.cpp:38
 msgid "Do you want to stop process now?"
 msgstr "Chcete nyní proces zastavit?"
 
-#: frmMain.cpp:89
 msgid "Exit"
 msgstr "Ukončit"
 
-#: Progress.cpp:117
 msgid "FIXED"
 msgstr "OPRAVENO"
 
-#: frmMain.cpp:192
 msgid "File"
 msgstr "Soubor"
 
-#: frmMain.cpp:356
 msgid "Free front-end for the MP3val"
 msgstr "Rozhraní pro MP3val"
 
-#: frmSettings.cpp:63
 msgid "General"
 msgstr "Obecné"
 
-#: frmSettings.cpp:53
 msgid "Keep file timestamps"
 msgstr "Zachovat časová razítka souborů"
 
-#: frmMain.cpp:348
 msgid "MP3val not found!"
 msgstr "MP3val nenalezen!"
 
-#: frmMain.cpp:108
 msgid "MP3val website"
 msgstr "Stránky MP3val"
 
-#: frmSettings.cpp:68 Progress.cpp:109
 msgid "OK"
 msgstr "OK"
 
-#: frmSettings.cpp:52
 msgid "Other options"
 msgstr "Další volby"
 
-#: Progress.cpp:113
 msgid "PROBLEM"
 msgstr "POTÍŽE"
 
-#: Progress.cpp:30 Progress.cpp:35
-#, c-format
 msgid "Processed %i files of %i."
 msgstr "Zpracováno %i souborů z %i."
 
-#: Progress.cpp:29
 msgid "Progress"
 msgstr "Postup"
 
-#: frmMain.cpp:93 frmMain.cpp:126 frmMain.cpp:140
 msgid "Remove files"
 msgstr "Odstranit soubory"
 
-#: frmMain.cpp:104 frmMain.cpp:130
 msgid "Repair"
 msgstr "Opravit"
 
-#: frmSettings.cpp:66
 msgid "Restore defaults"
 msgstr "Obnovit výchozí nastavení"
 
-#: frmMain.cpp:102 frmMain.cpp:129
 msgid "Scan"
 msgstr "Prohledat"
 
-#: frmMain.cpp:239
 msgid "Select directory"
 msgstr "Vybrat adresář"
 
-#: frmMain.cpp:217 frmSettings.cpp:74
 msgid "Select file"
 msgstr "Vybrat soubor"
 
-#: frmMain.cpp:98 frmMain.cpp:132 frmSettings.cpp:41
 msgid "Settings"
 msgstr "Nastavení"
 
-#: frmMain.cpp:196
 msgid "State"
 msgstr "Stav"
 
-#: frmMain.cpp:194
 msgid "Tags"
 msgstr "Značky"
 
-#: frmMain.cpp:346
 msgid "Using MP3val version: "
 msgstr "Verze MP3val: "
 
-#: frmMain.cpp:193
 msgid "Version"
 msgstr "Verze"
 
-#: Progress.cpp:29
 msgid "Wait..."
 msgstr "Čekejte..."
 
-#: frmMain.cpp:110
 msgid "wxMP3val website"
 msgstr "Stránky wxMP3val"
 
-#: Progress box
 msgid "Elapsed time : "
-msgstr "Uplynulý čas: "
+msgstr "Uplynulý čas : "
 
 msgid "Estimated time : "
-msgstr "Odhadovaný čas: "
+msgstr "Odhadovaný čas : "
 
 msgid "Remaining time : "
-msgstr "Zbývající čas: "
+msgstr "Zbývající čas : "
 
 msgid "Close"
 msgstr "Zavřít"
 
 msgid "unknown"
-msgstr "Neznámý"
+msgstr "neznámý"
 
 msgid "files"
-msgstr "Soubory"
-
+msgstr "soubory"
