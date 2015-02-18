@@ -16,14 +16,12 @@ const wxString CONFIG_GENERAL_GROUP = _T("/General/");
 // Config Strings
 const wxString CONFIG_STR_LastOpenDir = _T("LastOpenDir");
 
-const wxString CONFIG_STR_ToolExecutable = _T("ToolExecutable");
 const wxString CONFIG_STR_KeepTimestamp = _T("KeepTimestamp");
 const wxString CONFIG_STR_DeleteBackup = _T("DeleteBackup");
 
 // Default Values
 const wxString DEFAULT_VALUE_LastOpenDir = wxEmptyString;
 
-const wxString DEFAULT_VALUE_ToolExecutable = _T("mp3val");
 const bool DEFAULT_VALUE_KeepTimestamp = true;
 const bool DEFAULT_VALUE_DeleteBackup = true;
 
@@ -38,13 +36,11 @@ public:
 
     // Gets...
     wxString getLastOpenDir() const;
-    wxString getToolExecutable() const;
     bool getKeepTimestamp() const;
     bool getDeleteBackup() const;
 
     // Sets...
     void setLastOpenDir(wxString value);
-    void setToolExecutable(wxString value);
     void setKeepTimestamp(bool value);
     void setDeleteBackup(bool value);
 

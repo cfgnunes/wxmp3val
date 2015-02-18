@@ -21,7 +21,6 @@ ConfigBase::~ConfigBase() {
 void ConfigBase::setDefaultConfig() {
     setLastOpenDir(DEFAULT_VALUE_LastOpenDir);
 
-    setToolExecutable(DEFAULT_VALUE_ToolExecutable);
     setKeepTimestamp(DEFAULT_VALUE_KeepTimestamp);
     setDeleteBackup(DEFAULT_VALUE_DeleteBackup);
 }
@@ -51,12 +50,6 @@ wxString ConfigBase::getLastOpenDir() const {
     return value;
 }
 
-wxString ConfigBase::getToolExecutable() const {
-    wxString value = wxEmptyString;
-    mp_config->Read(CONFIG_GENERAL_GROUP + CONFIG_STR_ToolExecutable, &value);
-    return value;
-}
-
 bool ConfigBase::getKeepTimestamp() const {
     bool value;
     mp_config->Read(CONFIG_GENERAL_GROUP + CONFIG_STR_KeepTimestamp, &value);
@@ -73,10 +66,6 @@ bool ConfigBase::getDeleteBackup() const {
 
 void ConfigBase::setLastOpenDir(wxString value) {
     mp_config->Write(CONFIG_SYSTEM_GROUP + CONFIG_STR_LastOpenDir, value);
-}
-
-void ConfigBase::setToolExecutable(wxString value) {
-    mp_config->Write(CONFIG_GENERAL_GROUP + CONFIG_STR_ToolExecutable, value);
 }
 
 void ConfigBase::setKeepTimestamp(bool value) {

@@ -88,10 +88,6 @@ msgstr "Obecné"
 msgid "Keep file timestamps"
 msgstr "Zachovat časová razítka souborů"
 
-#: frmSettings.cpp:46
-msgid "MP3val executable"
-msgstr "Spustitelný soubor pro MP3val"
-
 #: frmMain.cpp:348
 msgid "MP3val not found!"
 msgstr "MP3val nenalezen!"

@@ -88,10 +88,6 @@ msgstr "Allgemein"
 msgid "Keep file timestamps"
 msgstr "Dateizeitstempel erhalten"
 
-#: frmSettings.cpp:46
-msgid "MP3val executable"
-msgstr "MP3val Programm"
-
 #: frmMain.cpp:348
 msgid "MP3val not found!"
 msgstr "MP3val nicht gefunden!"

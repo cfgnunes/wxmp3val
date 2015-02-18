@@ -216,26 +216,14 @@ Settings::Settings( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	wxBoxSizer* bSizer4;
 	bSizer4 = new wxBoxSizer( wxVERTICAL );
 	
-	wxStaticBoxSizer* sbSizer1;
-	sbSizer1 = new wxStaticBoxSizer( new wxStaticBox( m_panel1, wxID_ANY, wxT("MP3val executable") ), wxHORIZONTAL );
-	
-	g_txtToolExecutable = new wxTextCtrl( m_panel1, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-	sbSizer1->Add( g_txtToolExecutable, 1, wxALL, 5 );
-	
-	g_btnToolExecutable = new wxButton( m_panel1, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 22,22 ), 0 );
-	sbSizer1->Add( g_btnToolExecutable, 0, wxALL, 5 );
-	
-	
-	bSizer4->Add( sbSizer1, 0, wxEXPAND, 5 );
-	
 	wxStaticBoxSizer* sbSizer2;
 	sbSizer2 = new wxStaticBoxSizer( new wxStaticBox( m_panel1, wxID_ANY, wxT("Other options") ), wxVERTICAL );
 	
 	g_chkKeepTimestamps = new wxCheckBox( m_panel1, wxID_ANY, wxT("Keep file timestamps"), wxDefaultPosition, wxDefaultSize, 0 );
-	sbSizer2->Add( g_chkKeepTimestamps, 0, wxALL, 5 );
+	sbSizer2->Add( g_chkKeepTimestamps, 0, wxALL, 2 );
 	
 	g_chkDeleteBackup = new wxCheckBox( m_panel1, wxID_ANY, wxT("Delete bakup files"), wxDefaultPosition, wxDefaultSize, 0 );
-	sbSizer2->Add( g_chkDeleteBackup, 0, wxALL, 5 );
+	sbSizer2->Add( g_chkDeleteBackup, 0, wxALL, 2 );
 	
 	
 	bSizer4->Add( sbSizer2, 0, wxEXPAND, 5 );
@@ -271,7 +259,6 @@ Settings::Settings( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	this->Centre( wxBOTH );
 	
 	// Connect Events
-	g_btnToolExecutable->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Settings::OnbtnToolExecutableClick ), NULL, this );
 	g_btnDefault->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Settings::OnbtnDefaultClick ), NULL, this );
 	g_btnOK->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Settings::OnbtnOKClick ), NULL, this );
 	g_btnCancel->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Settings::OnbtnCancelClick ), NULL, this );
@@ -280,7 +267,6 @@ Settings::Settings( wxWindow* parent, wxWindowID id, const wxString& title, cons
 Settings::~Settings()
 {
 	// Disconnect Events
-	g_btnToolExecutable->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Settings::OnbtnToolExecutableClick ), NULL, this );
 	g_btnDefault->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Settings::OnbtnDefaultClick ), NULL, this );
 	g_btnOK->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Settings::OnbtnOKClick ), NULL, this );
 	g_btnCancel->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Settings::OnbtnCancelClick ), NULL, this );

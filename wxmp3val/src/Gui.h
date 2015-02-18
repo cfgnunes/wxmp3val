@@ -25,12 +25,11 @@
 #include <wx/toolbar.h>
 #include <wx/timer.h>
 #include <wx/frame.h>
-#include <wx/textctrl.h>
-#include <wx/button.h>
-#include <wx/statbox.h>
 #include <wx/checkbox.h>
+#include <wx/statbox.h>
 #include <wx/panel.h>
 #include <wx/notebook.h>
+#include <wx/button.h>
 #include <wx/dialog.h>
 
 ///////////////////////////////////////////////////////////////////////////
@@ -117,8 +116,6 @@ class Settings : public wxDialog
 	protected:
 		wxNotebook* m_notebook1;
 		wxPanel* m_panel1;
-		wxTextCtrl* g_txtToolExecutable;
-		wxButton* g_btnToolExecutable;
 		wxCheckBox* g_chkKeepTimestamps;
 		wxCheckBox* g_chkDeleteBackup;
 		wxButton* g_btnDefault;
@@ -126,7 +123,6 @@ class Settings : public wxDialog
 		wxButton* g_btnCancel;
 		
 		// Virtual event handlers, overide them in your derived class
-		virtual void OnbtnToolExecutableClick( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnbtnDefaultClick( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnbtnOKClick( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnbtnCancelClick( wxCommandEvent& event ) { event.Skip(); }

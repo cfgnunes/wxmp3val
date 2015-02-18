@@ -89,10 +89,6 @@ msgstr "Общие"
 msgid "Keep file timestamps"
 msgstr "Сохранять метки времени"
 
-#: frmSettings.cpp:46
-msgid "MP3val executable"
-msgstr "исполняемый файл MP3val"
-
 #: frmMain.cpp:348
 msgid "MP3val not found!"
 msgstr "MP3val не найден!"

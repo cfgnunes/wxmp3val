@@ -36,7 +36,7 @@ void Progress::execute() {
 }
 
 void Progress::processFile(int fileIterator) {
-    wxString fullCommand = mp_configBase->getToolExecutable();
+    wxString fullCommand = APP_TOOL_EXECUTABLE;
     FileInfo& fileInfo = mp_lstFilesData->Item(fileIterator);
     wxFileName filenameInput = fileInfo.getFileName();
 

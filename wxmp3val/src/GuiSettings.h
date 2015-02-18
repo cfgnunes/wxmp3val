@@ -14,7 +14,6 @@ public:
     GuiSettings(wxWindow* parent, ConfigBase* configBase);
 
 protected:
-    void OnbtnToolExecutableClick(wxCommandEvent& event);
     void OnbtnDefaultClick(wxCommandEvent& event);
     void OnbtnOKClick(wxCommandEvent& event);
     void OnbtnCancelClick(wxCommandEvent& event);
