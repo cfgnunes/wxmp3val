@@ -51,13 +51,7 @@ void GuiMain::OnlstFilesDeleteItem(wxListEvent& event) {
 }
 
 void GuiMain::OnlstFilesInsertItem(wxListEvent& event) {
-    /*
-     * :KLUDGE:
-     * EVT_LIST_INSERT_ITEM is triggered before or after item is added:
-     *   on wxGTK -> triggered before item is added;
-     *   on wxMSW -> triggered after item is added.
-     */
-    updateControlsDelayed();
+    updateControls();
     event.Skip();
 }
 
@@ -181,29 +175,6 @@ void GuiMain::mnuAbout(wxCommandEvent& event) {
 }
 
 void GuiMain::OnTimer1Trigger(wxTimerEvent& event) {
-    updateControls();
-}
-
-void GuiMain::loadResources() {
-    wxString resourceDir = GetResourceDir();
-
-    // Window icon
-    wxIcon FrameIcon;
-    FrameIcon.CopyFromBitmap(wxBitmap(wxImage(resourceDir + _T("icon2.ico"))));
-    SetIcon(FrameIcon);
-
-    // Toolbar bitmaps
-    g_mainToolBar->SetToolNormalBitmap(ID_ADD_FILES, wxBitmap(wxImage(resourceDir + _T("toolbar/add.png"))));
-    g_mainToolBar->SetToolNormalBitmap(ID_REMOVE_FILES, wxBitmap(wxImage(resourceDir + _T("toolbar/remove.png"))));
-    g_mainToolBar->SetToolNormalBitmap(ID_CLEAR_LIST, wxBitmap(wxImage(resourceDir + _T("toolbar/clear.png"))));
-    g_mainToolBar->SetToolNormalBitmap(ID_SCAN, wxBitmap(wxImage(resourceDir + _T("toolbar/scan.png"))));
-    g_mainToolBar->SetToolNormalBitmap(ID_REPAIR, wxBitmap(wxImage(resourceDir + _T("toolbar/fix.png"))));
-    g_mainToolBar->SetToolNormalBitmap(ID_SETTINGS, wxBitmap(wxImage(resourceDir + _T("toolbar/settings.png"))));
-    g_mainToolBar->SetToolNormalBitmap(ID_ABOUT, wxBitmap(wxImage(resourceDir + _T("toolbar/about.png"))));
-    g_mainToolBar->SetToolNormalBitmap(ID_ADD_FOLDER, wxBitmap(wxImage(resourceDir + _T("toolbar/folder.png"))));
-}
-
-void GuiMain::updateControls() {
     wxString newExeTool = mp_configBase->getToolExecutable();
     if (!m_exeTool.IsSameAs(newExeTool, false)) {
         m_exeInputString.Clear();
@@ -239,8 +210,33 @@ void GuiMain::updateControls() {
     g_mainToolBar->EnableTool(ID_REPAIR, g_lstFiles->GetItemCount() > 0);
 }
 
-void GuiMain::updateControlsDelayed() {
-    m_timer1.Start(10, true);
+void GuiMain::loadResources() {
+    wxString resourceDir = GetResourceDir();
+
+    // Window icon
+    wxIcon FrameIcon;
+    FrameIcon.CopyFromBitmap(wxBitmap(wxImage(resourceDir + _T("icon2.ico"))));
+    SetIcon(FrameIcon);
+
+    // Toolbar bitmaps
+    g_mainToolBar->SetToolNormalBitmap(ID_ADD_FILES, wxBitmap(wxImage(resourceDir + _T("toolbar/add.png"))));
+    g_mainToolBar->SetToolNormalBitmap(ID_REMOVE_FILES, wxBitmap(wxImage(resourceDir + _T("toolbar/remove.png"))));
+    g_mainToolBar->SetToolNormalBitmap(ID_CLEAR_LIST, wxBitmap(wxImage(resourceDir + _T("toolbar/clear.png"))));
+    g_mainToolBar->SetToolNormalBitmap(ID_SCAN, wxBitmap(wxImage(resourceDir + _T("toolbar/scan.png"))));
+    g_mainToolBar->SetToolNormalBitmap(ID_REPAIR, wxBitmap(wxImage(resourceDir + _T("toolbar/fix.png"))));
+    g_mainToolBar->SetToolNormalBitmap(ID_SETTINGS, wxBitmap(wxImage(resourceDir + _T("toolbar/settings.png"))));
+    g_mainToolBar->SetToolNormalBitmap(ID_ABOUT, wxBitmap(wxImage(resourceDir + _T("toolbar/about.png"))));
+    g_mainToolBar->SetToolNormalBitmap(ID_ADD_FOLDER, wxBitmap(wxImage(resourceDir + _T("toolbar/folder.png"))));
+}
+
+void GuiMain::updateControls() {
+    /*
+     * :KLUDGE:
+     * EVT_LIST_INSERT_ITEM is triggered before or after item is added:
+     *   on wxGTK -> triggered before item is added;
+     *   on wxMSW -> triggered after item is added.
+     */
+    m_timer1.Start(20, true);
 }
 
 void GuiMain::setFilesCmdLine(const wxArrayString& filenames) {

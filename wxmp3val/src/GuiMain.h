@@ -38,7 +38,6 @@ protected:
 
 private:
     void updateControls();
-    void updateControlsDelayed();
     void loadResources();
 
     ConfigBase *mp_configBase;
