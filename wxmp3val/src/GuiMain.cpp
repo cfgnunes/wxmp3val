@@ -25,12 +25,12 @@ GuiMain::GuiMain(wxWindow* parent)
     g_lstFiles->SetDropTarget(mp_dndFile);
 
     // Title List
-    g_lstFiles->InsertColumn(0, _("File"), wxLIST_FORMAT_LEFT, 200);
-    g_lstFiles->InsertColumn(1, _("Folder"), wxLIST_FORMAT_LEFT, 200);
-    g_lstFiles->InsertColumn(2, _("Version"), wxLIST_FORMAT_LEFT, 100);
-    g_lstFiles->InsertColumn(3, _("Tags"), wxLIST_FORMAT_LEFT, 100);
-    g_lstFiles->InsertColumn(4, _("CBR"), wxLIST_FORMAT_LEFT, 70);
-    g_lstFiles->InsertColumn(5, _("State"), wxLIST_FORMAT_LEFT, 70);
+    g_lstFiles->InsertColumn(ID_LIST_FILE, _("File"), wxLIST_FORMAT_LEFT, 200);
+    g_lstFiles->InsertColumn(ID_LIST_FOLDER, _("Folder"), wxLIST_FORMAT_LEFT, 200);
+    g_lstFiles->InsertColumn(ID_LIST_VERSION, _("Version"), wxLIST_FORMAT_LEFT, 100);
+    g_lstFiles->InsertColumn(ID_LIST_TAGS, _("Tags"), wxLIST_FORMAT_LEFT, 100);
+    g_lstFiles->InsertColumn(ID_LIST_CBR, _("CBR"), wxLIST_FORMAT_LEFT, 70);
+    g_lstFiles->InsertColumn(ID_LIST_STATE, _("State"), wxLIST_FORMAT_LEFT, 70);
 
     // Set statusbar widths
     const int wxStatusBarWidths [3] = {-10, -5, -10};

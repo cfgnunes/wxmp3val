@@ -39,6 +39,14 @@ const wxString DEFAULT_VALUE_LastOpenDir = wxFileName::GetHomeDir();
 const bool DEFAULT_VALUE_KeepTimestamp = true;
 const bool DEFAULT_VALUE_DeleteBackup = true;
 
+// ID for title in wxListCtrl
+int const ID_LIST_FILE = 0;
+int const ID_LIST_FOLDER = 1;
+int const ID_LIST_VERSION = 2;
+int const ID_LIST_TAGS = 3;
+int const ID_LIST_CBR = 4;
+int const ID_LIST_STATE = 5;
+
 inline wxString GetResourceDir() {
 #ifdef __LINUX__
     wxString resourceDir = _T("/usr/share/wxmp3val/resource/");

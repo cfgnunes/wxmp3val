@@ -65,16 +65,16 @@ void Progress::processOutputString(unsigned long int fileIterator) {
 
                 // Update Version column
                 if (tempString.AfterFirst('(').BeforeFirst(')').Find(_T("MPEG")) != wxNOT_FOUND)
-                    mp_fileListManager->getOwner().SetItem(fileIterator, 2, tempString.AfterFirst('(').BeforeFirst(')'));
+                    mp_fileListManager->getOwner().SetItem(fileIterator, ID_LIST_VERSION, tempString.AfterFirst('(').BeforeFirst(')'));
 
                 // Update Tags column
-                mp_fileListManager->getOwner().SetItem(fileIterator, 3, tempString.AfterFirst(',').BeforeFirst(','));
+                mp_fileListManager->getOwner().SetItem(fileIterator, ID_LIST_TAGS, tempString.AfterFirst(',').BeforeFirst(','));
 
                 // Update CBR column
                 if (tempString.AfterFirst(',').AfterFirst(',').Find(_T("CBR")) != wxNOT_FOUND)
-                    mp_fileListManager->getOwner().SetItem(fileIterator, 4, _T("CBR"));
+                    mp_fileListManager->getOwner().SetItem(fileIterator, ID_LIST_CBR, _T("CBR"));
                 else
-                    mp_fileListManager->getOwner().SetItem(fileIterator, 4, _T("VBR"));
+                    mp_fileListManager->getOwner().SetItem(fileIterator, ID_LIST_CBR, _T("VBR"));
             }
 
             if (tempString.StartsWith(_T("WARNING: ")))
@@ -93,15 +93,15 @@ void Progress::processOutputString(unsigned long int fileIterator) {
         // Update State column
         switch (flagState) {
             case 0:
-                mp_fileListManager->getOwner().SetItem(fileIterator, 5, _("OK"));
+                mp_fileListManager->getOwner().SetItem(fileIterator, ID_LIST_STATE, _("OK"));
                 mp_fileListManager->getOwner().SetItemTextColour(fileIterator, *wxBLACK);
                 break;
             case 1:
-                mp_fileListManager->getOwner().SetItem(fileIterator, 5, _("PROBLEM"));
+                mp_fileListManager->getOwner().SetItem(fileIterator, ID_LIST_STATE, _("PROBLEM"));
                 mp_fileListManager->getOwner().SetItemTextColour(fileIterator, *wxRED);
                 break;
             case 2:
-                mp_fileListManager->getOwner().SetItem(fileIterator, 5, _("FIXED"));
+                mp_fileListManager->getOwner().SetItem(fileIterator, ID_LIST_STATE, _("FIXED"));
                 mp_fileListManager->getOwner().SetItemTextColour(fileIterator, *wxBLACK);
                 break;
         }
