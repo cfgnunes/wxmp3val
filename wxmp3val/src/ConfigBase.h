@@ -10,11 +10,11 @@
 #include <wx/config.h>
 
 // Config Group Strings
-const wxString CONFIG_STR_AppVersion = _T("AppVersion");
-const wxString CONFIG_SYSTEM_GROUP = _T("/System/");
-const wxString CONFIG_GENERAL_GROUP = _T("/General/");
+const wxString CONFIG_GROUP_SYSTEM = _T("/System/");
+const wxString CONFIG_GROUP_GENERAL = _T("/General/");
 
 // Config Strings
+const wxString CONFIG_STR_AppVersion = _T("AppVersion");
 const wxString CONFIG_STR_LastOpenDir = _T("LastOpenDir");
 
 const wxString CONFIG_STR_KeepTimestamp = _T("KeepTimestamp");

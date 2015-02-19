@@ -47,42 +47,42 @@ wxString ConfigBase::getStringToolOptions() const {
 
 wxString ConfigBase::getAppVersion() const {
     wxString value = wxEmptyString;
-    mp_config->Read(CONFIG_SYSTEM_GROUP + CONFIG_STR_AppVersion, &value);
+    mp_config->Read(CONFIG_GROUP_SYSTEM + CONFIG_STR_AppVersion, &value);
     return value;
 }
 
 wxString ConfigBase::getLastOpenDir() const {
     wxString value = wxEmptyString;
-    mp_config->Read(CONFIG_SYSTEM_GROUP + CONFIG_STR_LastOpenDir, &value);
+    mp_config->Read(CONFIG_GROUP_SYSTEM + CONFIG_STR_LastOpenDir, &value);
     return value;
 }
 
 bool ConfigBase::getKeepTimestamp() const {
     bool value;
-    mp_config->Read(CONFIG_GENERAL_GROUP + CONFIG_STR_KeepTimestamp, &value);
+    mp_config->Read(CONFIG_GROUP_GENERAL + CONFIG_STR_KeepTimestamp, &value);
     return value;
 }
 
 bool ConfigBase::getDeleteBackup() const {
     bool value;
-    mp_config->Read(CONFIG_GENERAL_GROUP + CONFIG_STR_DeleteBackup, &value);
+    mp_config->Read(CONFIG_GROUP_GENERAL + CONFIG_STR_DeleteBackup, &value);
     return value;
 }
 
 // Sets...
 
 void ConfigBase::setAppVersion(wxString value) {
-    mp_config->Write(CONFIG_SYSTEM_GROUP + CONFIG_STR_AppVersion, value);
+    mp_config->Write(CONFIG_GROUP_SYSTEM + CONFIG_STR_AppVersion, value);
 }
 
 void ConfigBase::setLastOpenDir(wxString value) {
-    mp_config->Write(CONFIG_SYSTEM_GROUP + CONFIG_STR_LastOpenDir, value);
+    mp_config->Write(CONFIG_GROUP_SYSTEM + CONFIG_STR_LastOpenDir, value);
 }
 
 void ConfigBase::setKeepTimestamp(bool value) {
-    mp_config->Write(CONFIG_GENERAL_GROUP + CONFIG_STR_KeepTimestamp, value);
+    mp_config->Write(CONFIG_GROUP_GENERAL + CONFIG_STR_KeepTimestamp, value);
 }
 
 void ConfigBase::setDeleteBackup(bool value) {
-    mp_config->Write(CONFIG_GENERAL_GROUP + CONFIG_STR_DeleteBackup, value);
+    mp_config->Write(CONFIG_GROUP_GENERAL + CONFIG_STR_DeleteBackup, value);
 }
