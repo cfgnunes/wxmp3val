@@ -6,125 +6,173 @@ msgstr ""
 "Project-Id-Version: wxMP3val\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-04-26 19:09-0300\n"
-"PO-Revision-Date: 2013-04-29 07:27+0100\n"
-"Last-Translator: Carlos Sánchez <carlos1994sanchez@gmail.com>\n"
-"Language-Team: \n"
+"PO-Revision-Date: 2015-02-19 21:27-0300\n"
+"Last-Translator: Cristiano Nunes <cfgnunes@gmail.com>\n"
+"Language-Team: Spanish\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.5.4\n"
 
+#: Gui.cpp:69
 msgid "&Actions"
 msgstr "A&cciones"
 
+#: Gui.cpp:58
 msgid "&Edit"
 msgstr "&Editar"
 
+#: Gui.cpp:41
 msgid "&File"
 msgstr "&Archivo"
 
+#: Gui.cpp:86
 msgid "&Help"
 msgstr "A&yuda"
 
+#: Gui.cpp:83 Gui.cpp:110
 msgid "About"
 msgstr "Acerca de..."
 
+#: Gui.cpp:32 Gui.cpp:94 Gui.cpp:120
 msgid "Add files"
 msgstr "Añadir archivo(s)"
 
+#: Gui.cpp:28 Gui.cpp:92 Gui.cpp:116
 msgid "Add folder"
 msgstr "Añadir carpeta"
 
+#: GuiMain.cpp:32
 msgid "CBR"
 msgstr "CBR"
 
+#: Gui.cpp:248
 msgid "Cancel"
 msgstr "Cancelar"
 
+#: Gui.cpp:49 Gui.cpp:98 Gui.cpp:128
 msgid "Clear list"
 msgstr "Limpiar lista"
 
+#: Gui.cpp:225
 msgid "Delete bakup files"
 msgstr "Eliminar archivos de copias de seguridad"
 
+#: Progress.cpp:31
 msgid "Do you want to stop process now?"
 msgstr "¿Quiere detener el proceso ahora?"
 
+#: Gui.cpp:38
 msgid "Exit"
 msgstr "Salir"
 
+#: Progress.cpp:104
 msgid "FIXED"
 msgstr "ARREGLADO"
 
+#: GuiMain.cpp:28
 msgid "File"
 msgstr "Archivo"
 
+#: Gui.cpp:220
+msgid "File options"
+msgstr "Opciones de archivo"
+
+#: GuiMain.cpp:29
+msgid "Folder"
+msgstr "Carpeta"
+
+#: GuiMain.cpp:180
 msgid "Free front-end for the MP3val"
 msgstr "Front-end libre para MP3val"
 
+#: Gui.cpp:235
 msgid "General"
 msgstr "General"
 
+#: Gui.cpp:222
 msgid "Keep file timestamps"
 msgstr "Mantener marcas de tiempo"
 
-msgid "MP3val not found!"
-msgstr "MP3val no encontrado!"
-
+#: Gui.cpp:73
 msgid "MP3val Website"
 msgstr "Sitio web de MP3val"
 
+#: GuiMain.cpp:205
+msgid "MP3val not found!"
+msgstr "MP3val no encontrado!"
+
+#: Gui.cpp:245 Progress.cpp:96
 msgid "OK"
 msgstr "Aceptar"
 
-msgid "Other options"
-msgstr "Otras opciones"
-
+#: Progress.cpp:100
 msgid "PROBLEM"
 msgstr "PROBLEMA"
 
-msgid "Processed %i files of %i."
-msgstr "Procesado %i archivo(s) de %i."
+#: Progress.cpp:25 Progress.cpp:29
+#, c-format
+msgid "Processed %lu files of %lu."
+msgstr "Procesado %lu archivo(s) de %lu."
 
+#: Progress.cpp:24
 msgid "Progress"
 msgstr "Progreso"
 
+#: Gui.cpp:45 Gui.cpp:96 Gui.cpp:124
 msgid "Remove files"
 msgstr "Quitar archivo(s)"
 
+#: Gui.cpp:66 Gui.cpp:104
 msgid "Repair"
 msgstr "Reparar"
 
+#: Gui.cpp:242
 msgid "Restore defaults"
 msgstr "Restaurar"
 
+#: Gui.cpp:62 Gui.cpp:102
 msgid "Scan"
 msgstr "Escanear"
 
+#: GuiMain.cpp:92
 msgid "Select directory"
 msgstr "Seleccionar directorio"
 
+#: GuiMain.cpp:108
 msgid "Select file"
 msgstr "Seleccionar archivo(s)"
 
+#: Gui.cpp:55 Gui.cpp:108 Gui.h:134
 msgid "Settings"
 msgstr "Configuración"
 
+#: GuiMain.cpp:33
 msgid "State"
 msgstr "Estado"
 
+#: GuiMain.cpp:31
 msgid "Tags"
 msgstr "Etiquetas"
 
+#: GuiMain.cpp:203
 msgid "Using MP3val version: "
 msgstr "Usando MP3val versión: "
 
+#: GuiMain.cpp:30
 msgid "Version"
 msgstr "Versión"
 
+#: Progress.cpp:24
 msgid "Wait..."
 msgstr "Espere..."
 
+#: GuiMain.cpp:209
+msgid "files"
+msgstr "archivos"
+
+#: Gui.cpp:77
 msgid "wxMP3val Website"
 msgstr "Sitio web de wxMP3val"
 
@@ -142,6 +190,3 @@ msgstr "Cerrar"
 
 msgid "unknown"
 msgstr "desconocido"
-
-msgid "files"
-msgstr "archivos"

@@ -14,117 +14,164 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+#: Gui.cpp:69
 msgid "&Actions"
 msgstr ""
 
+#: Gui.cpp:58
 msgid "&Edit"
 msgstr ""
 
+#: Gui.cpp:41
 msgid "&File"
 msgstr ""
 
+#: Gui.cpp:86
 msgid "&Help"
 msgstr ""
 
+#: Gui.cpp:83 Gui.cpp:110
 msgid "About"
 msgstr ""
 
+#: Gui.cpp:32 Gui.cpp:94 Gui.cpp:120
 msgid "Add files"
 msgstr ""
 
+#: Gui.cpp:28 Gui.cpp:92 Gui.cpp:116
 msgid "Add folder"
 msgstr ""
 
+#: GuiMain.cpp:32
 msgid "CBR"
 msgstr ""
 
+#: Gui.cpp:248
 msgid "Cancel"
 msgstr ""
 
+#: Gui.cpp:49 Gui.cpp:98 Gui.cpp:128
 msgid "Clear list"
 msgstr ""
 
+#: Gui.cpp:225
 msgid "Delete bakup files"
 msgstr ""
 
+#: Progress.cpp:31
 msgid "Do you want to stop process now?"
 msgstr ""
 
+#: Gui.cpp:38
 msgid "Exit"
 msgstr ""
 
+#: Progress.cpp:104
 msgid "FIXED"
 msgstr ""
 
+#: GuiMain.cpp:28
 msgid "File"
 msgstr ""
 
+#: Gui.cpp:220
+msgid "File options"
+msgstr ""
+
+#: GuiMain.cpp:29
+msgid "Folder"
+msgstr ""
+
+#: GuiMain.cpp:180
 msgid "Free front-end for the MP3val"
 msgstr ""
 
+#: Gui.cpp:235
 msgid "General"
 msgstr ""
 
+#: Gui.cpp:222
 msgid "Keep file timestamps"
 msgstr ""
 
-msgid "MP3val not found!"
-msgstr ""
-
+#: Gui.cpp:73
 msgid "MP3val Website"
 msgstr ""
 
+#: GuiMain.cpp:205
+msgid "MP3val not found!"
+msgstr ""
+
+#: Gui.cpp:245 Progress.cpp:96
 msgid "OK"
 msgstr ""
 
-msgid "Other options"
-msgstr ""
-
+#: Progress.cpp:100
 msgid "PROBLEM"
 msgstr ""
 
-msgid "Processed %i files of %i."
+#: Progress.cpp:25 Progress.cpp:29
+#, c-format
+msgid "Processed %lu files of %lu."
 msgstr ""
 
+#: Progress.cpp:24
 msgid "Progress"
 msgstr ""
 
+#: Gui.cpp:45 Gui.cpp:96 Gui.cpp:124
 msgid "Remove files"
 msgstr ""
 
+#: Gui.cpp:66 Gui.cpp:104
 msgid "Repair"
 msgstr ""
 
+#: Gui.cpp:242
 msgid "Restore defaults"
 msgstr ""
 
+#: Gui.cpp:62 Gui.cpp:102
 msgid "Scan"
 msgstr ""
 
+#: GuiMain.cpp:92
 msgid "Select directory"
 msgstr ""
 
+#: GuiMain.cpp:108
 msgid "Select file"
 msgstr ""
 
+#: Gui.cpp:55 Gui.cpp:108 Gui.h:134
 msgid "Settings"
 msgstr ""
 
+#: GuiMain.cpp:33
 msgid "State"
 msgstr ""
 
+#: GuiMain.cpp:31
 msgid "Tags"
 msgstr ""
 
+#: GuiMain.cpp:203
 msgid "Using MP3val version: "
 msgstr ""
 
+#: GuiMain.cpp:30
 msgid "Version"
 msgstr ""
 
+#: Progress.cpp:24
 msgid "Wait..."
 msgstr ""
 
+#: GuiMain.cpp:209
+msgid "files"
+msgstr ""
+
+#: Gui.cpp:77
 msgid "wxMP3val Website"
 msgstr ""
 
@@ -141,7 +188,4 @@ msgid "Close"
 msgstr ""
 
 msgid "unknown"
-msgstr ""
-
-msgid "files"
 msgstr ""
