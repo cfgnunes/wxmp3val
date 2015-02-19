@@ -255,5 +255,5 @@ void GuiMain::updateControls() {
 }
 
 void GuiMain::setFilesCmdLine(const wxArrayString& filenames) {
-    mp_dndFile->OnDropFiles(0, 0, filenames);
+    mp_fileListManager->insertFilesAndDir(filenames);
 }
