@@ -71,7 +71,7 @@ msgstr ""
 msgid "MP3val not found!"
 msgstr ""
 
-msgid "MP3val website"
+msgid "MP3val Website"
 msgstr ""
 
 msgid "OK"
@@ -125,7 +125,7 @@ msgstr ""
 msgid "Wait..."
 msgstr ""
 
-msgid "wxMP3val website"
+msgid "wxMP3val Website"
 msgstr ""
 
 msgid "Elapsed time : "

@@ -73,7 +73,7 @@ msgstr "Dateizeitstempel erhalten"
 msgid "MP3val not found!"
 msgstr "MP3val nicht gefunden!"
 
-msgid "MP3val website"
+msgid "MP3val Website"
 msgstr "MP3val Webseite"
 
 msgid "OK"
@@ -127,7 +127,7 @@ msgstr "Version"
 msgid "Wait..."
 msgstr "Bitte warten..."
 
-msgid "wxMP3val website"
+msgid "wxMP3val Website"
 msgstr "wxMP3val Webseite"
 
 msgid "Elapsed time : "

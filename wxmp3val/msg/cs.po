@@ -73,7 +73,7 @@ msgstr "Zachovat časová razítka souborů"
 msgid "MP3val not found!"
 msgstr "MP3val nenalezen!"
 
-msgid "MP3val website"
+msgid "MP3val Website"
 msgstr "Stránky MP3val"
 
 msgid "OK"
@@ -127,7 +127,7 @@ msgstr "Verze"
 msgid "Wait..."
 msgstr "Čekejte..."
 
-msgid "wxMP3val website"
+msgid "wxMP3val Website"
 msgstr "Stránky wxMP3val"
 
 msgid "Elapsed time : "

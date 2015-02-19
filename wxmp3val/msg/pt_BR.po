@@ -71,7 +71,7 @@ msgstr "Manter data de modificação dos arquivos"
 msgid "MP3val not found!"
 msgstr "MP3val não encontrado!"
 
-msgid "MP3val website"
+msgid "MP3val Website"
 msgstr "Site do MP3val"
 
 msgid "OK"
@@ -125,7 +125,7 @@ msgstr "Versão"
 msgid "Wait..."
 msgstr "Aguarde..."
 
-msgid "wxMP3val website"
+msgid "wxMP3val Website"
 msgstr "Site do wxMP3val"
 
 msgid "Elapsed time : "

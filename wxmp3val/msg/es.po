@@ -71,7 +71,7 @@ msgstr "Mantener marcas de tiempo"
 msgid "MP3val not found!"
 msgstr "MP3val no encontrado!"
 
-msgid "MP3val website"
+msgid "MP3val Website"
 msgstr "Sitio web de MP3val"
 
 msgid "OK"
@@ -125,7 +125,7 @@ msgstr "Versión"
 msgid "Wait..."
 msgstr "Espere..."
 
-msgid "wxMP3val website"
+msgid "wxMP3val Website"
 msgstr "Sitio web de wxMP3val"
 
 msgid "Elapsed time : "

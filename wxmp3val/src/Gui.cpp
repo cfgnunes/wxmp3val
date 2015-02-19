@@ -25,107 +25,107 @@ Main::Main( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoin
 	g_mainMenuBar = new wxMenuBar( 0 );
 	g_mnbFile = new wxMenu();
 	wxMenuItem* g_mnbAddFolder;
-	g_mnbAddFolder = new wxMenuItem( g_mnbFile, ID_ADD_FOLDER, wxString( wxT("Add folder") ) , wxEmptyString, wxITEM_NORMAL );
+	g_mnbAddFolder = new wxMenuItem( g_mnbFile, ID_ADD_FOLDER, wxString( _("Add folder") ) , wxEmptyString, wxITEM_NORMAL );
 	g_mnbFile->Append( g_mnbAddFolder );
 	
 	wxMenuItem* g_mnbAddFiles;
-	g_mnbAddFiles = new wxMenuItem( g_mnbFile, ID_ADD_FILES, wxString( wxT("Add files") ) , wxEmptyString, wxITEM_NORMAL );
+	g_mnbAddFiles = new wxMenuItem( g_mnbFile, ID_ADD_FILES, wxString( _("Add files") ) , wxEmptyString, wxITEM_NORMAL );
 	g_mnbFile->Append( g_mnbAddFiles );
 	
 	g_mnbFile->AppendSeparator();
 	
 	wxMenuItem* g_mnbExit;
-	g_mnbExit = new wxMenuItem( g_mnbFile, ID_EXIT, wxString( wxT("Exit") ) , wxEmptyString, wxITEM_NORMAL );
+	g_mnbExit = new wxMenuItem( g_mnbFile, ID_EXIT, wxString( _("Exit") ) , wxEmptyString, wxITEM_NORMAL );
 	g_mnbFile->Append( g_mnbExit );
 	
-	g_mainMenuBar->Append( g_mnbFile, wxT("&File") ); 
+	g_mainMenuBar->Append( g_mnbFile, _("&File") ); 
 	
 	g_mnbEdit = new wxMenu();
 	wxMenuItem* g_mnbRemoveFiles;
-	g_mnbRemoveFiles = new wxMenuItem( g_mnbEdit, ID_REMOVE_FILES, wxString( wxT("Remove files") ) , wxEmptyString, wxITEM_NORMAL );
+	g_mnbRemoveFiles = new wxMenuItem( g_mnbEdit, ID_REMOVE_FILES, wxString( _("Remove files") ) , wxEmptyString, wxITEM_NORMAL );
 	g_mnbEdit->Append( g_mnbRemoveFiles );
 	
 	wxMenuItem* g_mnbClearList;
-	g_mnbClearList = new wxMenuItem( g_mnbEdit, ID_CLEAR_LIST, wxString( wxT("Clear list") ) , wxEmptyString, wxITEM_NORMAL );
+	g_mnbClearList = new wxMenuItem( g_mnbEdit, ID_CLEAR_LIST, wxString( _("Clear list") ) , wxEmptyString, wxITEM_NORMAL );
 	g_mnbEdit->Append( g_mnbClearList );
 	
 	g_mnbEdit->AppendSeparator();
 	
 	wxMenuItem* g_mnbSettings;
-	g_mnbSettings = new wxMenuItem( g_mnbEdit, ID_SETTINGS, wxString( wxT("Settings") ) , wxEmptyString, wxITEM_NORMAL );
+	g_mnbSettings = new wxMenuItem( g_mnbEdit, ID_SETTINGS, wxString( _("Settings") ) , wxEmptyString, wxITEM_NORMAL );
 	g_mnbEdit->Append( g_mnbSettings );
 	
-	g_mainMenuBar->Append( g_mnbEdit, wxT("&Edit") ); 
+	g_mainMenuBar->Append( g_mnbEdit, _("&Edit") ); 
 	
 	g_mnbActions = new wxMenu();
 	wxMenuItem* g_mnbScan;
-	g_mnbScan = new wxMenuItem( g_mnbActions, ID_SCAN, wxString( wxT("Scan") ) , wxEmptyString, wxITEM_NORMAL );
+	g_mnbScan = new wxMenuItem( g_mnbActions, ID_SCAN, wxString( _("Scan") ) , wxEmptyString, wxITEM_NORMAL );
 	g_mnbActions->Append( g_mnbScan );
 	
 	wxMenuItem* g_mnbRepair;
-	g_mnbRepair = new wxMenuItem( g_mnbActions, ID_REPAIR, wxString( wxT("Repair") ) , wxEmptyString, wxITEM_NORMAL );
+	g_mnbRepair = new wxMenuItem( g_mnbActions, ID_REPAIR, wxString( _("Repair") ) , wxEmptyString, wxITEM_NORMAL );
 	g_mnbActions->Append( g_mnbRepair );
 	
-	g_mainMenuBar->Append( g_mnbActions, wxT("&Actions") ); 
+	g_mainMenuBar->Append( g_mnbActions, _("&Actions") ); 
 	
 	g_mnbHelp = new wxMenu();
 	wxMenuItem* g_mnbToolWebsite;
-	g_mnbToolWebsite = new wxMenuItem( g_mnbHelp, ID_WEBSITE, wxString( wxT("MP3val website") ) , wxEmptyString, wxITEM_NORMAL );
+	g_mnbToolWebsite = new wxMenuItem( g_mnbHelp, ID_WEBSITE, wxString( _("MP3val Website") ) , wxEmptyString, wxITEM_NORMAL );
 	g_mnbHelp->Append( g_mnbToolWebsite );
 	
 	wxMenuItem* g_mnbWebsite;
-	g_mnbWebsite = new wxMenuItem( g_mnbHelp, ID_TOOL_WEBSITE, wxString( wxT("wxMP3val website") ) , wxEmptyString, wxITEM_NORMAL );
+	g_mnbWebsite = new wxMenuItem( g_mnbHelp, ID_TOOL_WEBSITE, wxString( _("wxMP3val Website") ) , wxEmptyString, wxITEM_NORMAL );
 	g_mnbHelp->Append( g_mnbWebsite );
 	
 	g_mnbHelp->AppendSeparator();
 	
 	wxMenuItem* g_mnbAbout;
-	g_mnbAbout = new wxMenuItem( g_mnbHelp, ID_ABOUT, wxString( wxT("About") ) , wxEmptyString, wxITEM_NORMAL );
+	g_mnbAbout = new wxMenuItem( g_mnbHelp, ID_ABOUT, wxString( _("About") ) , wxEmptyString, wxITEM_NORMAL );
 	g_mnbHelp->Append( g_mnbAbout );
 	
-	g_mainMenuBar->Append( g_mnbHelp, wxT("&Help") ); 
+	g_mainMenuBar->Append( g_mnbHelp, _("&Help") ); 
 	
 	this->SetMenuBar( g_mainMenuBar );
 	
 	g_mainStatusBar = this->CreateStatusBar( 3, wxST_SIZEGRIP, wxID_ANY );
 	g_mainToolBar = this->CreateToolBar( wxTB_HORIZONTAL|wxTB_TEXT, wxID_ANY ); 
-	g_tbAddFolder = g_mainToolBar->AddTool( ID_ADD_FOLDER, wxT("Add folder"), wxArtProvider::GetBitmap( wxART_MISSING_IMAGE, wxART_TOOLBAR ), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString, NULL ); 
+	g_tbAddFolder = g_mainToolBar->AddTool( ID_ADD_FOLDER, _("Add folder"), wxArtProvider::GetBitmap( wxART_MISSING_IMAGE, wxART_TOOLBAR ), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString, NULL ); 
 	
-	g_tbAddFiles = g_mainToolBar->AddTool( ID_ADD_FILES, wxT("Add Files"), wxArtProvider::GetBitmap( wxART_MISSING_IMAGE, wxART_TOOLBAR ), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString, NULL ); 
+	g_tbAddFiles = g_mainToolBar->AddTool( ID_ADD_FILES, _("Add files"), wxArtProvider::GetBitmap( wxART_MISSING_IMAGE, wxART_TOOLBAR ), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString, NULL ); 
 	
-	g_tbRemoveFiles = g_mainToolBar->AddTool( ID_REMOVE_FILES, wxT("Remove Files"), wxArtProvider::GetBitmap( wxART_MISSING_IMAGE, wxART_TOOLBAR ), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString, NULL ); 
+	g_tbRemoveFiles = g_mainToolBar->AddTool( ID_REMOVE_FILES, _("Remove files"), wxArtProvider::GetBitmap( wxART_MISSING_IMAGE, wxART_TOOLBAR ), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString, NULL ); 
 	
-	g_tbClearList = g_mainToolBar->AddTool( ID_CLEAR_LIST, wxT("Clear List"), wxArtProvider::GetBitmap( wxART_MISSING_IMAGE, wxART_TOOLBAR ), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString, NULL ); 
-	
-	g_mainToolBar->AddSeparator(); 
-	
-	g_tbScan = g_mainToolBar->AddTool( ID_SCAN, wxT("Scan"), wxArtProvider::GetBitmap( wxART_MISSING_IMAGE, wxART_TOOLBAR ), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString, NULL ); 
-	
-	g_tbRepair = g_mainToolBar->AddTool( ID_REPAIR, wxT("Repair"), wxArtProvider::GetBitmap( wxART_MISSING_IMAGE, wxART_TOOLBAR ), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString, NULL ); 
+	g_tbClearList = g_mainToolBar->AddTool( ID_CLEAR_LIST, _("Clear list"), wxArtProvider::GetBitmap( wxART_MISSING_IMAGE, wxART_TOOLBAR ), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString, NULL ); 
 	
 	g_mainToolBar->AddSeparator(); 
 	
-	g_tbSettings = g_mainToolBar->AddTool( ID_SETTINGS, wxT("Settings"), wxArtProvider::GetBitmap( wxART_MISSING_IMAGE, wxART_TOOLBAR ), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString, NULL ); 
+	g_tbScan = g_mainToolBar->AddTool( ID_SCAN, _("Scan"), wxArtProvider::GetBitmap( wxART_MISSING_IMAGE, wxART_TOOLBAR ), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString, NULL ); 
 	
-	g_tbAbout = g_mainToolBar->AddTool( ID_ABOUT, wxT("About"), wxArtProvider::GetBitmap( wxART_MISSING_IMAGE, wxART_TOOLBAR ), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString, NULL ); 
+	g_tbRepair = g_mainToolBar->AddTool( ID_REPAIR, _("Repair"), wxArtProvider::GetBitmap( wxART_MISSING_IMAGE, wxART_TOOLBAR ), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString, NULL ); 
+	
+	g_mainToolBar->AddSeparator(); 
+	
+	g_tbSettings = g_mainToolBar->AddTool( ID_SETTINGS, _("Settings"), wxArtProvider::GetBitmap( wxART_MISSING_IMAGE, wxART_TOOLBAR ), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString, NULL ); 
+	
+	g_tbAbout = g_mainToolBar->AddTool( ID_ABOUT, _("About"), wxArtProvider::GetBitmap( wxART_MISSING_IMAGE, wxART_TOOLBAR ), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString, NULL ); 
 	
 	g_mainToolBar->Realize(); 
 	
 	g_mainMenu = new wxMenu();
 	wxMenuItem* g_mnuAddFolder;
-	g_mnuAddFolder = new wxMenuItem( g_mainMenu, ID_ADD_FOLDER, wxString( wxT("Add Folder") ) , wxEmptyString, wxITEM_NORMAL );
+	g_mnuAddFolder = new wxMenuItem( g_mainMenu, ID_ADD_FOLDER, wxString( _("Add folder") ) , wxEmptyString, wxITEM_NORMAL );
 	g_mainMenu->Append( g_mnuAddFolder );
 	
 	wxMenuItem* g_mnuAddFiles;
-	g_mnuAddFiles = new wxMenuItem( g_mainMenu, ID_ADD_FILES, wxString( wxT("Add Files") ) , wxEmptyString, wxITEM_NORMAL );
+	g_mnuAddFiles = new wxMenuItem( g_mainMenu, ID_ADD_FILES, wxString( _("Add files") ) , wxEmptyString, wxITEM_NORMAL );
 	g_mainMenu->Append( g_mnuAddFiles );
 	
 	wxMenuItem* g_mnuRemoveFiles;
-	g_mnuRemoveFiles = new wxMenuItem( g_mainMenu, ID_REMOVE_FILES, wxString( wxT("Remove Files") ) , wxEmptyString, wxITEM_NORMAL );
+	g_mnuRemoveFiles = new wxMenuItem( g_mainMenu, ID_REMOVE_FILES, wxString( _("Remove files") ) , wxEmptyString, wxITEM_NORMAL );
 	g_mainMenu->Append( g_mnuRemoveFiles );
 	
 	wxMenuItem* g_mnuClearList;
-	g_mnuClearList = new wxMenuItem( g_mainMenu, ID_CLEAR_LIST, wxString( wxT("Clear List") ) , wxEmptyString, wxITEM_NORMAL );
+	g_mnuClearList = new wxMenuItem( g_mainMenu, ID_CLEAR_LIST, wxString( _("Clear list") ) , wxEmptyString, wxITEM_NORMAL );
 	g_mainMenu->Append( g_mnuClearList );
 	
 	this->Connect( wxEVT_RIGHT_DOWN, wxMouseEventHandler( Main::MainOnContextMenu ), NULL, this ); 
@@ -217,12 +217,12 @@ Settings::Settings( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	bSizer4 = new wxBoxSizer( wxVERTICAL );
 	
 	wxStaticBoxSizer* sbSizer2;
-	sbSizer2 = new wxStaticBoxSizer( new wxStaticBox( m_panel1, wxID_ANY, wxT("Other options") ), wxVERTICAL );
+	sbSizer2 = new wxStaticBoxSizer( new wxStaticBox( m_panel1, wxID_ANY, _("Other options") ), wxVERTICAL );
 	
-	g_chkKeepTimestamps = new wxCheckBox( m_panel1, wxID_ANY, wxT("Keep file timestamps"), wxDefaultPosition, wxDefaultSize, 0 );
+	g_chkKeepTimestamps = new wxCheckBox( m_panel1, wxID_ANY, _("Keep file timestamps"), wxDefaultPosition, wxDefaultSize, 0 );
 	sbSizer2->Add( g_chkKeepTimestamps, 0, wxALL, 2 );
 	
-	g_chkDeleteBackup = new wxCheckBox( m_panel1, wxID_ANY, wxT("Delete bakup files"), wxDefaultPosition, wxDefaultSize, 0 );
+	g_chkDeleteBackup = new wxCheckBox( m_panel1, wxID_ANY, _("Delete bakup files"), wxDefaultPosition, wxDefaultSize, 0 );
 	sbSizer2->Add( g_chkDeleteBackup, 0, wxALL, 2 );
 	
 	
@@ -232,20 +232,20 @@ Settings::Settings( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	m_panel1->SetSizer( bSizer4 );
 	m_panel1->Layout();
 	bSizer4->Fit( m_panel1 );
-	m_notebook1->AddPage( m_panel1, wxT("General"), false );
+	m_notebook1->AddPage( m_panel1, _("General"), false );
 	
 	bSizer2->Add( m_notebook1, 0, wxEXPAND | wxALL, 5 );
 	
 	wxBoxSizer* bSizer3;
 	bSizer3 = new wxBoxSizer( wxHORIZONTAL );
 	
-	g_btnDefault = new wxButton( this, wxID_ANY, wxT("Restore defaults"), wxDefaultPosition, wxDefaultSize, 0 );
+	g_btnDefault = new wxButton( this, wxID_ANY, _("Restore defaults"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer3->Add( g_btnDefault, 1, wxALL, 5 );
 	
-	g_btnOK = new wxButton( this, wxID_ANY, wxT("OK"), wxDefaultPosition, wxDefaultSize, 0 );
+	g_btnOK = new wxButton( this, wxID_ANY, _("OK"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer3->Add( g_btnOK, 1, wxALL, 5 );
 	
-	g_btnCancel = new wxButton( this, wxID_ANY, wxT("Cancel"), wxDefaultPosition, wxDefaultSize, 0 );
+	g_btnCancel = new wxButton( this, wxID_ANY, _("Cancel"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer3->Add( g_btnCancel, 1, wxALL, 5 );
 	
 	

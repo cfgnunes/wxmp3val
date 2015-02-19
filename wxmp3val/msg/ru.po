@@ -74,7 +74,7 @@ msgstr "Сохранять метки времени"
 msgid "MP3val not found!"
 msgstr "MP3val не найден!"
 
-msgid "MP3val website"
+msgid "MP3val Website"
 msgstr "веб-сайт MP3val"
 
 msgid "OK"
@@ -128,7 +128,7 @@ msgstr "Версия"
 msgid "Wait..."
 msgstr "Ждите..."
 
-msgid "wxMP3val website"
+msgid "wxMP3val Website"
 msgstr "Веб-сайт wxMP3val"
 
 msgid "Elapsed time : "
