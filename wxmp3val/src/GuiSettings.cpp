@@ -4,14 +4,18 @@
  */
 
 #include "GuiSettings.h"
+#include "Constants.h"
 
-GuiSettings::GuiSettings(wxWindow* parent, ConfigBase* configBase)
-:Settings(parent), mp_configBase(configBase) {
+GuiSettings::GuiSettings(wxWindow *parent, ConfigBase *configBase)
+: Settings(parent), mp_configBase(configBase) {
     // Set labels of controls
     setLabelsControls();
 
     // Updates the values controls according to the configuration file
     updateValueControls();
+}
+
+GuiSettings::~GuiSettings() {
 }
 
 void GuiSettings::OnbtnDefaultClick(wxCommandEvent& event) {

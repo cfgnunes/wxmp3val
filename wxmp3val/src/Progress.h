@@ -8,9 +8,11 @@
 
 #include "FileInfo.h"
 #include "ConfigBase.h"
-#include "Global.h"
+#include "Constants.h"
+#include "FileListManager.h"
 
-#include <wx/listctrl.h>
+#include <wx/window.h>
+#include <wx/arrstr.h>
 
 enum {
     TOOL_SCAN = 0,
@@ -19,17 +21,17 @@ enum {
 
 class Progress {
 public:
-    Progress(wxWindow* parent, ConfigBase* configBase, wxListCtrl* listFiles, ArrayOfFiles* lstFilesData, int workType);
+    Progress(wxWindow *parent, ConfigBase* configBase, FileListManager *fileListManager, int workType);
     virtual ~Progress();
     void execute();
 
 private:
-    void processFile(int fileIterator);
-    void processOutputString(int fileIterator);
-    wxWindow* mp_parent;
-    ConfigBase* mp_configBase;
-    wxListCtrl* mp_listFiles;
-    ArrayOfFiles* mp_lstFilesData;
+    void processFile(unsigned long int fileIterator);
+    void processOutputString(unsigned long int fileIterator);
+
+    wxWindow *mp_parent;
+    ConfigBase *mp_configBase;
+    FileListManager *mp_fileListManager;
     int m_workType;
     wxArrayString m_inputString;
 };

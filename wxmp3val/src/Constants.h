@@ -3,8 +3,8 @@
  * http://www.gnu.org/licenses/gpl-3.0.html
  */
 
-#ifndef GLOBAL_H
-#define GLOBAL_H
+#ifndef CONSTANTS_H
+#define CONSTANTS_H
 
 #include <wx/string.h>
 #include <wx/stdpaths.h>
@@ -22,6 +22,23 @@ const wxString APP_TOOL_EXECUTABLE = _T("mp3val");
 const wxString APP_WILDCARD_EXT = _T("MP3 files (*.mp3)|*.mp3;*.MP3");
 const wxString APP_OPEN_EXT = _T("mp3");
 
+// Config Group Strings
+const wxString CONFIG_GROUP_SYSTEM = _T("/System/");
+const wxString CONFIG_GROUP_GENERAL = _T("/General/");
+
+// Config Strings
+const wxString CONFIG_STR_AppVersion = _T("AppVersion");
+const wxString CONFIG_STR_LastOpenDir = _T("LastOpenDir");
+
+const wxString CONFIG_STR_KeepTimestamp = _T("KeepTimestamp");
+const wxString CONFIG_STR_DeleteBackup = _T("DeleteBackup");
+
+// Default Values
+const wxString DEFAULT_VALUE_LastOpenDir = wxFileName::GetHomeDir();
+
+const bool DEFAULT_VALUE_KeepTimestamp = true;
+const bool DEFAULT_VALUE_DeleteBackup = true;
+
 inline wxString GetResourceDir() {
 #ifdef __LINUX__
     wxString resourceDir = _T("/usr/share/wxmp3val/resource/");
@@ -33,4 +50,4 @@ inline wxString GetResourceDir() {
     return resourceDir;
 }
 
-#endif // GLOBAL_H
+#endif // CONSTANTS_H

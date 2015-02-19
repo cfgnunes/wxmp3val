@@ -1,7 +1,12 @@
+/*
+ * This file is part of the wxMP3val and licensed under the GNU General Public License, version 3
+ * http://www.gnu.org/licenses/gpl-3.0.html
+ */
+
 #include "GuiMain.h"
 #include "GuiSettings.h"
 #include "Progress.h"
-#include "Global.h"
+#include "Constants.h"
 
 #include <wx/aboutdlg.h>
 #include <wx/filedlg.h>
@@ -12,12 +17,24 @@ GuiMain::GuiMain(wxWindow* parent)
     // Disable status bar pane used to display menu and toolbar help
     SetStatusBarPane(-1);
 
-    // Aux list for wxListctrl
-    mp_lstFilesData = new ArrayOfFiles();
+    // File list manager
+    mp_fileListManager = new FileListManager(g_lstFiles);
 
-    // Support Drag & Drop
-    mp_dndFile = new DndFile(g_lstFiles, mp_lstFilesData);
+    // List Drag & Drop
+    mp_dndFile = new DndFile(mp_fileListManager);
     g_lstFiles->SetDropTarget(mp_dndFile);
+
+    // Title List
+    g_lstFiles->InsertColumn(0, _("File"), wxLIST_FORMAT_LEFT, 200);
+    g_lstFiles->InsertColumn(1, _("Folder"), wxLIST_FORMAT_LEFT, 200);
+    g_lstFiles->InsertColumn(2, _("Version"), wxLIST_FORMAT_LEFT, 100);
+    g_lstFiles->InsertColumn(3, _("Tags"), wxLIST_FORMAT_LEFT, 100);
+    g_lstFiles->InsertColumn(4, _("CBR"), wxLIST_FORMAT_LEFT, 70);
+    g_lstFiles->InsertColumn(5, _("State"), wxLIST_FORMAT_LEFT, 70);
+
+    // Set statusbar widths
+    const int wxStatusBarWidths [3] = {-10, -5, -10};
+    g_mainStatusBar->SetStatusWidths(3, wxStatusBarWidths);
 
     // Configuration file
     mp_configBase = new ConfigBase(APP_NAME);
@@ -28,24 +45,18 @@ GuiMain::GuiMain(wxWindow* parent)
     // Load resource
     loadResources();
 
-    // Title List
-    g_lstFiles->InsertColumn(0, _("File"), wxLIST_FORMAT_LEFT, 350);
-    g_lstFiles->InsertColumn(1, _("Version"), wxLIST_FORMAT_LEFT, 100);
-    g_lstFiles->InsertColumn(2, _("Tags"), wxLIST_FORMAT_LEFT, 100);
-    g_lstFiles->InsertColumn(3, _("CBR"), wxLIST_FORMAT_LEFT, 80);
-    g_lstFiles->InsertColumn(4, _("State"), wxLIST_FORMAT_LEFT, 80);
-
     // Updates the controls
     updateControls();
 }
 
 GuiMain::~GuiMain() {
-    delete mp_lstFilesData;
+    delete mp_fileListManager;
     delete mp_configBase;
 }
 
 void GuiMain::OnlstFilesDeleteItem(wxListEvent& event) {
-    mp_lstFilesData->Detach(event.GetIndex());
+    mp_fileListManager->deleteItem(event.GetIndex());
+
     updateControls();
     event.Skip();
 }
@@ -84,7 +95,7 @@ void GuiMain::mnuAddDirectory(wxCommandEvent& event) {
     dirDialog.SetPath(mp_configBase->getLastOpenDir());
     if (dirDialog.ShowModal() == wxID_OK) {
         SetCursor(wxCURSOR_WAIT);
-        mp_dndFile->insertFileListDir(dirDialog.GetPath());
+        mp_fileListManager->insertDir(dirDialog.GetPath());
 
         // Remembers the last used directory
         mp_configBase->setLastOpenDir(dirDialog.GetPath());
@@ -104,7 +115,7 @@ void GuiMain::mnuAddFiles(wxCommandEvent& event) {
 
         // Get the file(s) the user selected
         fileDialog.GetPaths(files);
-        mp_dndFile->insertFileList(files);
+        mp_fileListManager->insertFiles(files);
 
         // Remembers the last used directory
         mp_configBase->setLastOpenDir(fileDialog.GetDirectory());
@@ -129,8 +140,7 @@ void GuiMain::mnuRemoveFiles(wxCommandEvent& event) {
 
 void GuiMain::mnuClearList(wxCommandEvent& event) {
     // Deletes all items from the list
-    g_lstFiles->DeleteAllItems();
-    mp_lstFilesData->Clear();
+    mp_fileListManager->clear();
 
     updateControls();
 }
@@ -145,22 +155,22 @@ void GuiMain::mnuSettings(wxCommandEvent& event) {
 
 void GuiMain::mnuScan(wxCommandEvent& event) {
     // Displays the "Progress" window
-    Progress progressDialog(this, mp_configBase, g_lstFiles, mp_lstFilesData, TOOL_SCAN);
+    Progress progressDialog(this, mp_configBase, mp_fileListManager, TOOL_SCAN);
     progressDialog.execute();
 }
 
 void GuiMain::mnuRepair(wxCommandEvent& event) {
     // Displays the "Progress" window
-    Progress progressDialog(this, mp_configBase, g_lstFiles, mp_lstFilesData, TOOL_FIX);
+    Progress progressDialog(this, mp_configBase, mp_fileListManager, TOOL_FIX);
     progressDialog.execute();
-}
-
-void GuiMain::mnuWebsite(wxCommandEvent& event) {
-    wxLaunchDefaultBrowser(APP_WEBSITE);
 }
 
 void GuiMain::mnuToolWebsite(wxCommandEvent& event) {
     wxLaunchDefaultBrowser(_T("http://mp3val.sourceforge.net/"));
+}
+
+void GuiMain::mnuWebsite(wxCommandEvent& event) {
+    wxLaunchDefaultBrowser(APP_WEBSITE);
 }
 
 void GuiMain::mnuAbout(wxCommandEvent& event) {

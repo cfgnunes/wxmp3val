@@ -11,7 +11,8 @@
 
 class GuiSettings : public Settings {
 public:
-    GuiSettings(wxWindow* parent, ConfigBase* configBase);
+    GuiSettings(wxWindow *parent, ConfigBase *configBase);
+    virtual ~GuiSettings();
 
 protected:
     void OnbtnDefaultClick(wxCommandEvent& event);
@@ -24,7 +25,7 @@ private:
     void saveValuesConfig();
     void setLabelsControls();
 
-    ConfigBase* mp_configBase;
+    ConfigBase *mp_configBase;
 };
 
 #endif // GUISETTINGS_H

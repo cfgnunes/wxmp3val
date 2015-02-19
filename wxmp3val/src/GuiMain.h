@@ -8,7 +8,7 @@
 
 #include "Gui.h"
 #include "ConfigBase.h"
-#include "FileInfo.h"
+#include "FileListManager.h"
 #include "DndFile.h"
 
 class GuiMain : public Main {
@@ -41,7 +41,7 @@ private:
     void loadResources();
 
     ConfigBase *mp_configBase;
-    ArrayOfFiles *mp_lstFilesData;
+    FileListManager *mp_fileListManager;
     DndFile *mp_dndFile;
     wxString m_exeTool;
     wxArrayString m_exeInputString;
