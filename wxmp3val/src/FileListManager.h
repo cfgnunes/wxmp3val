@@ -11,7 +11,6 @@
 #include <wx/listctrl.h>
 #include <wx/arrstr.h>
 #include <wx/filename.h>
-#include <wx/string.h>
 #include <list>
 
 class FileListManager {
