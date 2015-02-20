@@ -217,7 +217,7 @@ Settings::Settings( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	bSizer4 = new wxBoxSizer( wxVERTICAL );
 	
 	wxStaticBoxSizer* sbSizer2;
-	sbSizer2 = new wxStaticBoxSizer( new wxStaticBox( m_panel1, wxID_ANY, _("Other options") ), wxVERTICAL );
+	sbSizer2 = new wxStaticBoxSizer( new wxStaticBox( m_panel1, wxID_ANY, _("File options") ), wxVERTICAL );
 	
 	g_chkKeepTimestamps = new wxCheckBox( m_panel1, wxID_ANY, _("Keep file timestamps"), wxDefaultPosition, wxDefaultSize, 0 );
 	sbSizer2->Add( g_chkKeepTimestamps, 0, wxALL, 2 );
