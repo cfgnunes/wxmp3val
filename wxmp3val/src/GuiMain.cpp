@@ -220,7 +220,9 @@ void GuiMain::OnTimer1Trigger(wxTimerEvent& event) {
     // Show the number of files in list on status bar
     g_mainStatusBar->SetStatusText(wxString::Format(_T("%i "), g_lstFiles->GetItemCount()) + _("files"), 1);
 
-    g_mainMenuBar->Enable(!m_processRunning);
+    for (size_t i = 0; i < g_mainMenuBar->GetMenuCount(); i++)
+        g_mainMenuBar->EnableTop(i, !m_processRunning);
+
     g_mainToolBar->Enable(!m_processRunning);
 
     g_mainMenu->Enable(ID_REMOVE_FILES, g_lstFiles->GetSelectedItemCount() > 0 && !m_processRunning);
