@@ -47,6 +47,16 @@ int const ID_LIST_TAGS = 3;
 int const ID_LIST_CBR = 4;
 int const ID_LIST_STATE = 5;
 
+// ID for work type
+int const TOOL_SCAN = 0;
+int const TOOL_FIX = 1;
+
+// ID for MP3 state
+int const STATE_MP3_OK = 0;
+int const STATE_MP3_PROBLEM = 1;
+int const STATE_MP3_FIXED = 2;
+int const STATE_MP3_UNKNOWN = 3;
+
 inline wxString GetResourceDir() {
 #ifdef __LINUX__
     wxString resourceDir = _T("/usr/share/wxmp3val/resource/");

@@ -17,7 +17,10 @@
 #include <wx/colour.h>
 #include <wx/settings.h>
 #include <wx/string.h>
+#include <wx/gauge.h>
+#include <wx/button.h>
 #include <wx/sizer.h>
+#include <wx/panel.h>
 #include <wx/bitmap.h>
 #include <wx/image.h>
 #include <wx/icon.h>
@@ -28,9 +31,7 @@
 #include <wx/frame.h>
 #include <wx/checkbox.h>
 #include <wx/statbox.h>
-#include <wx/panel.h>
 #include <wx/notebook.h>
-#include <wx/button.h>
 #include <wx/dialog.h>
 
 ///////////////////////////////////////////////////////////////////////////
@@ -55,7 +56,10 @@ class Main : public wxFrame
 	private:
 	
 	protected:
+		wxPanel* m_panel2;
 		wxListCtrl* g_lstFiles;
+		wxGauge* g_gugProgress;
+		wxButton* g_btnStop;
 		wxMenuBar* g_mainMenuBar;
 		wxMenu* g_mnbFile;
 		wxMenu* g_mnbEdit;
@@ -80,6 +84,7 @@ class Main : public wxFrame
 		virtual void OnlstFilesItemSelect( wxListEvent& event ) { event.Skip(); }
 		virtual void OnlstFilesItemRClick( wxListEvent& event ) { event.Skip(); }
 		virtual void OnlstFilesKeyDown( wxListEvent& event ) { event.Skip(); }
+		virtual void btnProcessStop( wxCommandEvent& event ) { event.Skip(); }
 		virtual void mnuAddDirectory( wxCommandEvent& event ) { event.Skip(); }
 		virtual void mnuAddFiles( wxCommandEvent& event ) { event.Skip(); }
 		virtual void mnuExit( wxCommandEvent& event ) { event.Skip(); }

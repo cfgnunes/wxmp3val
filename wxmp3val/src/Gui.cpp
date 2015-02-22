@@ -16,8 +16,41 @@ Main::Main( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoin
 	wxBoxSizer* bSizer1;
 	bSizer1 = new wxBoxSizer( wxHORIZONTAL );
 	
-	g_lstFiles = new wxListCtrl( this, wxID_ANY, wxDefaultPosition, wxSize( -1,-1 ), wxLC_REPORT );
-	bSizer1->Add( g_lstFiles, 1, wxALL|wxEXPAND, 0 );
+	wxBoxSizer* bSizer5;
+	bSizer5 = new wxBoxSizer( wxVERTICAL );
+	
+	m_panel2 = new wxPanel( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
+	wxBoxSizer* bSizer6;
+	bSizer6 = new wxBoxSizer( wxVERTICAL );
+	
+	g_lstFiles = new wxListCtrl( m_panel2, wxID_ANY, wxDefaultPosition, wxSize( -1,-1 ), wxLC_REPORT );
+	bSizer6->Add( g_lstFiles, 1, wxALL|wxEXPAND, 0 );
+	
+	wxBoxSizer* bSizer7;
+	bSizer7 = new wxBoxSizer( wxHORIZONTAL );
+	
+	g_gugProgress = new wxGauge( m_panel2, wxID_ANY, 100, wxDefaultPosition, wxDefaultSize, wxGA_HORIZONTAL );
+	g_gugProgress->SetValue( 0 ); 
+	g_gugProgress->Enable( false );
+	
+	bSizer7->Add( g_gugProgress, 1, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+	
+	g_btnStop = new wxButton( m_panel2, wxID_ANY, _("&Stop"), wxDefaultPosition, wxDefaultSize, 0 );
+	g_btnStop->Enable( false );
+	
+	bSizer7->Add( g_btnStop, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+	
+	
+	bSizer6->Add( bSizer7, 0, wxEXPAND, 5 );
+	
+	
+	m_panel2->SetSizer( bSizer6 );
+	m_panel2->Layout();
+	bSizer6->Fit( m_panel2 );
+	bSizer5->Add( m_panel2, 1, wxEXPAND, 5 );
+	
+	
+	bSizer1->Add( bSizer5, 1, wxEXPAND, 5 );
 	
 	
 	this->SetSizer( bSizer1 );
@@ -141,6 +174,7 @@ Main::Main( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoin
 	g_lstFiles->Connect( wxEVT_COMMAND_LIST_ITEM_RIGHT_CLICK, wxListEventHandler( Main::OnlstFilesItemRClick ), NULL, this );
 	g_lstFiles->Connect( wxEVT_COMMAND_LIST_ITEM_SELECTED, wxListEventHandler( Main::OnlstFilesItemSelect ), NULL, this );
 	g_lstFiles->Connect( wxEVT_COMMAND_LIST_KEY_DOWN, wxListEventHandler( Main::OnlstFilesKeyDown ), NULL, this );
+	g_btnStop->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Main::btnProcessStop ), NULL, this );
 	this->Connect( g_mnbAddFolder->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( Main::mnuAddDirectory ) );
 	this->Connect( g_mnbAddFiles->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( Main::mnuAddFiles ) );
 	this->Connect( g_mnbExit->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( Main::mnuExit ) );
@@ -176,6 +210,7 @@ Main::~Main()
 	g_lstFiles->Disconnect( wxEVT_COMMAND_LIST_ITEM_RIGHT_CLICK, wxListEventHandler( Main::OnlstFilesItemRClick ), NULL, this );
 	g_lstFiles->Disconnect( wxEVT_COMMAND_LIST_ITEM_SELECTED, wxListEventHandler( Main::OnlstFilesItemSelect ), NULL, this );
 	g_lstFiles->Disconnect( wxEVT_COMMAND_LIST_KEY_DOWN, wxListEventHandler( Main::OnlstFilesKeyDown ), NULL, this );
+	g_btnStop->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Main::btnProcessStop ), NULL, this );
 	this->Disconnect( ID_ADD_FOLDER, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( Main::mnuAddDirectory ) );
 	this->Disconnect( ID_ADD_FILES, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( Main::mnuAddFiles ) );
 	this->Disconnect( ID_EXIT, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( Main::mnuExit ) );

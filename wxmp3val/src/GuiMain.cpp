@@ -5,15 +5,15 @@
 
 #include "GuiMain.h"
 #include "GuiSettings.h"
-#include "Progress.h"
 #include "Constants.h"
 
+#include <wx/msgdlg.h>
 #include <wx/aboutdlg.h>
 #include <wx/filedlg.h>
 #include <wx/dirdlg.h>
 
 GuiMain::GuiMain(wxWindow* parent)
-: Main(parent) {
+: Main(parent), m_processRunning(false) {
     // Disable status bar pane used to display menu and toolbar help
     SetStatusBarPane(-1);
 
@@ -33,7 +33,7 @@ GuiMain::GuiMain(wxWindow* parent)
     g_lstFiles->InsertColumn(ID_LIST_STATE, _("State"), wxLIST_FORMAT_LEFT, 70);
 
     // Set statusbar widths
-    const int wxStatusBarWidths [3] = {-10, -5, -10};
+    const int wxStatusBarWidths [3] = {-10, -10, -5};
     g_mainStatusBar->SetStatusWidths(3, wxStatusBarWidths);
 
     // Configuration file
@@ -55,6 +55,9 @@ GuiMain::~GuiMain() {
 }
 
 void GuiMain::OnlstFilesDeleteItem(wxListEvent& event) {
+    if (m_processRunning)
+        return;
+
     mp_fileListManager->deleteItem(event.GetIndex());
 
     updateControls();
@@ -62,16 +65,25 @@ void GuiMain::OnlstFilesDeleteItem(wxListEvent& event) {
 }
 
 void GuiMain::OnlstFilesInsertItem(wxListEvent& event) {
+    if (m_processRunning)
+        return;
+
     updateControls();
     event.Skip();
 }
 
 void GuiMain::OnlstFilesItemSelect(wxListEvent& event) {
+    if (m_processRunning)
+        return;
+
     updateControls();
     event.Skip();
 }
 
 void GuiMain::OnlstFilesItemRClick(wxListEvent& event) {
+    if (m_processRunning)
+        return;
+
     updateControls();
 
     // Displays the popup menu when you click a list item
@@ -80,12 +92,19 @@ void GuiMain::OnlstFilesItemRClick(wxListEvent& event) {
 }
 
 void GuiMain::OnlstFilesKeyDown(wxListEvent& event) {
+    if (m_processRunning)
+        return;
+
     // Remove files with Delete key
     int keyCode = event.GetKeyCode();
     if (keyCode == WXK_DELETE)
         mnuRemoveFiles(event);
 
     event.Skip();
+}
+
+void GuiMain::btnProcessStop(wxCommandEvent& event) {
+    m_processRunning = false;
 }
 
 void GuiMain::mnuAddDirectory(wxCommandEvent& event) {
@@ -154,15 +173,21 @@ void GuiMain::mnuSettings(wxCommandEvent& event) {
 }
 
 void GuiMain::mnuScan(wxCommandEvent& event) {
-    // Displays the "Progress" window
-    Progress progressDialog(this, mp_configBase, mp_fileListManager, TOOL_SCAN);
-    progressDialog.execute();
+    m_processType = TOOL_SCAN;
+    m_processRunning = true;
+    updateControls();
+    processExecute();
+    m_processRunning = false;
+    updateControls();
 }
 
 void GuiMain::mnuRepair(wxCommandEvent& event) {
-    // Displays the "Progress" window
-    Progress progressDialog(this, mp_configBase, mp_fileListManager, TOOL_FIX);
-    progressDialog.execute();
+    m_processType = TOOL_FIX;
+    m_processRunning = true;
+    updateControls();
+    processExecute();
+    m_processRunning = false;
+    updateControls();
 }
 
 void GuiMain::mnuToolWebsite(wxCommandEvent& event) {
@@ -208,21 +233,37 @@ void GuiMain::OnTimer1Trigger(wxTimerEvent& event) {
     // Show the number of files in list on status bar
     g_mainStatusBar->SetStatusText(wxString::Format(_T("%i "), g_lstFiles->GetItemCount()) + _("files"), 1);
 
-    // Disables the menu item "Remove files" if no item is selected
-    g_mainMenu->Enable(ID_REMOVE_FILES, g_lstFiles->GetSelectedItemCount() > 0);
-    g_mainMenuBar->Enable(ID_REMOVE_FILES, g_lstFiles->GetSelectedItemCount() > 0);
-    g_mainToolBar->EnableTool(ID_REMOVE_FILES, g_lstFiles->GetSelectedItemCount() > 0);
+    g_mainMenu->Enable(ID_ADD_FOLDER, !m_processRunning);
+    g_mainMenuBar->Enable(ID_ADD_FOLDER, !m_processRunning);
+    g_mainToolBar->EnableTool(ID_ADD_FOLDER, !m_processRunning);
 
-    // Disables the menu item "Clear list" if there is no item in the list
-    g_mainMenu->Enable(ID_CLEAR_LIST, g_lstFiles->GetItemCount() > 0);
-    g_mainMenuBar->Enable(ID_CLEAR_LIST, g_lstFiles->GetItemCount() > 0);
-    g_mainToolBar->EnableTool(ID_CLEAR_LIST, g_lstFiles->GetItemCount() > 0);
+    g_mainMenu->Enable(ID_ADD_FILES, !m_processRunning);
+    g_mainMenuBar->Enable(ID_ADD_FILES, !m_processRunning);
+    g_mainToolBar->EnableTool(ID_ADD_FILES, !m_processRunning);
 
-    // Disables menus Scan and Repair case there is no item in the list
-    g_mainMenuBar->Enable(ID_SCAN, g_lstFiles->GetItemCount() > 0);
-    g_mainMenuBar->Enable(ID_REPAIR, g_lstFiles->GetItemCount() > 0);
-    g_mainToolBar->EnableTool(ID_SCAN, g_lstFiles->GetItemCount() > 0);
-    g_mainToolBar->EnableTool(ID_REPAIR, g_lstFiles->GetItemCount() > 0);
+    g_mainMenu->Enable(ID_REMOVE_FILES, g_lstFiles->GetSelectedItemCount() > 0 && !m_processRunning);
+    g_mainMenuBar->Enable(ID_REMOVE_FILES, g_lstFiles->GetSelectedItemCount() > 0 && !m_processRunning);
+    g_mainToolBar->EnableTool(ID_REMOVE_FILES, g_lstFiles->GetSelectedItemCount() > 0 && !m_processRunning);
+
+    g_mainMenu->Enable(ID_CLEAR_LIST, g_lstFiles->GetItemCount() > 0 && !m_processRunning);
+    g_mainMenuBar->Enable(ID_CLEAR_LIST, g_lstFiles->GetItemCount() > 0 && !m_processRunning);
+    g_mainToolBar->EnableTool(ID_CLEAR_LIST, g_lstFiles->GetItemCount() > 0 && !m_processRunning);
+
+    g_mainMenuBar->Enable(ID_SETTINGS, !m_processRunning);
+    g_mainToolBar->EnableTool(ID_SETTINGS, !m_processRunning);
+
+    g_mainMenuBar->Enable(ID_SCAN, g_lstFiles->GetItemCount() > 0 && !m_processRunning);
+    g_mainToolBar->EnableTool(ID_SCAN, g_lstFiles->GetItemCount() > 0 && !m_processRunning);
+
+
+    g_mainMenuBar->Enable(ID_REPAIR, g_lstFiles->GetItemCount() > 0 && !m_processRunning);
+    g_mainToolBar->EnableTool(ID_REPAIR, g_lstFiles->GetItemCount() > 0 && !m_processRunning);
+
+    g_mainMenuBar->Enable(ID_ABOUT, !m_processRunning);
+    g_mainToolBar->EnableTool(ID_ABOUT, !m_processRunning);
+
+    g_btnStop->Enable(m_processRunning);
+    g_gugProgress->Enable(m_processRunning);
 }
 
 void GuiMain::loadResources() {
@@ -256,4 +297,107 @@ void GuiMain::updateControls() {
 
 void GuiMain::setFilesCmdLine(const wxArrayString& filenames) {
     mp_fileListManager->insertFilesAndDir(filenames);
+}
+
+void GuiMain::processExecute() {
+    unsigned long int maxValue = mp_fileListManager->size();
+    unsigned long int i;
+
+    g_gugProgress->SetRange((int) maxValue);
+    for (i = 0; i < maxValue; i++) {
+        processFile(i);
+        g_gugProgress->SetValue((int) i + 1);
+
+        if (!m_processRunning) {
+            m_processRunning = true;
+            if (wxMessageBox(_("Do you want to stop process now?"), APP_NAME, wxYES_NO | wxICON_QUESTION) == wxYES)
+                break;
+        }
+    }
+    wxMessageBox(wxString::Format(_("Processed %lu files of %lu."), i, maxValue), APP_NAME, wxOK | wxICON_INFORMATION);
+    g_gugProgress->SetValue(0);
+}
+
+void GuiMain::processFile(unsigned long int fileIterator) {
+    wxString fullCommand = APP_TOOL_EXECUTABLE;
+    FileInfo& fileInfo = mp_fileListManager->getItem(fileIterator);
+    wxFileName filenameInput = fileInfo.getFileName();
+
+    // Do not process OK MP3's again
+    if (fileInfo.getStateMP3() == STATE_MP3_OK)
+        return;
+
+    if (m_processType == TOOL_FIX)
+        fullCommand.append(_T(" -f ") + mp_configBase->getStringToolOptions());
+
+    // Execute external application
+    wxExecute(fullCommand + _T(" \"") + filenameInput.GetFullPath() + _T("\""), m_exeInputString, wxEXEC_NODISABLE | wxEXEC_SYNC);
+
+    // Process output string and updates the list
+    int stateMP3 = processOutputString(fileIterator);
+    fileInfo.setStateMP3(stateMP3);
+
+    g_mainStatusBar->SetStatusText(wxString::Format(_("Processed %lu files of %lu."), fileIterator + 1, mp_fileListManager->size()), 1);
+}
+
+int GuiMain::processOutputString(unsigned long int fileIterator) {
+    wxString tempString;
+    int stateMP3 = STATE_MP3_OK;
+    int warningCount = 0;
+
+    if (!m_exeInputString.IsEmpty()) {
+        for (unsigned long int i = 0; i < m_exeInputString.GetCount(); i++) {
+            tempString = m_exeInputString.Item(i);
+
+            if (tempString.Find(_T("MPEG frames")) != wxNOT_FOUND) {
+                // Cut the string for: "MPEG frames..."
+                tempString = tempString.Right(tempString.Len() - tempString.Find(_T("MPEG frames")));
+
+                // Update Version column
+                if (tempString.AfterFirst('(').BeforeFirst(')').Find(_T("MPEG")) != wxNOT_FOUND)
+                    mp_fileListManager->getOwner().SetItem(fileIterator, ID_LIST_VERSION, tempString.AfterFirst('(').BeforeFirst(')'));
+
+                // Update Tags column
+                mp_fileListManager->getOwner().SetItem(fileIterator, ID_LIST_TAGS, tempString.AfterFirst(',').BeforeFirst(','));
+
+                // Update CBR column
+                if (tempString.AfterFirst(',').AfterFirst(',').Find(_T("CBR")) != wxNOT_FOUND)
+                    mp_fileListManager->getOwner().SetItem(fileIterator, ID_LIST_CBR, _T("CBR"));
+                else
+                    mp_fileListManager->getOwner().SetItem(fileIterator, ID_LIST_CBR, _T("VBR"));
+            }
+
+            if (tempString.StartsWith(_T("WARNING: ")))
+                warningCount++;
+
+            if (tempString.Find(_T("tags in the file")) != wxNOT_FOUND)
+                warningCount--;
+
+            if (tempString.StartsWith(_T("FIXED: ")))
+                stateMP3 = STATE_MP3_FIXED;
+        }
+
+        if (stateMP3 == STATE_MP3_OK && warningCount > 0)
+            stateMP3 = STATE_MP3_PROBLEM;
+
+        // Update State column
+        switch (stateMP3) {
+            case STATE_MP3_OK:
+                mp_fileListManager->getOwner().SetItem(fileIterator, ID_LIST_STATE, _("OK"));
+                mp_fileListManager->getOwner().SetItemTextColour(fileIterator, *wxBLACK);
+                break;
+            case STATE_MP3_PROBLEM:
+                mp_fileListManager->getOwner().SetItem(fileIterator, ID_LIST_STATE, _("PROBLEM"));
+                mp_fileListManager->getOwner().SetItemTextColour(fileIterator, *wxRED);
+                break;
+            case STATE_MP3_FIXED:
+                mp_fileListManager->getOwner().SetItem(fileIterator, ID_LIST_STATE, _("FIXED"));
+                mp_fileListManager->getOwner().SetItemTextColour(fileIterator, *wxBLACK);
+                break;
+        }
+
+        // Clear the output
+        m_exeInputString.Clear();
+    }
+    return stateMP3;
 }
