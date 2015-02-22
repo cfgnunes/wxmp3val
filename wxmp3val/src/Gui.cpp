@@ -13,11 +13,8 @@ Main::Main( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoin
 {
 	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
 	
-	wxBoxSizer* bSizer1;
-	bSizer1 = new wxBoxSizer( wxHORIZONTAL );
-	
-	wxBoxSizer* bSizer5;
-	bSizer5 = new wxBoxSizer( wxVERTICAL );
+	wxBoxSizer* g_boxMain;
+	g_boxMain = new wxBoxSizer( wxHORIZONTAL );
 	
 	m_panel2 = new wxPanel( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
 	wxBoxSizer* bSizer6;
@@ -47,13 +44,10 @@ Main::Main( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoin
 	m_panel2->SetSizer( bSizer6 );
 	m_panel2->Layout();
 	bSizer6->Fit( m_panel2 );
-	bSizer5->Add( m_panel2, 1, wxEXPAND, 5 );
+	g_boxMain->Add( m_panel2, 1, wxEXPAND, 5 );
 	
 	
-	bSizer1->Add( bSizer5, 1, wxEXPAND, 5 );
-	
-	
-	this->SetSizer( bSizer1 );
+	this->SetSizer( g_boxMain );
 	this->Layout();
 	g_mainMenuBar = new wxMenuBar( 0 );
 	g_mnbFile = new wxMenu();
