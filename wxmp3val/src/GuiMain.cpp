@@ -205,12 +205,6 @@ void GuiMain::mnuAbout(wxCommandEvent& event) {
     aboutInfo.SetDescription(_("Free front-end for the MP3val"));
     aboutInfo.SetCopyright(APP_COPYRIGHT);
     aboutInfo.SetWebSite(APP_WEBSITE);
-    aboutInfo.AddDeveloper(APP_AUTHOR);
-    aboutInfo.AddTranslator(APP_AUTHOR);
-    aboutInfo.AddTranslator(_T("Carlos Sánchez <carlos1994sanchez@gmail.com>"));
-    aboutInfo.AddTranslator(_T("Jan Rimmek <jan@rimmek.de>"));
-    aboutInfo.AddTranslator(_T("Sergey Basalaev <sbasalaev@gmail.com>"));
-    aboutInfo.AddTranslator(_T("Pavel Fric <pavelfric@seznam.cz>"));
     wxAboutBox(aboutInfo);
 }
 
@@ -254,7 +248,6 @@ void GuiMain::OnTimer1Trigger(wxTimerEvent& event) {
 
     g_mainMenuBar->Enable(ID_SCAN, g_lstFiles->GetItemCount() > 0 && !m_processRunning);
     g_mainToolBar->EnableTool(ID_SCAN, g_lstFiles->GetItemCount() > 0 && !m_processRunning);
-
 
     g_mainMenuBar->Enable(ID_REPAIR, g_lstFiles->GetItemCount() > 0 && !m_processRunning);
     g_mainToolBar->EnableTool(ID_REPAIR, g_lstFiles->GetItemCount() > 0 && !m_processRunning);

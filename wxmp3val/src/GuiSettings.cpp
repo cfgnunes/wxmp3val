@@ -8,9 +8,6 @@
 
 GuiSettings::GuiSettings(wxWindow *parent, ConfigBase *configBase)
 : Settings(parent), mp_configBase(configBase) {
-    // Set labels of controls
-    setLabelsControls();
-
     // Updates the values controls according to the configuration file
     updateValueControls();
 }
@@ -51,7 +48,4 @@ void GuiSettings::defaultValueControls() {
     // General controls
     g_chkKeepTimestamps->SetValue(DEFAULT_VALUE_KeepTimestamp);
     g_chkDeleteBackup->SetValue(DEFAULT_VALUE_DeleteBackup);
-}
-
-void GuiSettings::setLabelsControls() {
 }

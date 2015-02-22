@@ -22,6 +22,18 @@ const wxString APP_TOOL_EXECUTABLE = _T("mp3val");
 const wxString APP_WILDCARD_EXT = _T("MP3 files (*.mp3)|*.mp3;*.MP3");
 const wxString APP_OPEN_EXT = _T("mp3");
 
+enum ProcessTypeValues {
+    TOOL_SCAN,
+    TOOL_FIX
+};
+
+enum StateMP3Values {
+    STATE_MP3_OK,
+    STATE_MP3_PROBLEM,
+    STATE_MP3_FIXED,
+    STATE_MP3_UNKNOWN
+};
+
 // Config Group Strings
 const wxString CONFIG_GROUP_SYSTEM = _T("/System/");
 const wxString CONFIG_GROUP_GENERAL = _T("/General/");
@@ -46,16 +58,6 @@ int const ID_LIST_VERSION = 2;
 int const ID_LIST_TAGS = 3;
 int const ID_LIST_CBR = 4;
 int const ID_LIST_STATE = 5;
-
-// ID for work type
-int const TOOL_SCAN = 0;
-int const TOOL_FIX = 1;
-
-// ID for MP3 state
-int const STATE_MP3_OK = 0;
-int const STATE_MP3_PROBLEM = 1;
-int const STATE_MP3_FIXED = 2;
-int const STATE_MP3_UNKNOWN = 3;
 
 inline wxString GetResourceDir() {
 #ifdef __LINUX__
