@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: wxMP3val\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-04-26 19:09-0300\n"
-"PO-Revision-Date: 2015-02-19 21:27-0300\n"
+"PO-Revision-Date: 2015-02-22 00:35-0300\n"
 "Last-Translator: Cristiano Nunes <cfgnunes@gmail.com>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
@@ -15,31 +15,35 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.5.4\n"
 
-#: Gui.cpp:69
+#: Gui.cpp:96
 msgid "&Actions"
 msgstr "A&cciones"
 
-#: Gui.cpp:58
+#: Gui.cpp:85
 msgid "&Edit"
 msgstr "&Editar"
 
-#: Gui.cpp:41
+#: Gui.cpp:68
 msgid "&File"
 msgstr "&Archivo"
 
-#: Gui.cpp:86
+#: Gui.cpp:113
 msgid "&Help"
 msgstr "A&yuda"
 
-#: Gui.cpp:83 Gui.cpp:110
+#: Gui.cpp:35
+msgid "&Stop"
+msgstr "&Detener"
+
+#: Gui.cpp:110 Gui.cpp:137
 msgid "About"
 msgstr "Acerca de..."
 
-#: Gui.cpp:32 Gui.cpp:94 Gui.cpp:120
+#: Gui.cpp:59 Gui.cpp:121 Gui.cpp:147
 msgid "Add files"
 msgstr "Añadir archivo(s)"
 
-#: Gui.cpp:28 Gui.cpp:92 Gui.cpp:116
+#: Gui.cpp:55 Gui.cpp:119 Gui.cpp:143
 msgid "Add folder"
 msgstr "Añadir carpeta"
 
@@ -47,27 +51,27 @@ msgstr "Añadir carpeta"
 msgid "CBR"
 msgstr "CBR"
 
-#: Gui.cpp:248
+#: Gui.cpp:277
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: Gui.cpp:49 Gui.cpp:98 Gui.cpp:128
+#: Gui.cpp:76 Gui.cpp:125 Gui.cpp:155
 msgid "Clear list"
 msgstr "Limpiar lista"
 
-#: Gui.cpp:225
+#: Gui.cpp:254
 msgid "Delete bakup files"
 msgstr "Eliminar archivos de copias de seguridad"
 
-#: Progress.cpp:31
+#: GuiMain.cpp:313
 msgid "Do you want to stop process now?"
 msgstr "¿Quiere detener el proceso ahora?"
 
-#: Gui.cpp:38
+#: Gui.cpp:65
 msgid "Exit"
 msgstr "Salir"
 
-#: Progress.cpp:104
+#: GuiMain.cpp:396
 msgid "FIXED"
 msgstr "ARREGLADO"
 
@@ -75,7 +79,7 @@ msgstr "ARREGLADO"
 msgid "File"
 msgstr "Archivo"
 
-#: Gui.cpp:220
+#: Gui.cpp:249
 msgid "File options"
 msgstr "Opciones de archivo"
 
@@ -83,68 +87,64 @@ msgstr "Opciones de archivo"
 msgid "Folder"
 msgstr "Carpeta"
 
-#: GuiMain.cpp:180
+#: GuiMain.cpp:205
 msgid "Free front-end for the MP3val"
 msgstr "Front-end libre para MP3val"
 
-#: Gui.cpp:235
+#: Gui.cpp:264
 msgid "General"
 msgstr "General"
 
-#: Gui.cpp:222
+#: Gui.cpp:251
 msgid "Keep file timestamps"
 msgstr "Mantener marcas de tiempo"
 
-#: Gui.cpp:73
+#: Gui.cpp:100
 msgid "MP3val Website"
 msgstr "Sitio web de MP3val"
 
-#: GuiMain.cpp:205
+#: GuiMain.cpp:230
 msgid "MP3val not found!"
 msgstr "MP3val no encontrado!"
 
-#: Gui.cpp:245 Progress.cpp:96
+#: Gui.cpp:274 GuiMain.cpp:388
 msgid "OK"
 msgstr "Aceptar"
 
-#: Progress.cpp:100
+#: GuiMain.cpp:392
 msgid "PROBLEM"
 msgstr "PROBLEMA"
 
-#: Progress.cpp:25 Progress.cpp:29
+#: GuiMain.cpp:319 GuiMain.cpp:342
 #, c-format
 msgid "Processed %lu files of %lu."
 msgstr "Procesado %lu archivo(s) de %lu."
 
-#: Progress.cpp:24
-msgid "Progress"
-msgstr "Progreso"
-
-#: Gui.cpp:45 Gui.cpp:96 Gui.cpp:124
+#: Gui.cpp:72 Gui.cpp:123 Gui.cpp:151
 msgid "Remove files"
 msgstr "Quitar archivo(s)"
 
-#: Gui.cpp:66 Gui.cpp:104
+#: Gui.cpp:93 Gui.cpp:131
 msgid "Repair"
 msgstr "Reparar"
 
-#: Gui.cpp:242
+#: Gui.cpp:271
 msgid "Restore defaults"
 msgstr "Restaurar"
 
-#: Gui.cpp:62 Gui.cpp:102
+#: Gui.cpp:89 Gui.cpp:129
 msgid "Scan"
 msgstr "Escanear"
 
-#: GuiMain.cpp:92
+#: GuiMain.cpp:111
 msgid "Select directory"
 msgstr "Seleccionar directorio"
 
-#: GuiMain.cpp:108
+#: GuiMain.cpp:127
 msgid "Select file"
 msgstr "Seleccionar archivo(s)"
 
-#: Gui.cpp:55 Gui.cpp:108 Gui.h:134
+#: Gui.cpp:82 Gui.cpp:135 Gui.h:139
 msgid "Settings"
 msgstr "Configuración"
 
@@ -156,7 +156,7 @@ msgstr "Estado"
 msgid "Tags"
 msgstr "Etiquetas"
 
-#: GuiMain.cpp:203
+#: GuiMain.cpp:228
 msgid "Using MP3val version: "
 msgstr "Usando MP3val versión: "
 
@@ -164,29 +164,31 @@ msgstr "Usando MP3val versión: "
 msgid "Version"
 msgstr "Versión"
 
-#: Progress.cpp:24
-msgid "Wait..."
-msgstr "Espere..."
-
-#: GuiMain.cpp:209
+#: GuiMain.cpp:234
 msgid "files"
 msgstr "archivos"
 
-#: Gui.cpp:77
+#: Gui.cpp:104
 msgid "wxMP3val Website"
 msgstr "Sitio web de wxMP3val"
 
-msgid "Elapsed time : "
-msgstr "Tiempo transcurrido : "
+#~ msgid "Progress"
+#~ msgstr "Progreso"
 
-msgid "Estimated time : "
-msgstr "Tiempo estimado : "
+#~ msgid "Wait..."
+#~ msgstr "Espere..."
 
-msgid "Remaining time : "
-msgstr "Tiempo restante : "
+#~ msgid "Elapsed time : "
+#~ msgstr "Tiempo transcurrido : "
 
-msgid "Close"
-msgstr "Cerrar"
+#~ msgid "Estimated time : "
+#~ msgstr "Tiempo estimado : "
 
-msgid "unknown"
-msgstr "desconocido"
+#~ msgid "Remaining time : "
+#~ msgstr "Tiempo restante : "
+
+#~ msgid "Close"
+#~ msgstr "Cerrar"
+
+#~ msgid "unknown"
+#~ msgstr "desconocido"

@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: wxMP3val\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-04-26 19:09-0300\n"
-"PO-Revision-Date: 2015-02-19 21:27-0300\n"
+"PO-Revision-Date: 2015-02-22 00:36-0300\n"
 "Last-Translator: Cristiano Nunes <cfgnunes@gmail.com>\n"
 "Language-Team: Russian\n"
 "Language: ru\n"
@@ -17,31 +17,35 @@ msgstr ""
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Poedit 1.5.4\n"
 
-#: Gui.cpp:69
+#: Gui.cpp:96
 msgid "&Actions"
 msgstr "&Действия"
 
-#: Gui.cpp:58
+#: Gui.cpp:85
 msgid "&Edit"
 msgstr "&Правка"
 
-#: Gui.cpp:41
+#: Gui.cpp:68
 msgid "&File"
 msgstr "&Файл"
 
-#: Gui.cpp:86
+#: Gui.cpp:113
 msgid "&Help"
 msgstr "&Справка"
 
-#: Gui.cpp:83 Gui.cpp:110
+#: Gui.cpp:35
+msgid "&Stop"
+msgstr "&стоп"
+
+#: Gui.cpp:110 Gui.cpp:137
 msgid "About"
 msgstr "О программе"
 
-#: Gui.cpp:32 Gui.cpp:94 Gui.cpp:120
+#: Gui.cpp:59 Gui.cpp:121 Gui.cpp:147
 msgid "Add files"
 msgstr "Добавить файлы"
 
-#: Gui.cpp:28 Gui.cpp:92 Gui.cpp:116
+#: Gui.cpp:55 Gui.cpp:119 Gui.cpp:143
 msgid "Add folder"
 msgstr "Добавить папку"
 
@@ -49,27 +53,27 @@ msgstr "Добавить папку"
 msgid "CBR"
 msgstr "CBR"
 
-#: Gui.cpp:248
+#: Gui.cpp:277
 msgid "Cancel"
 msgstr "Отмена"
 
-#: Gui.cpp:49 Gui.cpp:98 Gui.cpp:128
+#: Gui.cpp:76 Gui.cpp:125 Gui.cpp:155
 msgid "Clear list"
 msgstr "Очистить список"
 
-#: Gui.cpp:225
+#: Gui.cpp:254
 msgid "Delete bakup files"
 msgstr "Удалить резервные копии"
 
-#: Progress.cpp:31
+#: GuiMain.cpp:313
 msgid "Do you want to stop process now?"
 msgstr "Хотите остановить процесс сейчас?"
 
-#: Gui.cpp:38
+#: Gui.cpp:65
 msgid "Exit"
 msgstr "Выход"
 
-#: Progress.cpp:104
+#: GuiMain.cpp:396
 msgid "FIXED"
 msgstr "ИСПРАВЛЕНО"
 
@@ -77,7 +81,7 @@ msgstr "ИСПРАВЛЕНО"
 msgid "File"
 msgstr "Файл"
 
-#: Gui.cpp:220
+#: Gui.cpp:249
 msgid "File options"
 msgstr "Опции файла"
 
@@ -85,68 +89,64 @@ msgstr "Опции файла"
 msgid "Folder"
 msgstr "папка"
 
-#: GuiMain.cpp:180
+#: GuiMain.cpp:205
 msgid "Free front-end for the MP3val"
 msgstr "Свободный интерфейс для MP3val"
 
-#: Gui.cpp:235
+#: Gui.cpp:264
 msgid "General"
 msgstr "Общие"
 
-#: Gui.cpp:222
+#: Gui.cpp:251
 msgid "Keep file timestamps"
 msgstr "Сохранять метки времени"
 
-#: Gui.cpp:73
+#: Gui.cpp:100
 msgid "MP3val Website"
 msgstr "веб-сайт MP3val"
 
-#: GuiMain.cpp:205
+#: GuiMain.cpp:230
 msgid "MP3val not found!"
 msgstr "MP3val не найден!"
 
-#: Gui.cpp:245 Progress.cpp:96
+#: Gui.cpp:274 GuiMain.cpp:388
 msgid "OK"
 msgstr "Ок"
 
-#: Progress.cpp:100
+#: GuiMain.cpp:392
 msgid "PROBLEM"
 msgstr "ПРОБЛЕМА"
 
-#: Progress.cpp:25 Progress.cpp:29
+#: GuiMain.cpp:319 GuiMain.cpp:342
 #, c-format
 msgid "Processed %lu files of %lu."
 msgstr "Обработано %lu файлов из %lu."
 
-#: Progress.cpp:24
-msgid "Progress"
-msgstr "Прогресс"
-
-#: Gui.cpp:45 Gui.cpp:96 Gui.cpp:124
+#: Gui.cpp:72 Gui.cpp:123 Gui.cpp:151
 msgid "Remove files"
 msgstr "Удалить файлы"
 
-#: Gui.cpp:66 Gui.cpp:104
+#: Gui.cpp:93 Gui.cpp:131
 msgid "Repair"
 msgstr "Восстановить"
 
-#: Gui.cpp:242
+#: Gui.cpp:271
 msgid "Restore defaults"
 msgstr "Восстановить значения по умолчанию"
 
-#: Gui.cpp:62 Gui.cpp:102
+#: Gui.cpp:89 Gui.cpp:129
 msgid "Scan"
 msgstr "Сканировать"
 
-#: GuiMain.cpp:92
+#: GuiMain.cpp:111
 msgid "Select directory"
 msgstr "Выбор дирекории"
 
-#: GuiMain.cpp:108
+#: GuiMain.cpp:127
 msgid "Select file"
 msgstr "Выбор файла"
 
-#: Gui.cpp:55 Gui.cpp:108 Gui.h:134
+#: Gui.cpp:82 Gui.cpp:135 Gui.h:139
 msgid "Settings"
 msgstr "Настройки"
 
@@ -158,7 +158,7 @@ msgstr "Статус"
 msgid "Tags"
 msgstr "Теги"
 
-#: GuiMain.cpp:203
+#: GuiMain.cpp:228
 msgid "Using MP3val version: "
 msgstr "Используется MP3val версии:"
 
@@ -166,29 +166,31 @@ msgstr "Используется MP3val версии:"
 msgid "Version"
 msgstr "Версия"
 
-#: Progress.cpp:24
-msgid "Wait..."
-msgstr "Ждите..."
-
-#: GuiMain.cpp:209
+#: GuiMain.cpp:234
 msgid "files"
 msgstr "файлы"
 
-#: Gui.cpp:77
+#: Gui.cpp:104
 msgid "wxMP3val Website"
 msgstr "Веб-сайт wxMP3val"
 
-msgid "Elapsed time : "
-msgstr "Затраченное время : "
+#~ msgid "Progress"
+#~ msgstr "Прогресс"
 
-msgid "Estimated time : "
-msgstr "Ожидаемое время : "
+#~ msgid "Wait..."
+#~ msgstr "Ждите..."
 
-msgid "Remaining time : "
-msgstr "Оставшееся время : "
+#~ msgid "Elapsed time : "
+#~ msgstr "Затраченное время : "
 
-msgid "Close"
-msgstr "Закрыть"
+#~ msgid "Estimated time : "
+#~ msgstr "Ожидаемое время : "
 
-msgid "unknown"
-msgstr "неизвестно"
+#~ msgid "Remaining time : "
+#~ msgstr "Оставшееся время : "
+
+#~ msgid "Close"
+#~ msgstr "Закрыть"
+
+#~ msgid "unknown"
+#~ msgstr "неизвестно"
