@@ -310,8 +310,10 @@ void GuiMain::processExecute() {
 
         if (!m_processRunning) {
             m_processRunning = true;
-            if (wxMessageBox(_("Do you want to stop process now?"), APP_NAME, wxYES_NO | wxICON_QUESTION) == wxYES)
+            if (wxMessageBox(_("Do you want to stop process now?"), APP_NAME, wxYES_NO | wxICON_QUESTION) == wxYES) {
+                i++;
                 break;
+            }
         }
     }
     wxMessageBox(wxString::Format(_("Processed %lu files of %lu."), i, maxValue), APP_NAME, wxOK | wxICON_INFORMATION);
