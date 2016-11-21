@@ -12,8 +12,8 @@
 #include <wx/filedlg.h>
 #include <wx/dirdlg.h>
 
-GuiMain::GuiMain(wxWindow* parent)
-: Main(parent), m_processRunning(false) {
+GuiMain::GuiMain(wxWindow *parent)
+        : Main(parent), m_processRunning(false) {
     // Disable status bar pane used to display menu and toolbar help
     SetStatusBarPane(-1);
 
@@ -33,7 +33,7 @@ GuiMain::GuiMain(wxWindow* parent)
     g_lstFiles->InsertColumn(ID_LIST_STATE, _("State"), wxLIST_FORMAT_LEFT, 70);
 
     // Set statusbar widths
-    const int wxStatusBarWidths [3] = {-10, -10, -5};
+    const int wxStatusBarWidths[3] = {-10, -10, -5};
     g_mainStatusBar->SetStatusWidths(3, wxStatusBarWidths);
 
     // Configuration file
@@ -54,29 +54,29 @@ GuiMain::~GuiMain() {
     delete mp_configBase;
 }
 
-void GuiMain::OnlstFilesDeleteItem(wxListEvent& event) {
+void GuiMain::OnlstFilesDeleteItem(wxListEvent &event) {
     if (!m_processRunning) {
-        mp_fileListManager->deleteItem(event.GetIndex());
+        mp_fileListManager->deleteItem((unsigned long) event.GetIndex());
         updateControls();
     }
     event.Skip();
 }
 
-void GuiMain::OnlstFilesInsertItem(wxListEvent& event) {
-    if (!m_processRunning) {
-        updateControls();
-    }
-    event.Skip();
-}
-
-void GuiMain::OnlstFilesItemSelect(wxListEvent& event) {
+void GuiMain::OnlstFilesInsertItem(wxListEvent &event) {
     if (!m_processRunning) {
         updateControls();
     }
     event.Skip();
 }
 
-void GuiMain::OnlstFilesItemRClick(wxListEvent& event) {
+void GuiMain::OnlstFilesItemSelect(wxListEvent &event) {
+    if (!m_processRunning) {
+        updateControls();
+    }
+    event.Skip();
+}
+
+void GuiMain::OnlstFilesItemRClick(wxListEvent &event) {
     if (!m_processRunning) {
         updateControls();
         // Displays the popup menu when you click a list item
@@ -85,7 +85,7 @@ void GuiMain::OnlstFilesItemRClick(wxListEvent& event) {
     event.Skip();
 }
 
-void GuiMain::OnlstFilesKeyDown(wxListEvent& event) {
+void GuiMain::OnlstFilesKeyDown(wxListEvent &event) {
     if (!m_processRunning) {
         // Remove files with Delete key
         int keyCode = event.GetKeyCode();
@@ -95,12 +95,12 @@ void GuiMain::OnlstFilesKeyDown(wxListEvent& event) {
     event.Skip();
 }
 
-void GuiMain::btnProcessStop(wxCommandEvent& event) {
+void GuiMain::btnProcessStop(wxCommandEvent &event) {
     m_processRunning = false;
     g_btnStop->Enable(false);
 }
 
-void GuiMain::mnuAddDirectory(wxCommandEvent& event) {
+void GuiMain::mnuAddDirectory(wxCommandEvent &event) {
     wxDirDialog dirDialog(this, _("Select directory"), wxEmptyString, wxDD_DEFAULT_STYLE);
 
     // Read the last directory used
@@ -115,9 +115,10 @@ void GuiMain::mnuAddDirectory(wxCommandEvent& event) {
     }
 }
 
-void GuiMain::mnuAddFiles(wxCommandEvent& event) {
+void GuiMain::mnuAddFiles(wxCommandEvent &event) {
     wxArrayString files;
-    wxFileDialog fileDialog(this, _("Select file"), wxEmptyString, wxEmptyString, APP_WILDCARD_EXT, wxFD_OPEN | wxFD_MULTIPLE);
+    wxFileDialog fileDialog(this, _("Select file"), wxEmptyString, wxEmptyString, APP_WILDCARD_EXT,
+                            wxFD_OPEN | wxFD_MULTIPLE);
 
     // Read the last directory used
     fileDialog.SetDirectory(mp_configBase->getLastOpenDir());
@@ -135,12 +136,12 @@ void GuiMain::mnuAddFiles(wxCommandEvent& event) {
     }
 }
 
-void GuiMain::mnuExit(wxCommandEvent& event) {
+void GuiMain::mnuExit(wxCommandEvent &event) {
     // Terminates the program
     Close();
 }
 
-void GuiMain::mnuRemoveFiles(wxCommandEvent& event) {
+void GuiMain::mnuRemoveFiles(wxCommandEvent &event) {
     int itemCount = g_lstFiles->GetSelectedItemCount();
     SetCursor(wxCURSOR_WAIT);
     for (int i = 0; i < itemCount; i++)
@@ -150,14 +151,14 @@ void GuiMain::mnuRemoveFiles(wxCommandEvent& event) {
     updateControls();
 }
 
-void GuiMain::mnuClearList(wxCommandEvent& event) {
+void GuiMain::mnuClearList(wxCommandEvent &event) {
     // Deletes all items from the list
     mp_fileListManager->clear();
 
     updateControls();
 }
 
-void GuiMain::mnuSettings(wxCommandEvent& event) {
+void GuiMain::mnuSettings(wxCommandEvent &event) {
     // Displays the "Settings" window
     GuiSettings guiSettings(this, mp_configBase);
     guiSettings.ShowModal();
@@ -165,7 +166,7 @@ void GuiMain::mnuSettings(wxCommandEvent& event) {
     updateControls();
 }
 
-void GuiMain::mnuScan(wxCommandEvent& event) {
+void GuiMain::mnuScan(wxCommandEvent &event) {
     m_processType = TOOL_SCAN;
     m_processRunning = true;
     updateControls();
@@ -174,7 +175,7 @@ void GuiMain::mnuScan(wxCommandEvent& event) {
     updateControls();
 }
 
-void GuiMain::mnuRepair(wxCommandEvent& event) {
+void GuiMain::mnuRepair(wxCommandEvent &event) {
     m_processType = TOOL_FIX;
     m_processRunning = true;
     updateControls();
@@ -183,15 +184,15 @@ void GuiMain::mnuRepair(wxCommandEvent& event) {
     updateControls();
 }
 
-void GuiMain::mnuToolWebsite(wxCommandEvent& event) {
+void GuiMain::mnuToolWebsite(wxCommandEvent &event) {
     wxLaunchDefaultBrowser(_T("http://mp3val.sourceforge.net/"));
 }
 
-void GuiMain::mnuWebsite(wxCommandEvent& event) {
+void GuiMain::mnuWebsite(wxCommandEvent &event) {
     wxLaunchDefaultBrowser(APP_WEBSITE);
 }
 
-void GuiMain::mnuAbout(wxCommandEvent& event) {
+void GuiMain::mnuAbout(wxCommandEvent &event) {
     wxAboutDialogInfo aboutInfo;
     aboutInfo.SetName(APP_NAME);
     aboutInfo.SetVersion(APP_VERSION);
@@ -201,7 +202,7 @@ void GuiMain::mnuAbout(wxCommandEvent& event) {
     wxAboutBox(aboutInfo);
 }
 
-void GuiMain::OnTimer1Trigger(wxTimerEvent& event) {
+void GuiMain::OnTimer1Trigger(wxTimerEvent &event) {
     wxString newExeTool = APP_TOOL_EXECUTABLE;
     if (!m_exeTool.IsSameAs(newExeTool, false)) {
         m_exeInputString.Clear();
@@ -271,7 +272,7 @@ void GuiMain::updateControls() {
     m_timer1.Start(20, true);
 }
 
-void GuiMain::setFilesCmdLine(const wxArrayString& filenames) {
+void GuiMain::setFilesCmdLine(const wxArrayString &filenames) {
     mp_fileListManager->insertFilesAndDir(filenames);
 }
 
@@ -299,7 +300,7 @@ void GuiMain::processExecute() {
 
 void GuiMain::processFile(unsigned long int fileIterator) {
     wxString fullCommand = APP_TOOL_EXECUTABLE;
-    FileInfo& fileInfo = mp_fileListManager->getItem(fileIterator);
+    FileInfo &fileInfo = mp_fileListManager->getItem(fileIterator);
     wxFileName filenameInput = fileInfo.getFileName();
 
     // Do not process OK MP3's again
@@ -310,13 +311,15 @@ void GuiMain::processFile(unsigned long int fileIterator) {
         fullCommand.append(_T(" -f ") + mp_configBase->getStringToolOptions());
 
     // Execute external application
-    wxExecute(fullCommand + _T(" \"") + filenameInput.GetFullPath() + _T("\""), m_exeInputString, wxEXEC_NODISABLE | wxEXEC_SYNC);
+    wxExecute(fullCommand + _T(" \"") + filenameInput.GetFullPath() + _T("\""), m_exeInputString,
+              wxEXEC_NODISABLE | wxEXEC_SYNC);
 
     // Process output string and updates the list
     int stateMP3 = processOutputString(fileIterator);
     fileInfo.setStateMP3(stateMP3);
 
-    g_mainStatusBar->SetStatusText(wxString::Format(_("Processed %lu files of %lu."), fileIterator + 1, mp_fileListManager->size()), 1);
+    g_mainStatusBar->SetStatusText(
+            wxString::Format(_("Processed %lu files of %lu."), fileIterator + 1, mp_fileListManager->size()), 1);
 }
 
 int GuiMain::processOutputString(unsigned long int fileIterator) {
@@ -334,10 +337,12 @@ int GuiMain::processOutputString(unsigned long int fileIterator) {
 
                 // Update Version column
                 if (tempString.AfterFirst('(').BeforeFirst(')').Find(_T("MPEG")) != wxNOT_FOUND)
-                    mp_fileListManager->getOwner().SetItem(fileIterator, ID_LIST_VERSION, tempString.AfterFirst('(').BeforeFirst(')'));
+                    mp_fileListManager->getOwner().SetItem(fileIterator, ID_LIST_VERSION,
+                                                           tempString.AfterFirst('(').BeforeFirst(')'));
 
                 // Update Tags column
-                mp_fileListManager->getOwner().SetItem(fileIterator, ID_LIST_TAGS, tempString.AfterFirst(',').BeforeFirst(','));
+                mp_fileListManager->getOwner().SetItem(fileIterator, ID_LIST_TAGS,
+                                                       tempString.AfterFirst(',').BeforeFirst(','));
 
                 // Update CBR column
                 if (tempString.AfterFirst(',').AfterFirst(',').Find(_T("CBR")) != wxNOT_FOUND)

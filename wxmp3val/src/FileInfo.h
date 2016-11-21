@@ -11,10 +11,14 @@
 
 class FileInfo {
 public:
-    FileInfo(const wxString& fileName);
+    FileInfo(const wxString &fileName);
+
     virtual ~FileInfo();
+
     wxFileName getFileName() const;
+
     int getStateMP3() const;
+
     void setStateMP3(int state);
 
 

@@ -7,7 +7,7 @@
 #include "Constants.h"
 
 GuiSettings::GuiSettings(wxWindow *parent, ConfigBase *configBase)
-: Settings(parent), mp_configBase(configBase) {
+        : Settings(parent), mp_configBase(configBase) {
     // Updates the values controls according to the configuration file
     updateValueControls();
 }
@@ -15,22 +15,20 @@ GuiSettings::GuiSettings(wxWindow *parent, ConfigBase *configBase)
 GuiSettings::~GuiSettings() {
 }
 
-void GuiSettings::OnbtnDefaultClick(wxCommandEvent& event) {
+void GuiSettings::OnbtnDefaultClick(wxCommandEvent &event) {
     defaultValueControls();
 }
 
-void GuiSettings::OnbtnOKClick(wxCommandEvent& event) {
+void GuiSettings::OnbtnOKClick(wxCommandEvent &event) {
     saveValuesConfig();
     Close();
 }
 
-void GuiSettings::OnbtnCancelClick(wxCommandEvent& event) {
+void GuiSettings::OnbtnCancelClick(wxCommandEvent &event) {
     Close();
 }
 
 void GuiSettings::updateValueControls() {
-    wxScrollEvent evt;
-
     // General controls
     g_chkKeepTimestamps->SetValue(mp_configBase->getKeepTimestamp());
     g_chkDeleteBackup->SetValue(mp_configBase->getDeleteBackup());

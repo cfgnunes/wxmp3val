@@ -11,23 +11,32 @@
 
 class ConfigBase {
 public:
-    ConfigBase(const wxString& appName = wxEmptyString);
+    ConfigBase(const wxString &appName = wxEmptyString);
+
     ~ConfigBase();
 
     void setDefaultConfig();
+
     void setConfigFlush();
+
     wxString getStringToolOptions() const;
 
     // Gets...
     wxString getAppVersion() const;
+
     wxString getLastOpenDir() const;
+
     bool getKeepTimestamp() const;
+
     bool getDeleteBackup() const;
 
     // Sets...
     void setAppVersion(wxString value);
+
     void setLastOpenDir(wxString value);
+
     void setKeepTimestamp(bool value);
+
     void setDeleteBackup(bool value);
 
 private:
