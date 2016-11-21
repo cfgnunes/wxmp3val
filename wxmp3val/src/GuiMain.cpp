@@ -366,6 +366,7 @@ int GuiMain::processOutputString(unsigned long int fileIterator) {
 
         // Update State column
         switch (stateMP3) {
+            default:
             case STATE_MP3_OK:
                 mp_fileListManager->getOwner().SetItem(fileIterator, ID_LIST_STATE, _("OK"));
                 mp_fileListManager->getOwner().SetItemTextColour(fileIterator, *wxBLACK);
