@@ -1331,6 +1331,7 @@
                                             <property name="minimum_size"></property>
                                             <property name="name">sbSizer2</property>
                                             <property name="orient">wxVERTICAL</property>
+                                            <property name="parent">1</property>
                                             <property name="permission">none</property>
                                             <event name="OnUpdateUI"></event>
                                             <object class="sizeritem" expanded="0">
