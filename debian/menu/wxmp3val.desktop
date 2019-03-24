@@ -1,11 +1,8 @@
 [Desktop Entry]
-Type=Application
-
 Name=wxMP3val
 Comment=A free front-end for the MP3val.
-Icon=wxmp3val
-
-Categories=AudioVideo;Audio;
-
 Exec=wxmp3val
+Icon=wxmp3val
+Categories=AudioVideo;Audio;
 Terminal=false
+Type=Application
