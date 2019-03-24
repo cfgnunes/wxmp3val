@@ -185,7 +185,7 @@ void GuiMain::mnuRepair(wxCommandEvent &event) {
 }
 
 void GuiMain::mnuToolWebsite(wxCommandEvent &event) {
-    wxLaunchDefaultBrowser(_T("http://mp3val.sourceforge.net/"));
+    wxLaunchDefaultBrowser(_T("https://github.com/cfgnunes/wxmp3val"));
 }
 
 void GuiMain::mnuWebsite(wxCommandEvent &event) {
