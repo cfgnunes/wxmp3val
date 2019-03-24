@@ -5,7 +5,7 @@ wxMP3val is a free front-end for the MP3val.
 
 ### Install from binaries
 
-Please access the following link to download binary files: https://sourceforge.net/projects/wxmp3val/
+Link to download the binary files: https://sourceforge.net/projects/wxmp3val/
 
 This program has been tested on the following platforms:
 * Windows XP, Vista, 7, 8, 8.1
@@ -25,7 +25,7 @@ Compile the sources and install with following commands in the terminal:
 $ mkdir build
 $ cd build
 $ cmake ..
-$ make -j4
+$ make
 $ sudo make install
 ```
 
