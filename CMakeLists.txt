@@ -39,6 +39,4 @@ install(FILES "debian/menu/icon32x32.png" DESTINATION "share/icons/hicolor/32x32
 install(FILES "debian/menu/icon48x48.png" DESTINATION "share/icons/hicolor/48x48/apps/" RENAME "${PROJECT_NAME}.png")
 install(FILES "debian/menu/icon64x64.png" DESTINATION "share/icons/hicolor/64x64/apps/" RENAME "${PROJECT_NAME}.png")
 install(FILES "debian/menu/icon128x128.png" DESTINATION "share/icons/hicolor/128x128/apps/" RENAME "${PROJECT_NAME}.png")
-install(FILES "debian/menu/icon.xpm" DESTINATION "share/pixmaps/" RENAME "${PROJECT_NAME}.xpm")
-install(FILES "debian/menu/${PROJECT_NAME}" DESTINATION "share/menu/")
 install(FILES "debian/menu/${PROJECT_NAME}.desktop" DESTINATION "share/applications/")

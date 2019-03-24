@@ -1,6 +1,0 @@
-?package(wxmp3val): needs="X11" \
-                     section="Applications/Sound" \
-                     title="wxMP3val" \
-                     longtitle="wxMP3val" \
-                     icon32x32="/usr/share/pixmaps/wxmp3val.xpm" \
-                     command="/usr/bin/wxmp3val"
