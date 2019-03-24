@@ -30,10 +30,11 @@ Code written completely in C++ using:
 * [GCC](https://gcc.gnu.org/) - The GNU Compiler Collection
 * [wxWidgets](https://www.wxwidgets.org/) - Open-Source GUI framework
 * [wxFormBuilder](https://github.com/wxFormBuilder/) - wxWidgets GUI-builder
+
 Other tools:
-* [UPX](https://upx.github.io/) - The Ultimate Packer for eXecutables
-* [Inno Setup](http://www.jrsoftware.org/isinfo.php) - Installer for Windows programs
 * [CMake](https://cmake.org/) - Build, test and package software
+* [Inno Setup](http://www.jrsoftware.org/isinfo.php) - Installer for Windows programs
+* [UPX](https://upx.github.io/) - The Ultimate Packer for eXecutables
 
 ## License
 This program is licensed under the terms of the GNU General Public License version 3. Available online under:
