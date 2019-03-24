@@ -11,7 +11,7 @@ This program has been tested on the following platforms:
 * Windows XP, Vista, 7, 8, 8.1
 * Several major Linux distributions
 
-### Install from Personal Package Archives (Ubuntu):
+### Install from Personal Package Archives (Ubuntu)
 
 ```sh
 $ sudo add-apt-repository -y ppa:cfgnunes/ppa
