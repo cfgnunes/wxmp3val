@@ -1,0 +1,20 @@
+language: cpp
+
+matrix:
+  include:
+      os: linux
+      dist: xenial
+      addons:
+       apt:
+         sources:
+           - ubuntu-toolchain-r-test
+         packages:
+           - build-essential
+           - cmake
+           - libwxgtk3.0-dev
+
+script:
+     - mkdir build
+     - cd build
+     - cmake -DCMAKE_BUILD_TYPE=Coverage ..
+     - make

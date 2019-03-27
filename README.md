@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/cfgnunes/wxmp3val.svg?branch=master)](https://travis-ci.org/cfgnunes/wxmp3val)
 # wxMP3val
 
 wxMP3val is a free front-end for the MP3val.
