@@ -31,7 +31,9 @@ sudo apt-get -y install mp3val
 
 Compile the sources and install with following commands in the terminal:
 ```sh
-mkdir build && cd build && cmake ..
+mkdir build
+cd build
+cmake ..
 make
 sudo make install
 ```
