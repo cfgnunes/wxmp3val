@@ -2,7 +2,19 @@ language: cpp
 
 matrix:
   include:
-      os: linux
+    # Tests on Ubuntu 14.04
+    - os: linux
+      dist: trusty
+      addons:
+       apt:
+         sources:
+           - ubuntu-toolchain-r-test
+         packages:
+           - build-essential
+           - cmake
+           - libwxgtk3.0-dev
+    # Tests on Ubuntu 16.04
+    - os: linux
       dist: xenial
       addons:
        apt:
@@ -12,9 +24,9 @@ matrix:
            - build-essential
            - cmake
            - libwxgtk3.0-dev
-
 script:
      - mkdir build
      - cd build
      - cmake -DCMAKE_BUILD_TYPE=Coverage ..
      - make
+     - make install
