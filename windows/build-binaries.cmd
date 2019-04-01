@@ -33,7 +33,7 @@ echo Done!
 echo.
 
 echo Copying files to "%OUTPUT_DIR%" directory...
-xcopy /h /e /f "..\resource\*" "%OUTPUT_DIR%\resource\"
+xcopy /h /s /f "..\resource\*" "%OUTPUT_DIR%\resource\"
 copy /y "%APP_NAME%.exe" "%OUTPUT_DIR%\"
 copy /y "C:\TDM-GCC-32\lib\gcc510TDM_dll\wxbase312u_gcc510TDM.dll" "%OUTPUT_DIR%\"
 copy /y "C:\TDM-GCC-32\lib\gcc510TDM_dll\wxmsw312u_core_gcc510TDM.dll" "%OUTPUT_DIR%\"
@@ -50,7 +50,7 @@ echo Done!
 echo.
 
 echo Compiling translation files...
-for %%L in (cs,de,es,hr_HR,pt_BR,ru,tr) do (
+for %%L in (cs,de,es,pt_BR,ru) do (
 	mkdir build\resource\msg\%%L\
 	msgfmt ..\msg\%%L.po -o build\resource\msg\%%L\%APP_NAME%.mo
 	)
