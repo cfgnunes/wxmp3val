@@ -10,6 +10,7 @@
 #include <wx/msgdlg.h>
 #include <wx/aboutdlg.h>
 #include <wx/filedlg.h>
+#include <wx/filefn.h>
 #include <wx/dirdlg.h>
 
 GuiMain::GuiMain(wxWindow *parent)
@@ -307,16 +308,27 @@ void GuiMain::processFile(unsigned long int fileIterator) {
     if (fileInfo.getStateMP3() == STATE_MP3_OK)
         return;
 
+    // Works on a temp file
+    wxString fileTimestamp = wxString::Format(_T("/temp_%s.mp3"), wxDateTime::Now().Format(_T("%Y-%m-%d_%H-%M-%S")));
+    wxString filenameTemp = filenameInput.GetPath() + fileTimestamp;
+    wxCopyFile(filenameInput.GetFullPath(), filenameTemp, true);
+
     if (m_processType == TOOL_FIX)
         fullCommand.append(_T(" -f ") + mp_configBase->getStringToolOptions());
 
     // Execute external application
-    wxExecute(fullCommand + _T(" \"") + filenameInput.GetFullPath() + _T("\""), m_exeInputString,
+    wxExecute(fullCommand + _T(" \"") + filenameTemp + _T("\""), m_exeInputString,
               wxEXEC_NODISABLE | wxEXEC_SYNC);
 
     // Process output string and updates the list
     int stateMP3 = processOutputString(fileIterator);
     fileInfo.setStateMP3(stateMP3);
+
+    // Delete temp file or rename to the original filename
+    if (m_processType == TOOL_SCAN)
+        wxRemoveFile(filenameTemp);
+    else
+        wxRenameFile(filenameTemp, filenameInput.GetFullPath(), true);
 
     g_mainStatusBar->SetStatusText(
             wxString::Format(_("Processed %lu files of %lu."), fileIterator + 1, mp_fileListManager->size()), 1);

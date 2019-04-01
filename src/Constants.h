@@ -75,6 +75,14 @@ inline wxString GetResourceDir() {
     resourceDir = _T("/usr/local/share/wxmp3val") + resourceDirName;
     if (dir.Open(resourceDir))
         return resourceDir;
+
+    resourceDir = _T(".") + resourceDirName;
+    if (dir.Open(resourceDir))
+        return resourceDir;
+
+    resourceDir = _T("..") + resourceDirName;
+    if (dir.Open(resourceDir))
+        return resourceDir;
 #endif
     return executableFilename.GetPath() + resourceDirName;
 }
