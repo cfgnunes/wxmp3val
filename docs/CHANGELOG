@@ -1,5 +1,10 @@
 wxMP3val - Changelog file
 
+Changelog v4.0 (2019-04-01)
+--------------
+- Bug fix for unicode filenames
+- Code refactor in make/build process
+
 Changelog v3.7 (2015-02-22)
 --------------
 - Code refactor
