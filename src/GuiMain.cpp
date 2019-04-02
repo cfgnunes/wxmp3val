@@ -311,7 +311,6 @@ void GuiMain::processFile(unsigned long int fileIterator) {
 
     // Works on a temp file
     wxString filenameTemp = wxFileName::CreateTempFileName(_T("temp-")) + _T(".mp3");
-    wxMessageBox(filenameTemp, APP_NAME, wxOK | wxICON_INFORMATION);
     wxCopyFile(filenameInput.GetFullPath(), filenameTemp, true);
 
     if (m_processType == TOOL_FIX)
