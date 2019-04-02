@@ -22,7 +22,6 @@ void ConfigBase::setDefaultConfig() {
     setAppVersion(APP_VERSION);
     setLastOpenDir(DEFAULT_VALUE_LastOpenDir);
 
-    setKeepTimestamp(DEFAULT_VALUE_KeepTimestamp);
     setDeleteBackup(DEFAULT_VALUE_DeleteBackup);
 }
 
@@ -32,9 +31,6 @@ void ConfigBase::setConfigFlush() {
 
 wxString ConfigBase::getStringToolOptions() const {
     wxString toolOptions;
-
-    if (getKeepTimestamp())
-        toolOptions.append(_T("-t "));
 
     if (getDeleteBackup())
         toolOptions.append(_T("-nb "));
@@ -57,12 +53,6 @@ wxString ConfigBase::getLastOpenDir() const {
     return value;
 }
 
-bool ConfigBase::getKeepTimestamp() const {
-    bool value;
-    mp_config->Read(CONFIG_GROUP_GENERAL + CONFIG_STR_KeepTimestamp, &value);
-    return value;
-}
-
 bool ConfigBase::getDeleteBackup() const {
     bool value;
     mp_config->Read(CONFIG_GROUP_GENERAL + CONFIG_STR_DeleteBackup, &value);
@@ -77,10 +67,6 @@ void ConfigBase::setAppVersion(wxString value) {
 
 void ConfigBase::setLastOpenDir(wxString value) {
     mp_config->Write(CONFIG_GROUP_SYSTEM + CONFIG_STR_LastOpenDir, value);
-}
-
-void ConfigBase::setKeepTimestamp(bool value) {
-    mp_config->Write(CONFIG_GROUP_GENERAL + CONFIG_STR_KeepTimestamp, value);
 }
 
 void ConfigBase::setDeleteBackup(bool value) {

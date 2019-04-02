@@ -96,10 +96,6 @@ msgstr "Freies Frontend für MP3val"
 msgid "General"
 msgstr "Allgemein"
 
-#: Gui.cpp:251
-msgid "Keep file timestamps"
-msgstr "Dateizeitstempel erhalten"
-
 #: Gui.cpp:100
 msgid "MP3val Website"
 msgstr "MP3val Webseite"
@@ -193,3 +189,6 @@ msgstr "wxMP3val Webseite"
 
 #~ msgid "unknown"
 #~ msgstr "unbekannt"
+
+#~ msgid "Keep file timestamps"
+#~ msgstr "Dateizeitstempel erhalten"

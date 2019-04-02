@@ -95,10 +95,6 @@ msgstr "Livre front-end para o MP3val"
 msgid "General"
 msgstr "Geral"
 
-#: Gui.cpp:251
-msgid "Keep file timestamps"
-msgstr "Manter data de modificação dos arquivos"
-
 #: Gui.cpp:100
 msgid "MP3val Website"
 msgstr "Site do MP3val"
@@ -192,3 +188,6 @@ msgstr "Site do wxMP3val"
 
 #~ msgid "unknown"
 #~ msgstr "desconhecido"
+
+#~ msgid "Keep file timestamps"
+#~ msgstr "Manter data de modificação dos arquivos"

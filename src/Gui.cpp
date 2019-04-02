@@ -246,9 +246,6 @@ Settings::Settings( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	wxStaticBoxSizer* sbSizer2;
 	sbSizer2 = new wxStaticBoxSizer( new wxStaticBox( m_panel1, wxID_ANY, _("File options") ), wxVERTICAL );
 	
-	g_chkKeepTimestamps = new wxCheckBox( sbSizer2->GetStaticBox(), wxID_ANY, _("Keep file timestamps"), wxDefaultPosition, wxDefaultSize, 0 );
-	sbSizer2->Add( g_chkKeepTimestamps, 0, wxALL, 2 );
-	
 	g_chkDeleteBackup = new wxCheckBox( sbSizer2->GetStaticBox(), wxID_ANY, _("Delete bakup files"), wxDefaultPosition, wxDefaultSize, 0 );
 	sbSizer2->Add( g_chkDeleteBackup, 0, wxALL, 2 );
 	

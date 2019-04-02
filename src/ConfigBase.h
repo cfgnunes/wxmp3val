@@ -26,16 +26,12 @@ public:
 
     wxString getLastOpenDir() const;
 
-    bool getKeepTimestamp() const;
-
     bool getDeleteBackup() const;
 
     // Sets...
     void setAppVersion(wxString value);
 
     void setLastOpenDir(wxString value);
-
-    void setKeepTimestamp(bool value);
 
     void setDeleteBackup(bool value);
 

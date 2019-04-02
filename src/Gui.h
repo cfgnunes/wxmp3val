@@ -122,7 +122,6 @@ class Settings : public wxDialog
 	protected:
 		wxNotebook* m_notebook1;
 		wxPanel* m_panel1;
-		wxCheckBox* g_chkKeepTimestamps;
 		wxCheckBox* g_chkDeleteBackup;
 		wxButton* g_btnDefault;
 		wxButton* g_btnOK;

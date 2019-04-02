@@ -97,10 +97,6 @@ msgstr "Свободный интерфейс для MP3val"
 msgid "General"
 msgstr "Общие"
 
-#: Gui.cpp:251
-msgid "Keep file timestamps"
-msgstr "Сохранять метки времени"
-
 #: Gui.cpp:100
 msgid "MP3val Website"
 msgstr "веб-сайт MP3val"
@@ -194,3 +190,6 @@ msgstr "Веб-сайт wxMP3val"
 
 #~ msgid "unknown"
 #~ msgstr "неизвестно"
+
+#~ msgid "Keep file timestamps"
+#~ msgstr "Сохранять метки времени"

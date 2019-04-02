@@ -30,13 +30,11 @@ void GuiSettings::OnbtnCancelClick(wxCommandEvent &event) {
 
 void GuiSettings::updateValueControls() {
     // General controls
-    g_chkKeepTimestamps->SetValue(mp_configBase->getKeepTimestamp());
     g_chkDeleteBackup->SetValue(mp_configBase->getDeleteBackup());
 }
 
 void GuiSettings::saveValuesConfig() {
     // General controls
-    mp_configBase->setKeepTimestamp(g_chkKeepTimestamps->GetValue());
     mp_configBase->setDeleteBackup(g_chkDeleteBackup->GetValue());
 
     mp_configBase->setConfigFlush();
@@ -44,6 +42,5 @@ void GuiSettings::saveValuesConfig() {
 
 void GuiSettings::defaultValueControls() {
     // General controls
-    g_chkKeepTimestamps->SetValue(DEFAULT_VALUE_KeepTimestamp);
     g_chkDeleteBackup->SetValue(DEFAULT_VALUE_DeleteBackup);
 }
