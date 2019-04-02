@@ -11,6 +11,7 @@
 #include <wx/aboutdlg.h>
 #include <wx/filedlg.h>
 #include <wx/filefn.h>
+#include <wx/filename.h>
 #include <wx/dirdlg.h>
 
 GuiMain::GuiMain(wxWindow *parent)
@@ -309,11 +310,8 @@ void GuiMain::processFile(unsigned long int fileIterator) {
         return;
 
     // Works on a temp file
-#ifdef __LINUX__
-    wxString filenameTemp = _T("/tmp/_temp_.mp3");
-#else
-    wxString filenameTemp = filenameInput.GetPath() + _T("/_temp_.mp3");
-#endif
+    wxString filenameTemp = wxFileName::CreateTempFileName(_T("temp-")) + _T(".mp3");
+    wxMessageBox(filenameTemp, APP_NAME, wxOK | wxICON_INFORMATION);
     wxCopyFile(filenameInput.GetFullPath(), filenameTemp, true);
 
     if (m_processType == TOOL_FIX)
