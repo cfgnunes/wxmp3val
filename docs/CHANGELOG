@@ -2,6 +2,7 @@ wxMP3val - Changelog file
 
 Changelog v4.0 (2019-04-01)
 --------------
+- New Windows binaries
 - Bug fix for unicode filenames
 - Code refactor in make/build process
 
