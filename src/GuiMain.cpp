@@ -309,8 +309,11 @@ void GuiMain::processFile(unsigned long int fileIterator) {
         return;
 
     // Works on a temp file
-    wxString fileTimestamp = wxString::Format(_T("/temp_%s.mp3"), wxDateTime::Now().Format(_T("%Y-%m-%d_%H-%M-%S")));
-    wxString filenameTemp = filenameInput.GetPath() + fileTimestamp;
+#ifdef __LINUX__
+    wxString filenameTemp = _T("/tmp/_temp_.mp3");
+#else
+    wxString filenameTemp = filenameInput.GetPath() + _T("/_temp_.mp3");
+#endif
     wxCopyFile(filenameInput.GetFullPath(), filenameTemp, true);
 
     if (m_processType == TOOL_FIX)
@@ -327,8 +330,13 @@ void GuiMain::processFile(unsigned long int fileIterator) {
     // Delete temp file or rename to the original filename
     if (m_processType == TOOL_SCAN)
         wxRemoveFile(filenameTemp);
-    else
+    else {
         wxRenameFile(filenameTemp, filenameInput.GetFullPath(), true);
+        // Rename backup file
+        wxString filenameTempBak = filenameTemp + _T(".bak");
+        if(wxFileExists(filenameTempBak))
+            wxRenameFile(filenameTempBak, filenameInput.GetFullPath() + _T(".bak"), true);
+    }
 
     g_mainStatusBar->SetStatusText(
             wxString::Format(_("Processed %lu files of %lu."), fileIterator + 1, mp_fileListManager->size()), 1);
