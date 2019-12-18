@@ -4,7 +4,7 @@
  */
 
 #ifndef FILELISTMANAGER_H
-#define    FILELISTMANAGER_H
+#define FILELISTMANAGER_H
 
 #include "FileInfo.h"
 
@@ -42,4 +42,4 @@ private:
     std::list<FileInfo> *mp_lstFilesData;
 };
 
-#endif	// FILELISTMANAGER_H
+#endif // FILELISTMANAGER_H

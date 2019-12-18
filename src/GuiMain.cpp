@@ -344,7 +344,7 @@ void GuiMain::processFile(unsigned long int fileIterator) {
         wxRenameFile(filenameTemp, filenameInput.GetFullPath(), true);
         // Rename backup file
         wxString filenameTempBak = filenameTemp + _T(".bak");
-        if(wxFileExists(filenameTempBak))
+        if (wxFileExists(filenameTempBak))
             wxRenameFile(filenameTempBak, filenameInput.GetFullPath() + _T(".bak"), true);
     }
 
