@@ -17,18 +17,18 @@ GuiSettings::~GuiSettings() {
 
 void GuiSettings::OnbtnDefaultClick(wxCommandEvent &event) {
     defaultValueControls();
-    event.Skip();
+    event.Skip(false);
 }
 
 void GuiSettings::OnbtnOKClick(wxCommandEvent &event) {
     saveValuesConfig();
     Close();
-    event.Skip();
+    event.Skip(false);
 }
 
 void GuiSettings::OnbtnCancelClick(wxCommandEvent &event) {
     Close();
-    event.Skip();
+    event.Skip(false);
 }
 
 void GuiSettings::updateValueControls() {
