@@ -100,6 +100,7 @@ void GuiMain::OnlstFilesKeyDown(wxListEvent &event) {
 void GuiMain::btnProcessStop(wxCommandEvent &event) {
     m_processRunning = false;
     g_btnStop->Enable(false);
+    event.Skip();
 }
 
 void GuiMain::mnuAddDirectory(wxCommandEvent &event) {
@@ -115,6 +116,7 @@ void GuiMain::mnuAddDirectory(wxCommandEvent &event) {
         mp_configBase->setLastOpenDir(dirDialog.GetPath());
         SetCursor(wxCURSOR_ARROW);
     }
+    event.Skip();
 }
 
 void GuiMain::mnuAddFiles(wxCommandEvent &event) {
@@ -136,11 +138,13 @@ void GuiMain::mnuAddFiles(wxCommandEvent &event) {
         mp_configBase->setLastOpenDir(fileDialog.GetDirectory());
         SetCursor(wxCURSOR_ARROW);
     }
+    event.Skip();
 }
 
 void GuiMain::mnuExit(wxCommandEvent &event) {
     // Terminates the program
     Close();
+    event.Skip();
 }
 
 void GuiMain::mnuRemoveFiles(wxCommandEvent &event) {
@@ -151,6 +155,7 @@ void GuiMain::mnuRemoveFiles(wxCommandEvent &event) {
     SetCursor(wxCURSOR_ARROW);
 
     updateControls();
+    event.Skip();
 }
 
 void GuiMain::mnuClearList(wxCommandEvent &event) {
@@ -158,6 +163,7 @@ void GuiMain::mnuClearList(wxCommandEvent &event) {
     mp_fileListManager->clear();
 
     updateControls();
+    event.Skip();
 }
 
 void GuiMain::mnuSettings(wxCommandEvent &event) {
@@ -166,6 +172,7 @@ void GuiMain::mnuSettings(wxCommandEvent &event) {
     guiSettings.ShowModal();
 
     updateControls();
+    event.Skip();
 }
 
 void GuiMain::mnuScan(wxCommandEvent &event) {
@@ -175,6 +182,7 @@ void GuiMain::mnuScan(wxCommandEvent &event) {
     processExecute();
     m_processRunning = false;
     updateControls();
+    event.Skip();
 }
 
 void GuiMain::mnuRepair(wxCommandEvent &event) {
@@ -184,14 +192,17 @@ void GuiMain::mnuRepair(wxCommandEvent &event) {
     processExecute();
     m_processRunning = false;
     updateControls();
+    event.Skip();
 }
 
 void GuiMain::mnuToolWebsite(wxCommandEvent &event) {
     wxLaunchDefaultBrowser(_T("http://mp3val.sourceforge.net/"));
+    event.Skip();
 }
 
 void GuiMain::mnuWebsite(wxCommandEvent &event) {
     wxLaunchDefaultBrowser(APP_WEBSITE);
+    event.Skip();
 }
 
 void GuiMain::mnuAbout(wxCommandEvent &event) {
@@ -202,6 +213,7 @@ void GuiMain::mnuAbout(wxCommandEvent &event) {
     aboutInfo.SetCopyright(APP_COPYRIGHT);
     aboutInfo.SetWebSite(APP_WEBSITE);
     wxAboutBox(aboutInfo);
+    event.Skip();
 }
 
 void GuiMain::OnTimer1Trigger(wxTimerEvent &event) {
@@ -243,6 +255,7 @@ void GuiMain::OnTimer1Trigger(wxTimerEvent &event) {
     g_mainToolBar->EnableTool(ID_REPAIR, g_lstFiles->GetItemCount() > 0 && !m_processRunning);
 
     g_btnStop->Enable(m_processRunning);
+    event.Skip();
 }
 
 void GuiMain::loadResources() {
