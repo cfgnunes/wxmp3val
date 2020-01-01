@@ -1,4 +1,4 @@
-# wxMP3gain
+# wxMP3val
 
 ## Windows packaging
 
