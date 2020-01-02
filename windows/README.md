@@ -25,4 +25,4 @@ mingw32-make install DESTDIR=.
 
 ### Build the installer
 
-To generate the installer setup, use file 'build-installer.iss' in the Inno Setup after build the binaries.
+To generate the installer setup, use file 'installer.iss' in the Inno Setup after build the binaries.
