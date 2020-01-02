@@ -4,6 +4,8 @@
 
 wxMP3val is a free front-end for the MP3val.
 
+![screenshot](doc/screenshot.png)
+
 ## Getting Started
 
 ### Install from binaries
