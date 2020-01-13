@@ -3,47 +3,47 @@
  * http://www.gnu.org/licenses/gpl-3.0.html
  */
 
-#include "GuiSettings.h"
+#include "GuiDialogSettings.h"
 #include "Constants.h"
 
-GuiSettings::GuiSettings(wxWindow *parent, ConfigBase *configBase)
-        : Settings(parent), mp_configBase(configBase) {
+GuiDialogSettings::GuiDialogSettings(wxWindow *parent, ConfigBase *configBase)
+        : DialogSettings(parent), mp_configBase(configBase) {
     // Updates the values controls according to the configuration file
     updateValueControls();
 }
 
-GuiSettings::~GuiSettings() {
+GuiDialogSettings::~GuiDialogSettings() {
 }
 
-void GuiSettings::OnbtnDefaultClick(wxCommandEvent &event) {
+void GuiDialogSettings::OnbtnDefaultClick(wxCommandEvent &event) {
     defaultValueControls();
     event.Skip(false);
 }
 
-void GuiSettings::OnbtnOKClick(wxCommandEvent &event) {
+void GuiDialogSettings::OnbtnOKClick(wxCommandEvent &event) {
     saveValuesConfig();
     Close();
     event.Skip(false);
 }
 
-void GuiSettings::OnbtnCancelClick(wxCommandEvent &event) {
+void GuiDialogSettings::OnbtnCancelClick(wxCommandEvent &event) {
     Close();
     event.Skip(false);
 }
 
-void GuiSettings::updateValueControls() {
+void GuiDialogSettings::updateValueControls() {
     // General controls
     g_chkDeleteBackup->SetValue(mp_configBase->getDeleteBackup());
 }
 
-void GuiSettings::saveValuesConfig() {
+void GuiDialogSettings::saveValuesConfig() {
     // General controls
     mp_configBase->setDeleteBackup(g_chkDeleteBackup->GetValue());
 
     mp_configBase->setConfigFlush();
 }
 
-void GuiSettings::defaultValueControls() {
+void GuiDialogSettings::defaultValueControls() {
     // General controls
     g_chkDeleteBackup->SetValue(DEFAULT_VALUE_DeleteBackup);
 }

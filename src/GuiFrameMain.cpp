@@ -3,8 +3,8 @@
  * http://www.gnu.org/licenses/gpl-3.0.html
  */
 
-#include "GuiMain.h"
-#include "GuiSettings.h"
+#include "GuiFrameMain.h"
+#include "GuiDialogSettings.h"
 #include "Constants.h"
 
 #include <wx/msgdlg.h>
@@ -14,8 +14,8 @@
 #include <wx/filename.h>
 #include <wx/dirdlg.h>
 
-GuiMain::GuiMain(wxWindow *parent)
-        : Main(parent), m_processRunning(false) {
+GuiFrameMain::GuiFrameMain(wxWindow *parent)
+        : FrameMain(parent), m_processRunning(false) {
     // Disable status bar pane used to display menu and toolbar help
     SetStatusBarPane(-1);
 
@@ -51,12 +51,12 @@ GuiMain::GuiMain(wxWindow *parent)
     updateControls();
 }
 
-GuiMain::~GuiMain() {
+GuiFrameMain::~GuiFrameMain() {
     delete mp_fileListManager;
     delete mp_configBase;
 }
 
-void GuiMain::OnlstFilesDeleteItem(wxListEvent &event) {
+void GuiFrameMain::OnlstFilesDeleteItem(wxListEvent &event) {
     if (!m_processRunning) {
         mp_fileListManager->deleteItem((unsigned long) event.GetIndex());
         updateControls();
@@ -64,21 +64,21 @@ void GuiMain::OnlstFilesDeleteItem(wxListEvent &event) {
     event.Skip();
 }
 
-void GuiMain::OnlstFilesInsertItem(wxListEvent &event) {
+void GuiFrameMain::OnlstFilesInsertItem(wxListEvent &event) {
     if (!m_processRunning) {
         updateControls();
     }
     event.Skip();
 }
 
-void GuiMain::OnlstFilesItemSelect(wxListEvent &event) {
+void GuiFrameMain::OnlstFilesItemSelect(wxListEvent &event) {
     if (!m_processRunning) {
         updateControls();
     }
     event.Skip();
 }
 
-void GuiMain::OnlstFilesItemRClick(wxListEvent &event) {
+void GuiFrameMain::OnlstFilesItemRClick(wxListEvent &event) {
     if (!m_processRunning) {
         updateControls();
         // Displays the popup menu when you click a list item
@@ -87,7 +87,7 @@ void GuiMain::OnlstFilesItemRClick(wxListEvent &event) {
     event.Skip();
 }
 
-void GuiMain::OnlstFilesKeyDown(wxListEvent &event) {
+void GuiFrameMain::OnlstFilesKeyDown(wxListEvent &event) {
     if (!m_processRunning) {
         // Remove files with Delete key
         int keyCode = event.GetKeyCode();
@@ -97,13 +97,13 @@ void GuiMain::OnlstFilesKeyDown(wxListEvent &event) {
     event.Skip();
 }
 
-void GuiMain::btnProcessStop(wxCommandEvent &event) {
+void GuiFrameMain::btnProcessStop(wxCommandEvent &event) {
     m_processRunning = false;
     g_btnStop->Enable(false);
     event.Skip(false);
 }
 
-void GuiMain::mnuAddDirectory(wxCommandEvent &event) {
+void GuiFrameMain::mnuAddDirectory(wxCommandEvent &event) {
     wxDirDialog dirDialog(this, _("Select directory"), wxEmptyString, wxDD_DEFAULT_STYLE);
 
     // Read the last directory used
@@ -119,7 +119,7 @@ void GuiMain::mnuAddDirectory(wxCommandEvent &event) {
     event.Skip(false);
 }
 
-void GuiMain::mnuAddFiles(wxCommandEvent &event) {
+void GuiFrameMain::mnuAddFiles(wxCommandEvent &event) {
     wxArrayString files;
     wxFileDialog fileDialog(this, _("Select file"), wxEmptyString, wxEmptyString, APP_WILDCARD_EXT,
                             wxFD_OPEN | wxFD_MULTIPLE);
@@ -141,13 +141,13 @@ void GuiMain::mnuAddFiles(wxCommandEvent &event) {
     event.Skip(false);
 }
 
-void GuiMain::mnuExit(wxCommandEvent &event) {
+void GuiFrameMain::mnuExit(wxCommandEvent &event) {
     // Terminates the program
     Close();
     event.Skip(false);
 }
 
-void GuiMain::mnuRemoveFiles(wxCommandEvent &event) {
+void GuiFrameMain::mnuRemoveFiles(wxCommandEvent &event) {
     int itemCount = g_lstFiles->GetSelectedItemCount();
     SetCursor(wxCURSOR_WAIT);
     for (int i = 0; i < itemCount; i++)
@@ -158,7 +158,7 @@ void GuiMain::mnuRemoveFiles(wxCommandEvent &event) {
     event.Skip(false);
 }
 
-void GuiMain::mnuClearList(wxCommandEvent &event) {
+void GuiFrameMain::mnuClearList(wxCommandEvent &event) {
     // Deletes all items from the list
     mp_fileListManager->clear();
 
@@ -166,16 +166,16 @@ void GuiMain::mnuClearList(wxCommandEvent &event) {
     event.Skip(false);
 }
 
-void GuiMain::mnuSettings(wxCommandEvent &event) {
+void GuiFrameMain::mnuSettings(wxCommandEvent &event) {
     // Displays the "Settings" window
-    GuiSettings guiSettings(this, mp_configBase);
+    GuiDialogSettings guiSettings(this, mp_configBase);
     guiSettings.ShowModal();
 
     updateControls();
     event.Skip(false);
 }
 
-void GuiMain::mnuScan(wxCommandEvent &event) {
+void GuiFrameMain::mnuScan(wxCommandEvent &event) {
     m_processType = TOOL_SCAN;
     m_processRunning = true;
     updateControls();
@@ -185,7 +185,7 @@ void GuiMain::mnuScan(wxCommandEvent &event) {
     event.Skip(false);
 }
 
-void GuiMain::mnuRepair(wxCommandEvent &event) {
+void GuiFrameMain::mnuRepair(wxCommandEvent &event) {
     m_processType = TOOL_FIX;
     m_processRunning = true;
     updateControls();
@@ -195,17 +195,17 @@ void GuiMain::mnuRepair(wxCommandEvent &event) {
     event.Skip(false);
 }
 
-void GuiMain::mnuToolWebsite(wxCommandEvent &event) {
+void GuiFrameMain::mnuToolWebsite(wxCommandEvent &event) {
     wxLaunchDefaultBrowser(_T("http://mp3val.sourceforge.net/"));
     event.Skip(false);
 }
 
-void GuiMain::mnuWebsite(wxCommandEvent &event) {
+void GuiFrameMain::mnuWebsite(wxCommandEvent &event) {
     wxLaunchDefaultBrowser(APP_WEBSITE);
     event.Skip(false);
 }
 
-void GuiMain::mnuAbout(wxCommandEvent &event) {
+void GuiFrameMain::mnuAbout(wxCommandEvent &event) {
     wxAboutDialogInfo aboutInfo;
     aboutInfo.SetName(APP_NAME);
     aboutInfo.SetVersion(APP_VERSION);
@@ -216,7 +216,7 @@ void GuiMain::mnuAbout(wxCommandEvent &event) {
     event.Skip(false);
 }
 
-void GuiMain::OnTimer1Trigger(wxTimerEvent &event) {
+void GuiFrameMain::OnTimer1Trigger(wxTimerEvent &event) {
     wxString newExeTool = APP_TOOL_EXECUTABLE;
     if (!m_exeTool.IsSameAs(newExeTool, false)) {
         m_exeInputString.Clear();
@@ -258,7 +258,7 @@ void GuiMain::OnTimer1Trigger(wxTimerEvent &event) {
     event.Skip(false);
 }
 
-void GuiMain::loadResources() {
+void GuiFrameMain::loadResources() {
     wxString resourceDir = GetResourceDir();
 
     // Window icon
@@ -277,7 +277,7 @@ void GuiMain::loadResources() {
     g_mainToolBar->SetToolNormalBitmap(ID_ABOUT, wxBitmap(wxImage(resourceDir + _T("toolbar/about.png"))));
 }
 
-void GuiMain::updateControls() {
+void GuiFrameMain::updateControls() {
     /*
      * :KLUDGE:
      * EVT_LIST_INSERT_ITEM is triggered before or after item is added:
@@ -287,11 +287,11 @@ void GuiMain::updateControls() {
     m_timer1.Start(20, true);
 }
 
-void GuiMain::setFilesCmdLine(const wxArrayString &filenames) {
+void GuiFrameMain::setFilesCmdLine(const wxArrayString &filenames) {
     mp_fileListManager->insertFilesAndDir(filenames);
 }
 
-void GuiMain::processExecute() {
+void GuiFrameMain::processExecute() {
     unsigned long int maxValue = mp_fileListManager->size();
     unsigned long int i;
 
@@ -313,7 +313,7 @@ void GuiMain::processExecute() {
     g_gugProgress->SetValue(0);
 }
 
-void GuiMain::processFile(unsigned long int fileIterator) {
+void GuiFrameMain::processFile(unsigned long int fileIterator) {
     wxString fullCommand = APP_TOOL_EXECUTABLE;
     FileInfo &fileInfo = mp_fileListManager->getItem(fileIterator);
     wxFileName filenameInput = fileInfo.getFileName();
@@ -352,7 +352,7 @@ void GuiMain::processFile(unsigned long int fileIterator) {
             wxString::Format(_("Processed %lu files of %lu."), fileIterator + 1, mp_fileListManager->size()), 1);
 }
 
-int GuiMain::processOutputString(unsigned long int fileIterator) {
+int GuiFrameMain::processOutputString(unsigned long int fileIterator) {
     wxString tempString;
     int stateMP3 = STATE_MP3_OK;
     int warningCount = 0;

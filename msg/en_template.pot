@@ -47,7 +47,7 @@ msgstr ""
 msgid "Add folder"
 msgstr ""
 
-#: GuiMain.cpp:32
+#: GuiFrameMain.cpp:32
 msgid "CBR"
 msgstr ""
 
@@ -63,7 +63,7 @@ msgstr ""
 msgid "Delete bakup files"
 msgstr ""
 
-#: GuiMain.cpp:313
+#: GuiFrameMain.cpp:313
 msgid "Do you want to stop process now?"
 msgstr ""
 
@@ -71,11 +71,11 @@ msgstr ""
 msgid "Exit"
 msgstr ""
 
-#: GuiMain.cpp:396
+#: GuiFrameMain.cpp:396
 msgid "FIXED"
 msgstr ""
 
-#: GuiMain.cpp:28
+#: GuiFrameMain.cpp:28
 msgid "File"
 msgstr ""
 
@@ -83,11 +83,11 @@ msgstr ""
 msgid "File options"
 msgstr ""
 
-#: GuiMain.cpp:29
+#: GuiFrameMain.cpp:29
 msgid "Folder"
 msgstr ""
 
-#: GuiMain.cpp:205
+#: GuiFrameMain.cpp:205
 msgid "Free front-end for the MP3val"
 msgstr ""
 
@@ -99,19 +99,19 @@ msgstr ""
 msgid "MP3val Website"
 msgstr ""
 
-#: GuiMain.cpp:230
+#: GuiFrameMain.cpp:230
 msgid "MP3val not found!"
 msgstr ""
 
-#: Gui.cpp:274 GuiMain.cpp:388
+#: Gui.cpp:274 GuiFrameMain.cpp:388
 msgid "OK"
 msgstr ""
 
-#: GuiMain.cpp:392
+#: GuiFrameMain.cpp:392
 msgid "PROBLEM"
 msgstr ""
 
-#: GuiMain.cpp:319 GuiMain.cpp:342
+#: GuiFrameMain.cpp:319 GuiFrameMain.cpp:342
 #, c-format
 msgid "Processed %lu files of %lu."
 msgstr ""
@@ -132,11 +132,11 @@ msgstr ""
 msgid "Scan"
 msgstr ""
 
-#: GuiMain.cpp:111
+#: GuiFrameMain.cpp:111
 msgid "Select directory"
 msgstr ""
 
-#: GuiMain.cpp:127
+#: GuiFrameMain.cpp:127
 msgid "Select file"
 msgstr ""
 
@@ -144,23 +144,23 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: GuiMain.cpp:33
+#: GuiFrameMain.cpp:33
 msgid "State"
 msgstr ""
 
-#: GuiMain.cpp:31
+#: GuiFrameMain.cpp:31
 msgid "Tags"
 msgstr ""
 
-#: GuiMain.cpp:228
+#: GuiFrameMain.cpp:228
 msgid "Using MP3val version: "
 msgstr ""
 
-#: GuiMain.cpp:30
+#: GuiFrameMain.cpp:30
 msgid "Version"
 msgstr ""
 
-#: GuiMain.cpp:234
+#: GuiFrameMain.cpp:234
 msgid "files"
 msgstr ""
 

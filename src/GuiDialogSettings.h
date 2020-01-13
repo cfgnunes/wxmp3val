@@ -3,17 +3,17 @@
  * http://www.gnu.org/licenses/gpl-3.0.html
  */
 
-#ifndef GUISETTINGS_H
-#define GUISETTINGS_H
+#ifndef GUIDIALOGSETTINGS_H
+#define GUIDIALOGSETTINGS_H
 
 #include "Gui.h"
 #include "ConfigBase.h"
 
-class GuiSettings : public Settings {
+class GuiDialogSettings : public DialogSettings {
 public:
-    GuiSettings(wxWindow *parent, ConfigBase *configBase);
+    GuiDialogSettings(wxWindow *parent, ConfigBase *configBase);
 
-    virtual ~GuiSettings();
+    virtual ~GuiDialogSettings();
 
 protected:
     void OnbtnDefaultClick(wxCommandEvent &event);
@@ -32,4 +32,4 @@ private:
     ConfigBase *mp_configBase;
 };
 
-#endif // GUISETTINGS_H
+#endif // GUIDIALOGSETTINGS_H
