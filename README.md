@@ -1,7 +1,5 @@
 # wxMP3val [![Actions Status](https://github.com/cfgnunes/wxmp3val/workflows/build/badge.svg)](https://github.com/cfgnunes/wxmp3val/actions)
 
-If you like this project, please consider making a donation to support the developer. [![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=2EDNU6LPSCH6S)
-
 wxMP3val is a free front-end for the MP3val.
 
 ![screenshot](doc/screenshot.png)
