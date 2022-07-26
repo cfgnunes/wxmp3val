@@ -212,6 +212,8 @@ void GuiFrameMain::mnuAbout(wxCommandEvent &event) {
     aboutInfo.SetDescription(_("Free front-end for the MP3val"));
     aboutInfo.SetCopyright(APP_COPYRIGHT);
     aboutInfo.SetWebSite(APP_WEBSITE);
+    wxString resourceDir = GetResourceDir();
+    aboutInfo.SetIcon(wxIcon(resourceDir + _T("icon-app.ico"), wxBITMAP_TYPE_ICO));
     wxAboutBox(aboutInfo);
     event.Skip(false);
 }
@@ -262,7 +264,7 @@ void GuiFrameMain::loadResources() {
     wxString resourceDir = GetResourceDir();
 
     // Window icon
-    SetIcon(wxIcon(resourceDir + _T("icon-app.ico")));
+    SetIcon(wxIcon(resourceDir + _T("icon-app.ico"), wxBITMAP_TYPE_ICO));
 
     // Toolbar bitmaps
     g_mainToolBar->SetToolNormalBitmap(ID_ADD_FILES, wxBitmap(wxImage(resourceDir + _T("toolbar/add-file.png"))));
