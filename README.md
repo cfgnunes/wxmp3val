@@ -48,9 +48,6 @@ sudo make install
 - [GCC](https://gcc.gnu.org/) - The GNU Compiler Collection
 - [wxWidgets](https://www.wxwidgets.org/) - Open-Source GUI framework
 - [wxFormBuilder](https://github.com/wxFormBuilder/) - wxWidgets GUI-builder
-
-Other tools:
-
 - [CMake](https://cmake.org/) - Build, test and package software
 - [Inno Setup](http://www.jrsoftware.org/isinfo.php) - Installer for Windows programs
 
@@ -64,10 +61,6 @@ If you spot a bug, or want to improve the code, or even make the content better,
 ## Versioning
 
 This project uses [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/cfgnunes/wxmp3val/tags).
-
-## Authors
-
-- Cristiano Fraga G. Nunes
 
 ## License
 
