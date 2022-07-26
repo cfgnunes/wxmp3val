@@ -55,25 +55,25 @@ class FrameMain : public wxFrame
 	private:
 
 	protected:
-		wxListCtrl* g_lstFiles;
-		wxGauge* g_gugProgress;
-		wxButton* g_btnStop;
-		wxMenuBar* g_mainMenuBar;
-		wxMenu* g_mnbFile;
-		wxMenu* g_mnbEdit;
-		wxMenu* g_mnbActions;
-		wxMenu* g_mnbHelp;
-		wxStatusBar* g_mainStatusBar;
-		wxToolBar* g_mainToolBar;
-		wxToolBarToolBase* g_tbAddFolder;
-		wxToolBarToolBase* g_tbAddFiles;
-		wxToolBarToolBase* g_tbRemoveFiles;
-		wxToolBarToolBase* g_tbClearList;
-		wxToolBarToolBase* g_tbScan;
-		wxToolBarToolBase* g_tbRepair;
-		wxToolBarToolBase* g_tbSettings;
-		wxToolBarToolBase* g_tbAbout;
-		wxMenu* g_mainMenu;
+		wxListCtrl* gui_lstFiles;
+		wxGauge* gui_gugProgress;
+		wxButton* gui_btnStop;
+		wxMenuBar* gui_mainMenuBar;
+		wxMenu* gui_mnbFile;
+		wxMenu* gui_mnbEdit;
+		wxMenu* gui_mnbActions;
+		wxMenu* gui_mnbHelp;
+		wxStatusBar* gui_mainStatusBar;
+		wxToolBar* gui_mainToolBar;
+		wxToolBarToolBase* gui_tbAddFolder;
+		wxToolBarToolBase* gui_tbAddFiles;
+		wxToolBarToolBase* gui_tbRemoveFiles;
+		wxToolBarToolBase* gui_tbClearList;
+		wxToolBarToolBase* gui_tbScan;
+		wxToolBarToolBase* gui_tbRepair;
+		wxToolBarToolBase* gui_tbSettings;
+		wxToolBarToolBase* gui_tbAbout;
+		wxMenu* gui_mainMenu;
 		wxTimer m_timer1;
 
 		// Virtual event handlers, overide them in your derived class
@@ -105,7 +105,7 @@ class FrameMain : public wxFrame
 
 		void FrameMainOnContextMenu( wxMouseEvent &event )
 		{
-		this->PopupMenu( g_mainMenu, event.GetPosition() );
+		this->PopupMenu( gui_mainMenu, event.GetPosition() );
 		}
 
 };
@@ -118,10 +118,10 @@ class DialogSettings : public wxDialog
 	private:
 
 	protected:
-		wxCheckBox* g_chkDeleteBackup;
-		wxButton* g_btnDefault;
-		wxButton* g_btnOK;
-		wxButton* g_btnCancel;
+		wxCheckBox* gui_chkDeleteBackup;
+		wxButton* gui_btnDefault;
+		wxButton* gui_btnOK;
+		wxButton* gui_btnCancel;
 
 		// Virtual event handlers, overide them in your derived class
 		virtual void OnbtnDefaultClick( wxCommandEvent& event ) { event.Skip(); }

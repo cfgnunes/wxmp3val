@@ -20,23 +20,23 @@ GuiFrameMain::GuiFrameMain(wxWindow *parent)
     SetStatusBarPane(-1);
 
     // File list manager
-    mp_fileListManager = new FileListManager(g_lstFiles);
+    mp_fileListManager = new FileListManager(gui_lstFiles);
 
     // List Drag & Drop
     mp_dndFile = new DndFile(mp_fileListManager);
-    g_lstFiles->SetDropTarget(mp_dndFile);
+    gui_lstFiles->SetDropTarget(mp_dndFile);
 
     // Title List
-    g_lstFiles->InsertColumn(ID_LIST_FILE, _("File"), wxLIST_FORMAT_LEFT, 200);
-    g_lstFiles->InsertColumn(ID_LIST_FOLDER, _("Folder"), wxLIST_FORMAT_LEFT, 200);
-    g_lstFiles->InsertColumn(ID_LIST_VERSION, _("Version"), wxLIST_FORMAT_LEFT, 100);
-    g_lstFiles->InsertColumn(ID_LIST_TAGS, _("Tags"), wxLIST_FORMAT_LEFT, 100);
-    g_lstFiles->InsertColumn(ID_LIST_CBR, _("CBR"), wxLIST_FORMAT_LEFT, 70);
-    g_lstFiles->InsertColumn(ID_LIST_STATE, _("State"), wxLIST_FORMAT_LEFT, 70);
+    gui_lstFiles->InsertColumn(ID_LIST_FILE, _("File"), wxLIST_FORMAT_LEFT, 200);
+    gui_lstFiles->InsertColumn(ID_LIST_FOLDER, _("Folder"), wxLIST_FORMAT_LEFT, 200);
+    gui_lstFiles->InsertColumn(ID_LIST_VERSION, _("Version"), wxLIST_FORMAT_LEFT, 100);
+    gui_lstFiles->InsertColumn(ID_LIST_TAGS, _("Tags"), wxLIST_FORMAT_LEFT, 100);
+    gui_lstFiles->InsertColumn(ID_LIST_CBR, _("CBR"), wxLIST_FORMAT_LEFT, 70);
+    gui_lstFiles->InsertColumn(ID_LIST_STATE, _("State"), wxLIST_FORMAT_LEFT, 70);
 
     // Set statusbar widths
     const int wxStatusBarWidths[3] = {-10, -10, -5};
-    g_mainStatusBar->SetStatusWidths(3, wxStatusBarWidths);
+    gui_mainStatusBar->SetStatusWidths(3, wxStatusBarWidths);
 
     // Configuration file
     mp_configBase = new ConfigBase(APP_NAME);
@@ -82,7 +82,7 @@ void GuiFrameMain::OnlstFilesItemRClick(wxListEvent &event) {
     if (!m_processRunning) {
         updateControls();
         // Displays the popup menu when you click a list item
-        g_lstFiles->PopupMenu(g_mainMenu);
+        gui_lstFiles->PopupMenu(gui_mainMenu);
     }
     event.Skip();
 }
@@ -99,7 +99,7 @@ void GuiFrameMain::OnlstFilesKeyDown(wxListEvent &event) {
 
 void GuiFrameMain::btnProcessStop(wxCommandEvent &event) {
     m_processRunning = false;
-    g_btnStop->Enable(false);
+    gui_btnStop->Enable(false);
     event.Skip(false);
 }
 
@@ -148,10 +148,10 @@ void GuiFrameMain::mnuExit(wxCommandEvent &event) {
 }
 
 void GuiFrameMain::mnuRemoveFiles(wxCommandEvent &event) {
-    int itemCount = g_lstFiles->GetSelectedItemCount();
+    int itemCount = gui_lstFiles->GetSelectedItemCount();
     SetCursor(wxCURSOR_WAIT);
     for (int i = 0; i < itemCount; i++)
-        g_lstFiles->DeleteItem(g_lstFiles->GetNextItem(-1, wxLIST_NEXT_ALL, wxLIST_STATE_SELECTED));
+        gui_lstFiles->DeleteItem(gui_lstFiles->GetNextItem(-1, wxLIST_NEXT_ALL, wxLIST_STATE_SELECTED));
     SetCursor(wxCURSOR_ARROW);
 
     updateControls();
@@ -229,34 +229,34 @@ void GuiFrameMain::OnTimer1Trigger(wxTimerEvent &event) {
 
         // Show the version of tool
         if (!m_exeInputString.IsEmpty())
-            g_mainStatusBar->SetStatusText(_("Using MP3val version: ") + m_exeInputString.Item(0).AfterLast(' '), 0);
+            gui_mainStatusBar->SetStatusText(_("Using MP3val version: ") + m_exeInputString.Item(0).AfterLast(' '), 0);
         else
-            g_mainStatusBar->SetStatusText(_("MP3val not found!"), 0);
+            gui_mainStatusBar->SetStatusText(_("MP3val not found!"), 0);
     }
 
     // Show the number of files in list on status bar
-    g_mainStatusBar->SetStatusText(wxString::Format(_T("%i "), g_lstFiles->GetItemCount()) + _("files"), 1);
+    gui_mainStatusBar->SetStatusText(wxString::Format(_T("%i "), gui_lstFiles->GetItemCount()) + _("files"), 1);
 
-    for (size_t i = 0; i < g_mainMenuBar->GetMenuCount(); i++)
-        g_mainMenuBar->EnableTop(i, !m_processRunning);
+    for (size_t i = 0; i < gui_mainMenuBar->GetMenuCount(); i++)
+        gui_mainMenuBar->EnableTop(i, !m_processRunning);
 
-    g_mainToolBar->Enable(!m_processRunning);
+    gui_mainToolBar->Enable(!m_processRunning);
 
-    g_mainMenu->Enable(ID_REMOVE_FILES, g_lstFiles->GetSelectedItemCount() > 0 && !m_processRunning);
-    g_mainMenuBar->Enable(ID_REMOVE_FILES, g_lstFiles->GetSelectedItemCount() > 0 && !m_processRunning);
-    g_mainToolBar->EnableTool(ID_REMOVE_FILES, g_lstFiles->GetSelectedItemCount() > 0 && !m_processRunning);
+    gui_mainMenu->Enable(ID_REMOVE_FILES, gui_lstFiles->GetSelectedItemCount() > 0 && !m_processRunning);
+    gui_mainMenuBar->Enable(ID_REMOVE_FILES, gui_lstFiles->GetSelectedItemCount() > 0 && !m_processRunning);
+    gui_mainToolBar->EnableTool(ID_REMOVE_FILES, gui_lstFiles->GetSelectedItemCount() > 0 && !m_processRunning);
 
-    g_mainMenu->Enable(ID_CLEAR_LIST, g_lstFiles->GetItemCount() > 0 && !m_processRunning);
-    g_mainMenuBar->Enable(ID_CLEAR_LIST, g_lstFiles->GetItemCount() > 0 && !m_processRunning);
-    g_mainToolBar->EnableTool(ID_CLEAR_LIST, g_lstFiles->GetItemCount() > 0 && !m_processRunning);
+    gui_mainMenu->Enable(ID_CLEAR_LIST, gui_lstFiles->GetItemCount() > 0 && !m_processRunning);
+    gui_mainMenuBar->Enable(ID_CLEAR_LIST, gui_lstFiles->GetItemCount() > 0 && !m_processRunning);
+    gui_mainToolBar->EnableTool(ID_CLEAR_LIST, gui_lstFiles->GetItemCount() > 0 && !m_processRunning);
 
-    g_mainMenuBar->Enable(ID_SCAN, g_lstFiles->GetItemCount() > 0 && !m_processRunning);
-    g_mainToolBar->EnableTool(ID_SCAN, g_lstFiles->GetItemCount() > 0 && !m_processRunning);
+    gui_mainMenuBar->Enable(ID_SCAN, gui_lstFiles->GetItemCount() > 0 && !m_processRunning);
+    gui_mainToolBar->EnableTool(ID_SCAN, gui_lstFiles->GetItemCount() > 0 && !m_processRunning);
 
-    g_mainMenuBar->Enable(ID_REPAIR, g_lstFiles->GetItemCount() > 0 && !m_processRunning);
-    g_mainToolBar->EnableTool(ID_REPAIR, g_lstFiles->GetItemCount() > 0 && !m_processRunning);
+    gui_mainMenuBar->Enable(ID_REPAIR, gui_lstFiles->GetItemCount() > 0 && !m_processRunning);
+    gui_mainToolBar->EnableTool(ID_REPAIR, gui_lstFiles->GetItemCount() > 0 && !m_processRunning);
 
-    g_btnStop->Enable(m_processRunning);
+    gui_btnStop->Enable(m_processRunning);
     event.Skip(false);
 }
 
@@ -267,14 +267,14 @@ void GuiFrameMain::loadResources() {
     SetIcon(wxIcon(resourceDir + _T("icon-app.ico"), wxBITMAP_TYPE_ICO));
 
     // Toolbar bitmaps
-    g_mainToolBar->SetToolNormalBitmap(ID_ADD_FILES, wxBitmap(wxImage(resourceDir + _T("toolbar/add-file.png"))));
-    g_mainToolBar->SetToolNormalBitmap(ID_ADD_FOLDER, wxBitmap(wxImage(resourceDir + _T("toolbar/add-folder.png"))));
-    g_mainToolBar->SetToolNormalBitmap(ID_REMOVE_FILES, wxBitmap(wxImage(resourceDir + _T("toolbar/remove.png"))));
-    g_mainToolBar->SetToolNormalBitmap(ID_CLEAR_LIST, wxBitmap(wxImage(resourceDir + _T("toolbar/clear.png"))));
-    g_mainToolBar->SetToolNormalBitmap(ID_SCAN, wxBitmap(wxImage(resourceDir + _T("toolbar/scan.png"))));
-    g_mainToolBar->SetToolNormalBitmap(ID_REPAIR, wxBitmap(wxImage(resourceDir + _T("toolbar/fix.png"))));
-    g_mainToolBar->SetToolNormalBitmap(ID_SETTINGS, wxBitmap(wxImage(resourceDir + _T("toolbar/settings.png"))));
-    g_mainToolBar->SetToolNormalBitmap(ID_ABOUT, wxBitmap(wxImage(resourceDir + _T("toolbar/about.png"))));
+    gui_mainToolBar->SetToolNormalBitmap(ID_ADD_FILES, wxBitmap(wxImage(resourceDir + _T("toolbar/add-file.png"))));
+    gui_mainToolBar->SetToolNormalBitmap(ID_ADD_FOLDER, wxBitmap(wxImage(resourceDir + _T("toolbar/add-folder.png"))));
+    gui_mainToolBar->SetToolNormalBitmap(ID_REMOVE_FILES, wxBitmap(wxImage(resourceDir + _T("toolbar/remove.png"))));
+    gui_mainToolBar->SetToolNormalBitmap(ID_CLEAR_LIST, wxBitmap(wxImage(resourceDir + _T("toolbar/clear.png"))));
+    gui_mainToolBar->SetToolNormalBitmap(ID_SCAN, wxBitmap(wxImage(resourceDir + _T("toolbar/scan.png"))));
+    gui_mainToolBar->SetToolNormalBitmap(ID_REPAIR, wxBitmap(wxImage(resourceDir + _T("toolbar/fix.png"))));
+    gui_mainToolBar->SetToolNormalBitmap(ID_SETTINGS, wxBitmap(wxImage(resourceDir + _T("toolbar/settings.png"))));
+    gui_mainToolBar->SetToolNormalBitmap(ID_ABOUT, wxBitmap(wxImage(resourceDir + _T("toolbar/about.png"))));
 }
 
 void GuiFrameMain::updateControls() {
@@ -295,10 +295,10 @@ void GuiFrameMain::processExecute() {
     unsigned long int maxValue = mp_fileListManager->size();
     unsigned long int i;
 
-    g_gugProgress->SetRange((int)maxValue);
+    gui_gugProgress->SetRange((int)maxValue);
     for (i = 0; i < maxValue; i++) {
         processFile(i);
-        g_gugProgress->SetValue((int)i + 1);
+        gui_gugProgress->SetValue((int)i + 1);
 
         if (!m_processRunning) {
             if (wxMessageBox(_("Do you want to stop process now?"), APP_NAME, wxYES_NO | wxICON_QUESTION) == wxYES) {
@@ -306,11 +306,11 @@ void GuiFrameMain::processExecute() {
                 break;
             }
             m_processRunning = true;
-            g_btnStop->Enable(true);
+            gui_btnStop->Enable(true);
         }
     }
     wxMessageBox(wxString::Format(_("Processed %lu files of %lu."), i, maxValue), APP_NAME, wxOK | wxICON_INFORMATION);
-    g_gugProgress->SetValue(0);
+    gui_gugProgress->SetValue(0);
 }
 
 void GuiFrameMain::processFile(unsigned long int fileIterator) {
@@ -348,7 +348,7 @@ void GuiFrameMain::processFile(unsigned long int fileIterator) {
             wxRenameFile(filenameTempBak, filenameInput.GetFullPath() + _T(".bak"), true);
     }
 
-    g_mainStatusBar->SetStatusText(
+    gui_mainStatusBar->SetStatusText(
         wxString::Format(_("Processed %lu files of %lu."), fileIterator + 1, mp_fileListManager->size()), 1);
 }
 

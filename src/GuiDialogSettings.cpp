@@ -33,17 +33,17 @@ void GuiDialogSettings::OnbtnCancelClick(wxCommandEvent &event) {
 
 void GuiDialogSettings::updateValueControls() {
     // General controls
-    g_chkDeleteBackup->SetValue(mp_configBase->getDeleteBackup());
+    gui_chkDeleteBackup->SetValue(mp_configBase->getDeleteBackup());
 }
 
 void GuiDialogSettings::saveValuesConfig() {
     // General controls
-    mp_configBase->setDeleteBackup(g_chkDeleteBackup->GetValue());
+    mp_configBase->setDeleteBackup(gui_chkDeleteBackup->GetValue());
 
     mp_configBase->setConfigFlush();
 }
 
 void GuiDialogSettings::defaultValueControls() {
     // General controls
-    g_chkDeleteBackup->SetValue(DEFAULT_VALUE_DeleteBackup);
+    gui_chkDeleteBackup->SetValue(DEFAULT_VALUE_DeleteBackup);
 }
