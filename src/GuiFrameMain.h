@@ -6,65 +6,43 @@
 #ifndef GUI_FRAME_MAIN_HPP
 #define GUI_FRAME_MAIN_HPP
 
-#include "Gui.h"
 #include "ConfigBase.h"
-#include "FileListManager.h"
 #include "DndFile.h"
+#include "FileListManager.h"
+#include "Gui.h"
 
 class GuiFrameMain : public FrameMain {
-public:
+  public:
     GuiFrameMain(wxWindow *parent);
-
     virtual ~GuiFrameMain();
 
     void setFilesCmdLine(const wxArrayString &filenames);
 
-protected:
+  protected:
     void OnlstFilesDeleteItem(wxListEvent &event);
-
     void OnlstFilesInsertItem(wxListEvent &event);
-
     void OnlstFilesItemSelect(wxListEvent &event);
-
     void OnlstFilesItemRClick(wxListEvent &event);
-
     void OnlstFilesKeyDown(wxListEvent &event);
-
     void btnProcessStop(wxCommandEvent &event);
-
     void mnuAddDirectory(wxCommandEvent &event);
-
     void mnuAddFiles(wxCommandEvent &event);
-
     void mnuExit(wxCommandEvent &event);
-
     void mnuRemoveFiles(wxCommandEvent &event);
-
     void mnuClearList(wxCommandEvent &event);
-
     void mnuSettings(wxCommandEvent &event);
-
     void mnuScan(wxCommandEvent &event);
-
     void mnuRepair(wxCommandEvent &event);
-
     void mnuWebsite(wxCommandEvent &event);
-
     void mnuToolWebsite(wxCommandEvent &event);
-
     void mnuAbout(wxCommandEvent &event);
-
     void OnTimer1Trigger(wxTimerEvent &event);
 
-private:
+  private:
     void updateControls();
-
     void loadResources();
-
     void processExecute();
-
     void processFile(unsigned long int fileIterator);
-
     int processOutputString(unsigned long int fileIterator);
 
     ConfigBase *mp_configBase;

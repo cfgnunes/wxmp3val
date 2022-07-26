@@ -6,7 +6,8 @@
 #include "FileInfo.h"
 #include "Constants.h"
 
-FileInfo::FileInfo(const wxString &fileName) : m_fileName(fileName), m_stateMP3(STATE_MP3_UNKNOWN) {
+FileInfo::FileInfo(const wxString &fileName)
+    : m_fileName(fileName), m_stateMP3(STATE_MP3_UNKNOWN) {
 }
 
 FileInfo::~FileInfo() {

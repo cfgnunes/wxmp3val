@@ -4,18 +4,18 @@
  */
 
 #include "GuiFrameMain.h"
-#include "GuiDialogSettings.h"
 #include "Constants.h"
+#include "GuiDialogSettings.h"
 
-#include <wx/msgdlg.h>
 #include <wx/aboutdlg.h>
+#include <wx/dirdlg.h>
 #include <wx/filedlg.h>
 #include <wx/filefn.h>
 #include <wx/filename.h>
-#include <wx/dirdlg.h>
+#include <wx/msgdlg.h>
 
 GuiFrameMain::GuiFrameMain(wxWindow *parent)
-        : FrameMain(parent), m_processRunning(false) {
+    : FrameMain(parent), m_processRunning(false) {
     // Disable status bar pane used to display menu and toolbar help
     SetStatusBarPane(-1);
 
@@ -58,7 +58,7 @@ GuiFrameMain::~GuiFrameMain() {
 
 void GuiFrameMain::OnlstFilesDeleteItem(wxListEvent &event) {
     if (!m_processRunning) {
-        mp_fileListManager->deleteItem((unsigned long) event.GetIndex());
+        mp_fileListManager->deleteItem((unsigned long)event.GetIndex());
         updateControls();
     }
     event.Skip();
@@ -295,10 +295,10 @@ void GuiFrameMain::processExecute() {
     unsigned long int maxValue = mp_fileListManager->size();
     unsigned long int i;
 
-    g_gugProgress->SetRange((int) maxValue);
+    g_gugProgress->SetRange((int)maxValue);
     for (i = 0; i < maxValue; i++) {
         processFile(i);
-        g_gugProgress->SetValue((int) i + 1);
+        g_gugProgress->SetValue((int)i + 1);
 
         if (!m_processRunning) {
             if (wxMessageBox(_("Do you want to stop process now?"), APP_NAME, wxYES_NO | wxICON_QUESTION) == wxYES) {
@@ -349,7 +349,7 @@ void GuiFrameMain::processFile(unsigned long int fileIterator) {
     }
 
     g_mainStatusBar->SetStatusText(
-            wxString::Format(_("Processed %lu files of %lu."), fileIterator + 1, mp_fileListManager->size()), 1);
+        wxString::Format(_("Processed %lu files of %lu."), fileIterator + 1, mp_fileListManager->size()), 1);
 }
 
 int GuiFrameMain::processOutputString(unsigned long int fileIterator) {
@@ -396,19 +396,19 @@ int GuiFrameMain::processOutputString(unsigned long int fileIterator) {
 
         // Update State column
         switch (stateMP3) {
-            default:
-            case STATE_MP3_OK:
-                mp_fileListManager->getOwner().SetItem(fileIterator, ID_LIST_STATE, _("OK"));
-                mp_fileListManager->getOwner().SetItemTextColour(fileIterator, *wxBLACK);
-                break;
-            case STATE_MP3_PROBLEM:
-                mp_fileListManager->getOwner().SetItem(fileIterator, ID_LIST_STATE, _("PROBLEM"));
-                mp_fileListManager->getOwner().SetItemTextColour(fileIterator, *wxRED);
-                break;
-            case STATE_MP3_FIXED:
-                mp_fileListManager->getOwner().SetItem(fileIterator, ID_LIST_STATE, _("FIXED"));
-                mp_fileListManager->getOwner().SetItemTextColour(fileIterator, *wxBLACK);
-                break;
+        default:
+        case STATE_MP3_OK:
+            mp_fileListManager->getOwner().SetItem(fileIterator, ID_LIST_STATE, _("OK"));
+            mp_fileListManager->getOwner().SetItemTextColour(fileIterator, *wxBLACK);
+            break;
+        case STATE_MP3_PROBLEM:
+            mp_fileListManager->getOwner().SetItem(fileIterator, ID_LIST_STATE, _("PROBLEM"));
+            mp_fileListManager->getOwner().SetItemTextColour(fileIterator, *wxRED);
+            break;
+        case STATE_MP3_FIXED:
+            mp_fileListManager->getOwner().SetItem(fileIterator, ID_LIST_STATE, _("FIXED"));
+            mp_fileListManager->getOwner().SetItemTextColour(fileIterator, *wxBLACK);
+            break;
         }
 
         // Clear the output

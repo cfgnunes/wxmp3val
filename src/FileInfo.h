@@ -6,23 +6,19 @@
 #ifndef FILE_INFO_HPP
 #define FILE_INFO_HPP
 
-#include <wx/string.h>
 #include <wx/filename.h>
+#include <wx/string.h>
 
 class FileInfo {
-public:
+  public:
     FileInfo(const wxString &fileName);
-
     virtual ~FileInfo();
 
     wxFileName getFileName() const;
-
     int getStateMP3() const;
-
     void setStateMP3(int state);
 
-
-private:
+  private:
     wxFileName m_fileName;
     int m_stateMP3;
 };

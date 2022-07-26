@@ -6,36 +6,29 @@
 #ifndef CONFIG_BASE_HPP
 #define CONFIG_BASE_HPP
 
-#include <wx/string.h>
 #include <wx/config.h>
+#include <wx/string.h>
 
 class ConfigBase {
-public:
+  public:
     ConfigBase(const wxString &appName = wxEmptyString);
-
     ~ConfigBase();
 
     void setDefaultConfig();
-
     void setConfigFlush();
-
     wxString getStringToolOptions() const;
 
     // Gets
     wxString getAppVersion() const;
-
     wxString getLastOpenDir() const;
-
     bool getDeleteBackup() const;
 
     // Sets
     void setAppVersion(wxString value);
-
     void setLastOpenDir(wxString value);
-
     void setDeleteBackup(bool value);
 
-private:
+  private:
     wxConfig *mp_config;
 };
 

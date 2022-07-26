@@ -6,10 +6,11 @@
 #include "FileListManager.h"
 #include "Constants.h"
 
-#include <wx/tokenzr.h>
 #include <wx/dir.h>
+#include <wx/tokenzr.h>
 
-FileListManager::FileListManager(wxListCtrl *owner) : mp_owner(owner) {
+FileListManager::FileListManager(wxListCtrl *owner)
+    : mp_owner(owner) {
     mp_lstFilesData = new std::list<FileInfo>();
 }
 

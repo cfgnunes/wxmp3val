@@ -7,7 +7,7 @@
 #include "Constants.h"
 
 GuiDialogSettings::GuiDialogSettings(wxWindow *parent, ConfigBase *configBase)
-        : DialogSettings(parent), mp_configBase(configBase) {
+    : DialogSettings(parent), mp_configBase(configBase) {
     // Updates the values controls according to the configuration file
     updateValueControls();
 }
