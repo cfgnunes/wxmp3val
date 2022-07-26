@@ -21,14 +21,14 @@ public:
 
     wxString getStringToolOptions() const;
 
-    // Gets...
+    // Gets
     wxString getAppVersion() const;
 
     wxString getLastOpenDir() const;
 
     bool getDeleteBackup() const;
 
-    // Sets...
+    // Sets
     void setAppVersion(wxString value);
 
     void setLastOpenDir(wxString value);

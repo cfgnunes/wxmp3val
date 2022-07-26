@@ -39,7 +39,7 @@ wxString ConfigBase::getStringToolOptions() const {
     return toolOptions;
 }
 
-// Gets...
+// Gets
 
 wxString ConfigBase::getAppVersion() const {
     wxString value = wxEmptyString;
@@ -59,7 +59,7 @@ bool ConfigBase::getDeleteBackup() const {
     return value;
 }
 
-// Sets...
+// Sets
 
 void ConfigBase::setAppVersion(wxString value) {
     mp_config->Write(CONFIG_GROUP_SYSTEM + CONFIG_STR_AppVersion, value);

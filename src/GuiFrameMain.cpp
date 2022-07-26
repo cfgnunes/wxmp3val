@@ -360,7 +360,7 @@ int GuiFrameMain::processOutputString(unsigned long int fileIterator) {
             tempString = m_exeInputString.Item(i);
 
             if (tempString.Find(_T("MPEG frames")) != wxNOT_FOUND) {
-                // Cut the string for: "MPEG frames..."
+                // Cut the string for: "MPEG frames"
                 tempString = tempString.Right(tempString.Len() - tempString.Find(_T("MPEG frames")));
 
                 // Update Version column
