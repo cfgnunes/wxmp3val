@@ -3,8 +3,8 @@
  * http://www.gnu.org/licenses/gpl-3.0.html
  */
 
-#ifndef FILEINFO_H
-#define FILEINFO_H
+#ifndef FILE_INFO_HPP
+#define FILE_INFO_HPP
 
 #include <wx/string.h>
 #include <wx/filename.h>
@@ -27,4 +27,4 @@ private:
     int m_stateMP3;
 };
 
-#endif // FILEINFO_H
+#endif // FILE_INFO_HPP
