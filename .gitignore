@@ -55,12 +55,12 @@ build/
 dist/
 
 # Debuild transient files and folders
-obj-*/
+debian/*.substvars
+debian/debhelper-build-stamp
+debian/files
 debian/.debhelper/
 debian/wx*/
-debian/debhelper-build-stamp
-debian/wxmp3val.substvars
-debian/files
+obj-*/
 
 # Windows resource files
 *.res
