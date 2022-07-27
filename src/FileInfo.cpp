@@ -3,8 +3,8 @@
  * http://www.gnu.org/licenses/gpl-3.0.html
  */
 
-#include "FileInfo.h"
-#include "Constants.h"
+#include "FileInfo.hpp"
+#include "Constants.hpp"
 
 FileInfo::FileInfo(const wxString &fileName)
     : m_fileName(fileName), m_stateMP3(STATE_MP3_UNKNOWN) {
