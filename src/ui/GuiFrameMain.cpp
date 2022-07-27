@@ -315,11 +315,11 @@ void GuiFrameMain::processExecute() {
 
 void GuiFrameMain::processFile(unsigned long int fileIterator) {
     wxString fullCommand = APP_TOOL_EXECUTABLE;
-    FileInfo &fileInfo = mp_fileListManager->getItem(fileIterator);
-    wxFileName filenameInput = fileInfo.getFileName();
+    FileData &fileData = mp_fileListManager->getItem(fileIterator);
+    wxFileName filenameInput = fileData.getFileName();
 
     // Do not process OK MP3's again
-    if (fileInfo.getStateMP3() == STATE_MP3_OK)
+    if (fileData.getStateMP3() == STATE_MP3_OK)
         return;
 
     // Works on a temp file
@@ -335,7 +335,7 @@ void GuiFrameMain::processFile(unsigned long int fileIterator) {
 
     // Process output string and updates the list
     int stateMP3 = processOutputString(fileIterator);
-    fileInfo.setStateMP3(stateMP3);
+    fileData.setStateMP3(stateMP3);
 
     // Delete temp file or rename to the original filename
     if (m_processType == TOOL_SCAN)

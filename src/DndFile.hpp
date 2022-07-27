@@ -6,7 +6,7 @@
 #ifndef DND_FILE_HPP
 #define DND_FILE_HPP
 
-#include "FileInfo.hpp"
+#include "FileData.hpp"
 #include "FileListManager.hpp"
 
 #include <wx/dnd.h>

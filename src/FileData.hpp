@@ -3,16 +3,16 @@
  * http://www.gnu.org/licenses/gpl-3.0.html
  */
 
-#ifndef FILE_INFO_HPP
-#define FILE_INFO_HPP
+#ifndef FILE_DATA_HPP
+#define FILE_DATA_HPP
 
 #include <wx/filename.h>
 #include <wx/string.h>
 
-class FileInfo {
+class FileData {
   public:
-    FileInfo(const wxString &fileName);
-    virtual ~FileInfo();
+    FileData(const wxString &fileName);
+    virtual ~FileData();
 
     wxFileName getFileName() const;
     int getStateMP3() const;
@@ -23,4 +23,4 @@ class FileInfo {
     int m_stateMP3;
 };
 
-#endif // FILE_INFO_HPP
+#endif // FILE_DATA_HPP

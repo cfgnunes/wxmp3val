@@ -6,7 +6,7 @@
 #ifndef FILE_LIST_MANAGER_HPP
 #define FILE_LIST_MANAGER_HPP
 
-#include "FileInfo.hpp"
+#include "FileData.hpp"
 
 #include <list>
 #include <wx/arrstr.h>
@@ -24,14 +24,14 @@ class FileListManager {
     void deleteItem(unsigned long int index);
     void clear();
     long unsigned int size();
-    FileInfo &getItem(unsigned long int index);
+    FileData &getItem(unsigned long int index);
     wxListCtrl &getOwner();
 
   private:
     bool checkValidExtension(const wxFileName &file) const;
 
     wxListCtrl *mp_owner;
-    std::list<FileInfo> *mp_lstFilesData;
+    std::list<FileData> *mp_lstFilesData;
 };
 
 #endif // FILE_LIST_MANAGER_HPP

@@ -11,7 +11,7 @@
 
 FileListManager::FileListManager(wxListCtrl *owner)
     : mp_owner(owner) {
-    mp_lstFilesData = new std::list<FileInfo>();
+    mp_lstFilesData = new std::list<FileData>();
 }
 
 FileListManager::~FileListManager() {
@@ -44,9 +44,9 @@ void FileListManager::insertFiles(const wxArrayString &filenames) {
             bool repeated = false;
 
             unsigned long int i = 0;
-            for (std::list<FileInfo>::iterator fileInfo = mp_lstFilesData->begin();
-                 fileInfo != mp_lstFilesData->end(); fileInfo++, i++) {
-                wxFileName filenameInput = (*fileInfo).getFileName();
+            for (std::list<FileData>::iterator fileData = mp_lstFilesData->begin();
+                 fileData != mp_lstFilesData->end(); fileData++, i++) {
+                wxFileName filenameInput = (*fileData).getFileName();
                 if (filenameInput.GetFullPath() == filenames[n]) {
                     repeated = true;
                 }
@@ -54,7 +54,7 @@ void FileListManager::insertFiles(const wxArrayString &filenames) {
             if (!repeated) {
                 mp_owner->InsertItem(mp_owner->GetItemCount(), file.GetFullName());
                 mp_owner->SetItem(i, 1, file.GetPath());
-                mp_lstFilesData->push_back(FileInfo(filenames[n]));
+                mp_lstFilesData->push_back(FileData(filenames[n]));
             }
         }
     }
@@ -79,9 +79,9 @@ bool FileListManager::checkValidExtension(const wxFileName &file) const {
 }
 
 void FileListManager::deleteItem(unsigned long int index) {
-    std::list<FileInfo>::iterator fileInfo = mp_lstFilesData->begin();
-    std::advance(fileInfo, index);
-    mp_lstFilesData->erase(fileInfo);
+    std::list<FileData>::iterator fileData = mp_lstFilesData->begin();
+    std::advance(fileData, index);
+    mp_lstFilesData->erase(fileData);
 }
 
 void FileListManager::clear() {
@@ -93,10 +93,10 @@ long unsigned int FileListManager::size() {
     return mp_lstFilesData->size();
 }
 
-FileInfo &FileListManager::getItem(unsigned long int index) {
-    std::list<FileInfo>::iterator fileInfo = mp_lstFilesData->begin();
-    std::advance(fileInfo, index);
-    return *fileInfo;
+FileData &FileListManager::getItem(unsigned long int index) {
+    std::list<FileData>::iterator fileData = mp_lstFilesData->begin();
+    std::advance(fileData, index);
+    return *fileData;
 }
 
 wxListCtrl &FileListManager::getOwner() {
