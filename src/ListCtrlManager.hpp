@@ -31,7 +31,7 @@ class ListCtrlManager {
     bool checkValidExtension(const wxFileName &file) const;
 
     wxListCtrl *mp_listCtrl;
-    std::list<FileData> *mp_lstFilesData;
+    std::list<FileData> *mp_filesData;
 };
 
 #endif // LIST_CTRL_MANAGER_HPP
