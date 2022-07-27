@@ -54,5 +54,13 @@ _deps
 build/
 dist/
 
+# Debuild transient files and folders
+obj-*/
+debian/.debhelper/
+debian/wx*/
+debian/debhelper-build-stamp
+debian/wxmp3val.substvars
+debian/files
+
 # Windows resource files
 *.res
