@@ -150,8 +150,10 @@ void GuiFrameMain::mnuExit(wxCommandEvent &event) {
 void GuiFrameMain::mnuRemoveFiles(wxCommandEvent &event) {
     int itemCount = gui_lstFiles->GetSelectedItemCount();
     SetCursor(wxCURSOR_WAIT);
-    for (int i = 0; i < itemCount; i++)
-        gui_lstFiles->DeleteItem(gui_lstFiles->GetNextItem(-1, wxLIST_NEXT_ALL, wxLIST_STATE_SELECTED));
+    for (int i = 0; i < itemCount; i++) {
+        long item = gui_lstFiles->GetNextItem(-1, wxLIST_NEXT_ALL, wxLIST_STATE_SELECTED);
+        gui_lstFiles->DeleteItem(item);
+    }
     SetCursor(wxCURSOR_ARROW);
 
     updateControls();
@@ -228,14 +230,21 @@ void GuiFrameMain::OnTimer1Trigger(wxTimerEvent &event) {
         wxExecute(m_exeTool + _T(" -v"), m_exeInputString, m_exeInputErrorString, wxEXEC_NODISABLE);
 
         // Show the version of tool
-        if (!m_exeInputString.IsEmpty())
-            gui_mainStatusBar->SetStatusText(_("Using MP3val version: ") + m_exeInputString.Item(0).AfterLast(' '), 0);
-        else
-            gui_mainStatusBar->SetStatusText(_("MP3val not found!"), 0);
+        wxString version;
+        if (!m_exeInputString.IsEmpty()) {
+            version = _("Using MP3val version: ");
+            version += m_exeInputString.Item(0).AfterLast(' ');
+        } else {
+            version = _("MP3val not found!");
+        }
+        gui_mainStatusBar->SetStatusText(version, 0);
     }
 
     // Show the number of files in list on status bar
-    gui_mainStatusBar->SetStatusText(wxString::Format(_T("%i "), gui_lstFiles->GetItemCount()) + _("files"), 1);
+    wxString strNFiles;
+    strNFiles += wxString::Format(_T("%i "), gui_lstFiles->GetItemCount());
+    strNFiles += _("files");
+    gui_mainStatusBar->SetStatusText(strNFiles, 1);
 
     for (size_t i = 0; i < gui_mainMenuBar->GetMenuCount(); i++)
         gui_mainMenuBar->EnableTop(i, !m_processRunning);
@@ -294,6 +303,7 @@ void GuiFrameMain::setFilesCmdLine(const wxArrayString &filenames) {
 void GuiFrameMain::processExecute() {
     unsigned long int total = mp_listManager->size();
     unsigned long int fileIdx;
+    wxString msg;
 
     gui_gugProgress->SetRange((int)total);
     for (fileIdx = 0; fileIdx < total; fileIdx++) {
@@ -301,7 +311,7 @@ void GuiFrameMain::processExecute() {
         gui_gugProgress->SetValue((int)fileIdx + 1);
 
         if (!m_processRunning) {
-            wxString msg = _("Do you want to stop process now?");
+            msg = _("Do you want to stop process now?");
             if (wxMessageBox(msg, APP_NAME, wxYES_NO | wxICON_QUESTION) == wxYES) {
                 fileIdx++;
                 break;
@@ -311,7 +321,6 @@ void GuiFrameMain::processExecute() {
         }
     }
 
-    wxString msg;
     msg = wxString::Format(_("Processed %lu files of %lu."), fileIdx, total);
     wxMessageBox(msg, APP_NAME, wxOK | wxICON_INFORMATION);
 
