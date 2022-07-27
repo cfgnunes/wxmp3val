@@ -56,7 +56,7 @@ int const ID_LIST_TAGS = 3;
 int const ID_LIST_CBR = 4;
 int const ID_LIST_STATE = 5;
 
-inline wxString GetResourceDir() {
+inline wxString getResourceDir() {
     wxString executablePath = wxStandardPaths::Get().GetExecutablePath();
     wxFileName executableFilename(executablePath);
     wxString resourceDirName = _T("/data/");
