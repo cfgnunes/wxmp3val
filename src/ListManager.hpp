@@ -13,10 +13,10 @@
 #include <wx/filename.h>
 #include <wx/listctrl.h>
 
-class ListCtrlManager {
+class ListManager {
   public:
-    ListCtrlManager(wxListCtrl *listCtrl);
-    virtual ~ListCtrlManager();
+    ListManager(wxListCtrl *listCtrl);
+    virtual ~ListManager();
 
     void insertFilesAndDir(const wxArrayString &filenames);
     void insertFiles(const wxArrayString &filenames);

@@ -8,7 +8,7 @@
 
 #include "../AppSettings.hpp"
 #include "../FileDrop.hpp"
-#include "../ListCtrlManager.hpp"
+#include "../ListManager.hpp"
 #include "Gui.h"
 
 class GuiFrameMain : public FrameMain {
@@ -46,7 +46,7 @@ class GuiFrameMain : public FrameMain {
     int processOutputString(unsigned long int fileIterator);
 
     AppSettings *mp_appSettings;
-    ListCtrlManager *mp_listCtrlManager;
+    ListManager *mp_listManager;
     FileDrop *mp_fileDrop;
     wxString m_exeTool;
     wxArrayString m_exeInputString;

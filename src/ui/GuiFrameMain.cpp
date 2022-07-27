@@ -19,10 +19,10 @@ GuiFrameMain::GuiFrameMain(wxWindow *parent) : FrameMain(parent), m_processRunni
     SetStatusBarPane(-1);
 
     // File list manager
-    mp_listCtrlManager = new ListCtrlManager(gui_lstFiles);
+    mp_listManager = new ListManager(gui_lstFiles);
 
     // List Drag & Drop
-    mp_fileDrop = new FileDrop(mp_listCtrlManager);
+    mp_fileDrop = new FileDrop(mp_listManager);
     gui_lstFiles->SetDropTarget(mp_fileDrop);
 
     // Title List
@@ -51,13 +51,13 @@ GuiFrameMain::GuiFrameMain(wxWindow *parent) : FrameMain(parent), m_processRunni
 }
 
 GuiFrameMain::~GuiFrameMain() {
-    delete mp_listCtrlManager;
+    delete mp_listManager;
     delete mp_appSettings;
 }
 
 void GuiFrameMain::OnlstFilesDeleteItem(wxListEvent &event) {
     if (!m_processRunning) {
-        mp_listCtrlManager->deleteItem((unsigned long)event.GetIndex());
+        mp_listManager->deleteItem((unsigned long)event.GetIndex());
         updateControls();
     }
     event.Skip();
@@ -109,7 +109,7 @@ void GuiFrameMain::mnuAddDirectory(wxCommandEvent &event) {
     dirDialog.SetPath(mp_appSettings->getLastOpenDir());
     if (dirDialog.ShowModal() == wxID_OK) {
         SetCursor(wxCURSOR_WAIT);
-        mp_listCtrlManager->insertDir(dirDialog.GetPath());
+        mp_listManager->insertDir(dirDialog.GetPath());
 
         // Remembers the last used directory
         mp_appSettings->setLastOpenDir(dirDialog.GetPath());
@@ -130,7 +130,7 @@ void GuiFrameMain::mnuAddFiles(wxCommandEvent &event) {
 
         // Get the file(s) the user selected
         fileDialog.GetPaths(files);
-        mp_listCtrlManager->insertFiles(files);
+        mp_listManager->insertFiles(files);
 
         // Remembers the last used directory
         mp_appSettings->setLastOpenDir(fileDialog.GetDirectory());
@@ -158,7 +158,7 @@ void GuiFrameMain::mnuRemoveFiles(wxCommandEvent &event) {
 
 void GuiFrameMain::mnuClearList(wxCommandEvent &event) {
     // Deletes all items from the list
-    mp_listCtrlManager->clear();
+    mp_listManager->clear();
 
     updateControls();
     event.Skip(false);
@@ -286,11 +286,11 @@ void GuiFrameMain::updateControls() {
 }
 
 void GuiFrameMain::setFilesCmdLine(const wxArrayString &filenames) {
-    mp_listCtrlManager->insertFilesAndDir(filenames);
+    mp_listManager->insertFilesAndDir(filenames);
 }
 
 void GuiFrameMain::processExecute() {
-    unsigned long int maxValue = mp_listCtrlManager->size();
+    unsigned long int maxValue = mp_listManager->size();
     unsigned long int i;
 
     gui_gugProgress->SetRange((int)maxValue);
@@ -313,7 +313,7 @@ void GuiFrameMain::processExecute() {
 
 void GuiFrameMain::processFile(unsigned long int fileIterator) {
     wxString fullCommand = APP_TOOL_EXECUTABLE;
-    FileData &fileData = mp_listCtrlManager->getFileData(fileIterator);
+    FileData &fileData = mp_listManager->getFileData(fileIterator);
     wxFileName filenameInput = fileData.getFileName();
 
     // Do not process OK MP3's again
@@ -345,7 +345,7 @@ void GuiFrameMain::processFile(unsigned long int fileIterator) {
             wxRenameFile(filenameTempBak, filenameInput.GetFullPath() + _T(".bak"), true);
     }
 
-    gui_mainStatusBar->SetStatusText(wxString::Format(_("Processed %lu files of %lu."), fileIterator + 1, mp_listCtrlManager->size()), 1);
+    gui_mainStatusBar->SetStatusText(wxString::Format(_("Processed %lu files of %lu."), fileIterator + 1, mp_listManager->size()), 1);
 }
 
 int GuiFrameMain::processOutputString(unsigned long int fileIterator) {
@@ -363,16 +363,16 @@ int GuiFrameMain::processOutputString(unsigned long int fileIterator) {
 
                 // Update Version column
                 if (tempString.AfterFirst('(').BeforeFirst(')').Find(_T("MPEG")) != wxNOT_FOUND)
-                    mp_listCtrlManager->getListCtrl().SetItem(fileIterator, ID_LIST_VERSION, tempString.AfterFirst('(').BeforeFirst(')'));
+                    mp_listManager->getListCtrl().SetItem(fileIterator, ID_LIST_VERSION, tempString.AfterFirst('(').BeforeFirst(')'));
 
                 // Update Tags column
-                mp_listCtrlManager->getListCtrl().SetItem(fileIterator, ID_LIST_TAGS, tempString.AfterFirst(',').BeforeFirst(','));
+                mp_listManager->getListCtrl().SetItem(fileIterator, ID_LIST_TAGS, tempString.AfterFirst(',').BeforeFirst(','));
 
                 // Update CBR column
                 if (tempString.AfterFirst(',').AfterFirst(',').Find(_T("CBR")) != wxNOT_FOUND)
-                    mp_listCtrlManager->getListCtrl().SetItem(fileIterator, ID_LIST_CBR, _T("CBR"));
+                    mp_listManager->getListCtrl().SetItem(fileIterator, ID_LIST_CBR, _T("CBR"));
                 else
-                    mp_listCtrlManager->getListCtrl().SetItem(fileIterator, ID_LIST_CBR, _T("VBR"));
+                    mp_listManager->getListCtrl().SetItem(fileIterator, ID_LIST_CBR, _T("VBR"));
             }
 
             if (tempString.StartsWith(_T("WARNING: ")))
@@ -392,16 +392,16 @@ int GuiFrameMain::processOutputString(unsigned long int fileIterator) {
         switch (stateMP3) {
         default:
         case STATE_MP3_OK:
-            mp_listCtrlManager->getListCtrl().SetItem(fileIterator, ID_LIST_STATE, _("OK"));
-            mp_listCtrlManager->getListCtrl().SetItemTextColour(fileIterator, *wxBLACK);
+            mp_listManager->getListCtrl().SetItem(fileIterator, ID_LIST_STATE, _("OK"));
+            mp_listManager->getListCtrl().SetItemTextColour(fileIterator, *wxBLACK);
             break;
         case STATE_MP3_PROBLEM:
-            mp_listCtrlManager->getListCtrl().SetItem(fileIterator, ID_LIST_STATE, _("PROBLEM"));
-            mp_listCtrlManager->getListCtrl().SetItemTextColour(fileIterator, *wxRED);
+            mp_listManager->getListCtrl().SetItem(fileIterator, ID_LIST_STATE, _("PROBLEM"));
+            mp_listManager->getListCtrl().SetItemTextColour(fileIterator, *wxRED);
             break;
         case STATE_MP3_FIXED:
-            mp_listCtrlManager->getListCtrl().SetItem(fileIterator, ID_LIST_STATE, _("FIXED"));
-            mp_listCtrlManager->getListCtrl().SetItemTextColour(fileIterator, *wxBLACK);
+            mp_listManager->getListCtrl().SetItem(fileIterator, ID_LIST_STATE, _("FIXED"));
+            mp_listManager->getListCtrl().SetItemTextColour(fileIterator, *wxBLACK);
             break;
         }
 
