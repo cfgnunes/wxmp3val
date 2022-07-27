@@ -1,16 +1,13 @@
-wxMP3val
---------
+# wxMP3val
 
 Copyright (C) 2011-2019 Cristiano Fraga G. Nunes
 https://github.com/cfgnunes/wxmp3val
 
-Overview
---------
+## Overview
 
 wxMP3val is a free front-end for the MP3val.
 
-License
--------
+## License
 
 This program is licensed under the terms
 of the GNU General Public License version 3.
