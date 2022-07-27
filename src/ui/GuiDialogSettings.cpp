@@ -3,11 +3,10 @@
  * http://www.gnu.org/licenses/gpl-3.0.html
  */
 
-#include "../Constants.hpp"
 #include "GuiDialogSettings.hpp"
+#include "../Constants.hpp"
 
-GuiDialogSettings::GuiDialogSettings(wxWindow *parent, AppSettings *appSettings)
-    : DialogSettings(parent), mp_appSettings(appSettings) {
+GuiDialogSettings::GuiDialogSettings(wxWindow *parent, AppSettings *appSettings) : DialogSettings(parent), mp_appSettings(appSettings) {
     // Updates the values controls according to the configuration file
     updateValueControls();
 }

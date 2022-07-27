@@ -3,8 +3,8 @@
  * http://www.gnu.org/licenses/gpl-3.0.html
  */
 
-#include "../Constants.hpp"
 #include "GuiFrameMain.hpp"
+#include "../Constants.hpp"
 #include "GuiDialogSettings.hpp"
 
 #include <wx/aboutdlg.h>
@@ -14,8 +14,7 @@
 #include <wx/filename.h>
 #include <wx/msgdlg.h>
 
-GuiFrameMain::GuiFrameMain(wxWindow *parent)
-    : FrameMain(parent), m_processRunning(false) {
+GuiFrameMain::GuiFrameMain(wxWindow *parent) : FrameMain(parent), m_processRunning(false) {
     // Disable status bar pane used to display menu and toolbar help
     SetStatusBarPane(-1);
 
@@ -121,8 +120,7 @@ void GuiFrameMain::mnuAddDirectory(wxCommandEvent &event) {
 
 void GuiFrameMain::mnuAddFiles(wxCommandEvent &event) {
     wxArrayString files;
-    wxFileDialog fileDialog(this, _("Select file"), wxEmptyString, wxEmptyString, APP_WILDCARD_EXT,
-                            wxFD_OPEN | wxFD_MULTIPLE);
+    wxFileDialog fileDialog(this, _("Select file"), wxEmptyString, wxEmptyString, APP_WILDCARD_EXT, wxFD_OPEN | wxFD_MULTIPLE);
 
     // Read the last directory used
     fileDialog.SetDirectory(mp_appSettings->getLastOpenDir());
@@ -330,8 +328,7 @@ void GuiFrameMain::processFile(unsigned long int fileIterator) {
         fullCommand.append(_T(" -f ") + mp_appSettings->getStringToolOptions());
 
     // Execute external application
-    wxExecute(fullCommand + _T(" \"") + filenameTemp + _T("\""), m_exeInputString,
-              wxEXEC_NODISABLE | wxEXEC_SYNC);
+    wxExecute(fullCommand + _T(" \"") + filenameTemp + _T("\""), m_exeInputString, wxEXEC_NODISABLE | wxEXEC_SYNC);
 
     // Process output string and updates the list
     int stateMP3 = processOutputString(fileIterator);
@@ -348,8 +345,7 @@ void GuiFrameMain::processFile(unsigned long int fileIterator) {
             wxRenameFile(filenameTempBak, filenameInput.GetFullPath() + _T(".bak"), true);
     }
 
-    gui_mainStatusBar->SetStatusText(
-        wxString::Format(_("Processed %lu files of %lu."), fileIterator + 1, mp_listCtrlManager->size()), 1);
+    gui_mainStatusBar->SetStatusText(wxString::Format(_("Processed %lu files of %lu."), fileIterator + 1, mp_listCtrlManager->size()), 1);
 }
 
 int GuiFrameMain::processOutputString(unsigned long int fileIterator) {
@@ -367,12 +363,10 @@ int GuiFrameMain::processOutputString(unsigned long int fileIterator) {
 
                 // Update Version column
                 if (tempString.AfterFirst('(').BeforeFirst(')').Find(_T("MPEG")) != wxNOT_FOUND)
-                    mp_listCtrlManager->getListCtrl().SetItem(fileIterator, ID_LIST_VERSION,
-                                                           tempString.AfterFirst('(').BeforeFirst(')'));
+                    mp_listCtrlManager->getListCtrl().SetItem(fileIterator, ID_LIST_VERSION, tempString.AfterFirst('(').BeforeFirst(')'));
 
                 // Update Tags column
-                mp_listCtrlManager->getListCtrl().SetItem(fileIterator, ID_LIST_TAGS,
-                                                       tempString.AfterFirst(',').BeforeFirst(','));
+                mp_listCtrlManager->getListCtrl().SetItem(fileIterator, ID_LIST_TAGS, tempString.AfterFirst(',').BeforeFirst(','));
 
                 // Update CBR column
                 if (tempString.AfterFirst(',').AfterFirst(',').Find(_T("CBR")) != wxNOT_FOUND)
