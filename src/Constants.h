@@ -59,7 +59,7 @@ int const ID_LIST_STATE = 5;
 inline wxString GetResourceDir() {
     wxString executablePath = wxStandardPaths::Get().GetExecutablePath();
     wxFileName executableFilename(executablePath);
-    wxString resourceDirName = _T("/resource/");
+    wxString resourceDirName = _T("/data/");
     wxDir dir;
     wxString resourceDir;
 
