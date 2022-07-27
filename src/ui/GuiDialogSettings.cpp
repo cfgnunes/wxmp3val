@@ -40,7 +40,7 @@ void GuiDialogSettings::saveValuesConfig() {
     // General controls
     mp_appSettings->setDeleteBackup(gui_chkDeleteBackup->GetValue());
 
-    mp_appSettings->setConfigFlush();
+    mp_appSettings->flush();
 }
 
 void GuiDialogSettings::defaultValueControls() {

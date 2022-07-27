@@ -11,21 +11,21 @@ AppSettings::AppSettings(const wxString &appName) {
 
     // If there isn't a setting, writes a new one with default values
     if (getAppVersion().Cmp(APP_VERSION) != 0)
-        setDefaultConfig();
+        setDefaultValues();
 }
 
 AppSettings::~AppSettings() {
     delete mp_config;
 }
 
-void AppSettings::setDefaultConfig() {
+void AppSettings::setDefaultValues() {
     setAppVersion(APP_VERSION);
     setLastOpenDir(DEFAULT_VALUE_LastOpenDir);
 
     setDeleteBackup(DEFAULT_VALUE_DeleteBackup);
 }
 
-void AppSettings::setConfigFlush() {
+void AppSettings::flush() {
     mp_config->Flush();
 }
 
