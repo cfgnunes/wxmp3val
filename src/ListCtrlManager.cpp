@@ -9,8 +9,8 @@
 #include <wx/dir.h>
 #include <wx/tokenzr.h>
 
-ListCtrlManager::ListCtrlManager(wxListCtrl *owner)
-    : mp_listCtrl(owner) {
+ListCtrlManager::ListCtrlManager(wxListCtrl *listCtrl)
+    : mp_listCtrl(listCtrl) {
     mp_filesData = new std::list<FileData>();
 }
 
@@ -93,7 +93,7 @@ long unsigned int ListCtrlManager::size() {
     return mp_filesData->size();
 }
 
-FileData &ListCtrlManager::getItem(unsigned long int index) {
+FileData &ListCtrlManager::getFileData(unsigned long int index) {
     std::list<FileData>::iterator fileData = mp_filesData->begin();
     std::advance(fileData, index);
     return *fileData;

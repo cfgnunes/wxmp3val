@@ -315,7 +315,7 @@ void GuiFrameMain::processExecute() {
 
 void GuiFrameMain::processFile(unsigned long int fileIterator) {
     wxString fullCommand = APP_TOOL_EXECUTABLE;
-    FileData &fileData = mp_listCtrlManager->getItem(fileIterator);
+    FileData &fileData = mp_listCtrlManager->getFileData(fileIterator);
     wxFileName filenameInput = fileData.getFileName();
 
     // Do not process OK MP3's again
