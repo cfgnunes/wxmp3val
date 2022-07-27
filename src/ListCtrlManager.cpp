@@ -10,7 +10,7 @@
 #include <wx/tokenzr.h>
 
 ListCtrlManager::ListCtrlManager(wxListCtrl *owner)
-    : mp_owner(owner) {
+    : mp_listCtrl(owner) {
     mp_lstFilesData = new std::list<FileData>();
 }
 
@@ -52,8 +52,8 @@ void ListCtrlManager::insertFiles(const wxArrayString &filenames) {
                 }
             }
             if (!repeated) {
-                mp_owner->InsertItem(mp_owner->GetItemCount(), file.GetFullName());
-                mp_owner->SetItem(i, 1, file.GetPath());
+                mp_listCtrl->InsertItem(mp_listCtrl->GetItemCount(), file.GetFullName());
+                mp_listCtrl->SetItem(i, 1, file.GetPath());
                 mp_lstFilesData->push_back(FileData(filenames[n]));
             }
         }
@@ -85,7 +85,7 @@ void ListCtrlManager::deleteItem(unsigned long int index) {
 }
 
 void ListCtrlManager::clear() {
-    mp_owner->DeleteAllItems();
+    mp_listCtrl->DeleteAllItems();
     mp_lstFilesData->clear();
 }
 
@@ -99,6 +99,6 @@ FileData &ListCtrlManager::getItem(unsigned long int index) {
     return *fileData;
 }
 
-wxListCtrl &ListCtrlManager::getOwner() {
-    return *mp_owner;
+wxListCtrl &ListCtrlManager::getListCtrl() {
+    return *mp_listCtrl;
 }

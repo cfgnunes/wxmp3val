@@ -15,7 +15,7 @@
 
 class ListCtrlManager {
   public:
-    ListCtrlManager(wxListCtrl *owner);
+    ListCtrlManager(wxListCtrl *listCtrl);
     virtual ~ListCtrlManager();
 
     void insertFilesAndDir(const wxArrayString &filenames);
@@ -25,12 +25,12 @@ class ListCtrlManager {
     void clear();
     long unsigned int size();
     FileData &getItem(unsigned long int index);
-    wxListCtrl &getOwner();
+    wxListCtrl &getListCtrl();
 
   private:
     bool checkValidExtension(const wxFileName &file) const;
 
-    wxListCtrl *mp_owner;
+    wxListCtrl *mp_listCtrl;
     std::list<FileData> *mp_lstFilesData;
 };
 

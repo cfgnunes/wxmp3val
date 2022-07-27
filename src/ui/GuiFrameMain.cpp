@@ -367,18 +367,18 @@ int GuiFrameMain::processOutputString(unsigned long int fileIterator) {
 
                 // Update Version column
                 if (tempString.AfterFirst('(').BeforeFirst(')').Find(_T("MPEG")) != wxNOT_FOUND)
-                    mp_listCtrlManager->getOwner().SetItem(fileIterator, ID_LIST_VERSION,
+                    mp_listCtrlManager->getListCtrl().SetItem(fileIterator, ID_LIST_VERSION,
                                                            tempString.AfterFirst('(').BeforeFirst(')'));
 
                 // Update Tags column
-                mp_listCtrlManager->getOwner().SetItem(fileIterator, ID_LIST_TAGS,
+                mp_listCtrlManager->getListCtrl().SetItem(fileIterator, ID_LIST_TAGS,
                                                        tempString.AfterFirst(',').BeforeFirst(','));
 
                 // Update CBR column
                 if (tempString.AfterFirst(',').AfterFirst(',').Find(_T("CBR")) != wxNOT_FOUND)
-                    mp_listCtrlManager->getOwner().SetItem(fileIterator, ID_LIST_CBR, _T("CBR"));
+                    mp_listCtrlManager->getListCtrl().SetItem(fileIterator, ID_LIST_CBR, _T("CBR"));
                 else
-                    mp_listCtrlManager->getOwner().SetItem(fileIterator, ID_LIST_CBR, _T("VBR"));
+                    mp_listCtrlManager->getListCtrl().SetItem(fileIterator, ID_LIST_CBR, _T("VBR"));
             }
 
             if (tempString.StartsWith(_T("WARNING: ")))
@@ -398,16 +398,16 @@ int GuiFrameMain::processOutputString(unsigned long int fileIterator) {
         switch (stateMP3) {
         default:
         case STATE_MP3_OK:
-            mp_listCtrlManager->getOwner().SetItem(fileIterator, ID_LIST_STATE, _("OK"));
-            mp_listCtrlManager->getOwner().SetItemTextColour(fileIterator, *wxBLACK);
+            mp_listCtrlManager->getListCtrl().SetItem(fileIterator, ID_LIST_STATE, _("OK"));
+            mp_listCtrlManager->getListCtrl().SetItemTextColour(fileIterator, *wxBLACK);
             break;
         case STATE_MP3_PROBLEM:
-            mp_listCtrlManager->getOwner().SetItem(fileIterator, ID_LIST_STATE, _("PROBLEM"));
-            mp_listCtrlManager->getOwner().SetItemTextColour(fileIterator, *wxRED);
+            mp_listCtrlManager->getListCtrl().SetItem(fileIterator, ID_LIST_STATE, _("PROBLEM"));
+            mp_listCtrlManager->getListCtrl().SetItemTextColour(fileIterator, *wxRED);
             break;
         case STATE_MP3_FIXED:
-            mp_listCtrlManager->getOwner().SetItem(fileIterator, ID_LIST_STATE, _("FIXED"));
-            mp_listCtrlManager->getOwner().SetItemTextColour(fileIterator, *wxBLACK);
+            mp_listCtrlManager->getListCtrl().SetItem(fileIterator, ID_LIST_STATE, _("FIXED"));
+            mp_listCtrlManager->getListCtrl().SetItemTextColour(fileIterator, *wxBLACK);
             break;
         }
 
