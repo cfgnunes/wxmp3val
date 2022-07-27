@@ -43,7 +43,8 @@ void ListManager::insertFiles(const wxArrayString &filenames) {
             bool repeated = false;
 
             unsigned long int i = 0;
-            for (std::list<FileData>::iterator fileData = mp_filesData->begin(); fileData != mp_filesData->end(); fileData++, i++) {
+            std::list<FileData>::iterator fileData = mp_filesData->begin();
+            for (; fileData != mp_filesData->end(); fileData++, i++) {
                 wxFileName filenameInput = (*fileData).getFileName();
                 if (filenameInput.GetFullPath() == filenames[n]) {
                     repeated = true;

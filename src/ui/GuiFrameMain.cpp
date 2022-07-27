@@ -103,7 +103,8 @@ void GuiFrameMain::btnProcessStop(wxCommandEvent &event) {
 }
 
 void GuiFrameMain::mnuAddDirectory(wxCommandEvent &event) {
-    wxDirDialog dirDialog(this, _("Select directory"), wxEmptyString, wxDD_DEFAULT_STYLE);
+    wxString msg = _("Select directory");
+    wxDirDialog dirDialog(this, msg, wxEmptyString, wxDD_DEFAULT_STYLE);
 
     // Read the last directory used
     dirDialog.SetPath(mp_appSettings->getLastOpenDir());
@@ -120,7 +121,8 @@ void GuiFrameMain::mnuAddDirectory(wxCommandEvent &event) {
 
 void GuiFrameMain::mnuAddFiles(wxCommandEvent &event) {
     wxArrayString files;
-    wxFileDialog fileDialog(this, _("Select file"), wxEmptyString, wxEmptyString, APP_WILDCARD_EXT, wxFD_OPEN | wxFD_MULTIPLE);
+    wxString msg = _("Select file");
+    wxFileDialog fileDialog(this, msg, wxEmptyString, wxEmptyString, APP_WILDCARD_EXT, wxFD_OPEN | wxFD_MULTIPLE);
 
     // Read the last directory used
     fileDialog.SetDirectory(mp_appSettings->getLastOpenDir());
@@ -290,24 +292,29 @@ void GuiFrameMain::setFilesCmdLine(const wxArrayString &filenames) {
 }
 
 void GuiFrameMain::processExecute() {
-    unsigned long int maxValue = mp_listManager->size();
-    unsigned long int i;
+    unsigned long int total = mp_listManager->size();
+    unsigned long int fileIdx;
 
-    gui_gugProgress->SetRange((int)maxValue);
-    for (i = 0; i < maxValue; i++) {
-        processFile(i);
-        gui_gugProgress->SetValue((int)i + 1);
+    gui_gugProgress->SetRange((int)total);
+    for (fileIdx = 0; fileIdx < total; fileIdx++) {
+        processFile(fileIdx);
+        gui_gugProgress->SetValue((int)fileIdx + 1);
 
         if (!m_processRunning) {
-            if (wxMessageBox(_("Do you want to stop process now?"), APP_NAME, wxYES_NO | wxICON_QUESTION) == wxYES) {
-                i++;
+            wxString msg = _("Do you want to stop process now?");
+            if (wxMessageBox(msg, APP_NAME, wxYES_NO | wxICON_QUESTION) == wxYES) {
+                fileIdx++;
                 break;
             }
             m_processRunning = true;
             gui_btnStop->Enable(true);
         }
     }
-    wxMessageBox(wxString::Format(_("Processed %lu files of %lu."), i, maxValue), APP_NAME, wxOK | wxICON_INFORMATION);
+
+    wxString msg;
+    msg = wxString::Format(_("Processed %lu files of %lu."), fileIdx, total);
+    wxMessageBox(msg, APP_NAME, wxOK | wxICON_INFORMATION);
+
     gui_gugProgress->SetValue(0);
 }
 

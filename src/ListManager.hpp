@@ -3,8 +3,8 @@
  * http://www.gnu.org/licenses/gpl-3.0.html
  */
 
-#ifndef LIST_CTRL_MANAGER_HPP
-#define LIST_CTRL_MANAGER_HPP
+#ifndef LIST_MANAGER_HPP
+#define LIST_MANAGER_HPP
 
 #include "FileData.hpp"
 
@@ -34,4 +34,4 @@ class ListManager {
     std::list<FileData> *mp_filesData;
 };
 
-#endif // LIST_CTRL_MANAGER_HPP
+#endif // LIST_MANAGER_HPP
