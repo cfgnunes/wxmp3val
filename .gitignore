@@ -51,7 +51,8 @@ _deps
 .vscode/
 
 # Output dirs
-*build*/
+build/
+dist/
 
 # Windows resource files
 *.res

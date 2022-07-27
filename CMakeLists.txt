@@ -92,13 +92,13 @@ configure_file(
 )
 
 configure_file(
-    "${PROJECT_SOURCE_DIR}/packaging/debian/changelog.in"
-    "${PROJECT_SOURCE_DIR}/packaging/debian/changelog"
+    "${PROJECT_SOURCE_DIR}/debian/changelog.in"
+    "${PROJECT_SOURCE_DIR}/debian/changelog"
 )
 
 configure_file(
-    "${PROJECT_SOURCE_DIR}/packaging/debian/control.in"
-    "${PROJECT_SOURCE_DIR}/packaging/debian/control"
+    "${PROJECT_SOURCE_DIR}/debian/control.in"
+    "${PROJECT_SOURCE_DIR}/debian/control"
 )
 
 # =============================================================================
@@ -159,7 +159,7 @@ file(GLOB SRC_FILES
 
 # Compile the main executable
 if(WIN32)
-    set(SRC_FILES ${SRC_FILES} packaging/windows/resource.rc)
+    set(SRC_FILES ${SRC_FILES} windows/resource.rc)
 
     # Add the executable with a WinMain entry point on Windows.
     # See https://cmake.org/cmake/help/latest/prop_tgt/WIN32_EXECUTABLE.html
@@ -187,11 +187,11 @@ else()
     install(TARGETS ${CMAKE_BIN_NAME} DESTINATION "bin")
     install(DIRECTORY "${CMAKE_DATA_DIR}/" DESTINATION "share/${CMAKE_BIN_NAME}/${CMAKE_DATA_DIR}")
     install(DIRECTORY "${CMAKE_DOC_DIR}/" DESTINATION "share/${CMAKE_DOC_DIR}/${CMAKE_BIN_NAME}")
-    install(FILES "packaging/debian/menu/icon32x32.png" DESTINATION "share/icons/hicolor/32x32/apps/" RENAME "${CMAKE_BIN_NAME}.png")
-    install(FILES "packaging/debian/menu/icon48x48.png" DESTINATION "share/icons/hicolor/48x48/apps/" RENAME "${CMAKE_BIN_NAME}.png")
-    install(FILES "packaging/debian/menu/icon64x64.png" DESTINATION "share/icons/hicolor/64x64/apps/" RENAME "${CMAKE_BIN_NAME}.png")
-    install(FILES "packaging/debian/menu/icon128x128.png" DESTINATION "share/icons/hicolor/128x128/apps/" RENAME "${CMAKE_BIN_NAME}.png")
-    install(FILES "packaging/debian/menu/${CMAKE_BIN_NAME}.desktop" DESTINATION "share/applications/")
+    install(FILES "debian/menu/icon32x32.png" DESTINATION "share/icons/hicolor/32x32/apps/" RENAME "${CMAKE_BIN_NAME}.png")
+    install(FILES "debian/menu/icon48x48.png" DESTINATION "share/icons/hicolor/48x48/apps/" RENAME "${CMAKE_BIN_NAME}.png")
+    install(FILES "debian/menu/icon64x64.png" DESTINATION "share/icons/hicolor/64x64/apps/" RENAME "${CMAKE_BIN_NAME}.png")
+    install(FILES "debian/menu/icon128x128.png" DESTINATION "share/icons/hicolor/128x128/apps/" RENAME "${CMAKE_BIN_NAME}.png")
+    install(FILES "debian/menu/${CMAKE_BIN_NAME}.desktop" DESTINATION "share/applications/")
 endif()
 
 # =============================================================================
