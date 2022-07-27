@@ -48,7 +48,7 @@ FrameMain::FrameMain( wxWindow* parent, wxWindowID id, const wxString& title, co
 
 	this->SetSizer( gui_boxMain );
 	this->Layout();
-	gui_mainMenuBar = new wxMenuBar( 0 );
+	gui_menuBar = new wxMenuBar( 0 );
 	gui_mnbFile = new wxMenu();
 	wxMenuItem* gui_mnbAddFolder;
 	gui_mnbAddFolder = new wxMenuItem( gui_mnbFile, ID_ADD_FOLDER, wxString( _("Add folder") ) , wxEmptyString, wxITEM_NORMAL );
@@ -64,7 +64,7 @@ FrameMain::FrameMain( wxWindow* parent, wxWindowID id, const wxString& title, co
 	gui_mnbExit = new wxMenuItem( gui_mnbFile, ID_EXIT, wxString( _("Exit") ) , wxEmptyString, wxITEM_NORMAL );
 	gui_mnbFile->Append( gui_mnbExit );
 
-	gui_mainMenuBar->Append( gui_mnbFile, _("&File") );
+	gui_menuBar->Append( gui_mnbFile, _("&File") );
 
 	gui_mnbEdit = new wxMenu();
 	wxMenuItem* gui_mnbRemoveFiles;
@@ -81,7 +81,7 @@ FrameMain::FrameMain( wxWindow* parent, wxWindowID id, const wxString& title, co
 	gui_mnbSettings = new wxMenuItem( gui_mnbEdit, ID_SETTINGS, wxString( _("Settings") ) , wxEmptyString, wxITEM_NORMAL );
 	gui_mnbEdit->Append( gui_mnbSettings );
 
-	gui_mainMenuBar->Append( gui_mnbEdit, _("&Edit") );
+	gui_menuBar->Append( gui_mnbEdit, _("&Edit") );
 
 	gui_mnbActions = new wxMenu();
 	wxMenuItem* gui_mnbScan;
@@ -92,7 +92,7 @@ FrameMain::FrameMain( wxWindow* parent, wxWindowID id, const wxString& title, co
 	gui_mnbRepair = new wxMenuItem( gui_mnbActions, ID_REPAIR, wxString( _("Repair") ) , wxEmptyString, wxITEM_NORMAL );
 	gui_mnbActions->Append( gui_mnbRepair );
 
-	gui_mainMenuBar->Append( gui_mnbActions, _("&Actions") );
+	gui_menuBar->Append( gui_mnbActions, _("&Actions") );
 
 	gui_mnbHelp = new wxMenu();
 	wxMenuItem* gui_mnbToolWebsite;
@@ -109,50 +109,50 @@ FrameMain::FrameMain( wxWindow* parent, wxWindowID id, const wxString& title, co
 	gui_mnbAbout = new wxMenuItem( gui_mnbHelp, ID_ABOUT, wxString( _("About") ) , wxEmptyString, wxITEM_NORMAL );
 	gui_mnbHelp->Append( gui_mnbAbout );
 
-	gui_mainMenuBar->Append( gui_mnbHelp, _("&Help") );
+	gui_menuBar->Append( gui_mnbHelp, _("&Help") );
 
-	this->SetMenuBar( gui_mainMenuBar );
+	this->SetMenuBar( gui_menuBar );
 
 	gui_mainStatusBar = this->CreateStatusBar( 3, wxSTB_SIZEGRIP, wxID_ANY );
-	gui_mainToolBar = this->CreateToolBar( wxTB_FLAT|wxTB_HORIZONTAL, wxID_ANY );
-	gui_tbAddFolder = gui_mainToolBar->AddTool( ID_ADD_FOLDER, wxEmptyString, wxArtProvider::GetBitmap( wxART_MISSING_IMAGE, wxART_TOOLBAR ), wxNullBitmap, wxITEM_NORMAL, _("Add folder"), wxEmptyString, NULL );
+	gui_toolBar = this->CreateToolBar( wxTB_FLAT|wxTB_HORIZONTAL, wxID_ANY );
+	gui_tbAddFolder = gui_toolBar->AddTool( ID_ADD_FOLDER, wxEmptyString, wxArtProvider::GetBitmap( wxART_MISSING_IMAGE, wxART_TOOLBAR ), wxNullBitmap, wxITEM_NORMAL, _("Add folder"), wxEmptyString, NULL );
 
-	gui_tbAddFiles = gui_mainToolBar->AddTool( ID_ADD_FILES, wxEmptyString, wxArtProvider::GetBitmap( wxART_MISSING_IMAGE, wxART_TOOLBAR ), wxNullBitmap, wxITEM_NORMAL, _("Add files"), wxEmptyString, NULL );
+	gui_tbAddFiles = gui_toolBar->AddTool( ID_ADD_FILES, wxEmptyString, wxArtProvider::GetBitmap( wxART_MISSING_IMAGE, wxART_TOOLBAR ), wxNullBitmap, wxITEM_NORMAL, _("Add files"), wxEmptyString, NULL );
 
-	gui_tbRemoveFiles = gui_mainToolBar->AddTool( ID_REMOVE_FILES, wxEmptyString, wxArtProvider::GetBitmap( wxART_MISSING_IMAGE, wxART_TOOLBAR ), wxNullBitmap, wxITEM_NORMAL, _("Remove files"), wxEmptyString, NULL );
+	gui_tbRemoveFiles = gui_toolBar->AddTool( ID_REMOVE_FILES, wxEmptyString, wxArtProvider::GetBitmap( wxART_MISSING_IMAGE, wxART_TOOLBAR ), wxNullBitmap, wxITEM_NORMAL, _("Remove files"), wxEmptyString, NULL );
 
-	gui_tbClearList = gui_mainToolBar->AddTool( ID_CLEAR_LIST, wxEmptyString, wxArtProvider::GetBitmap( wxART_MISSING_IMAGE, wxART_TOOLBAR ), wxNullBitmap, wxITEM_NORMAL, _("Clear list"), wxEmptyString, NULL );
+	gui_tbClearList = gui_toolBar->AddTool( ID_CLEAR_LIST, wxEmptyString, wxArtProvider::GetBitmap( wxART_MISSING_IMAGE, wxART_TOOLBAR ), wxNullBitmap, wxITEM_NORMAL, _("Clear list"), wxEmptyString, NULL );
 
-	gui_mainToolBar->AddSeparator();
+	gui_toolBar->AddSeparator();
 
-	gui_tbScan = gui_mainToolBar->AddTool( ID_SCAN, wxEmptyString, wxArtProvider::GetBitmap( wxART_MISSING_IMAGE, wxART_TOOLBAR ), wxNullBitmap, wxITEM_NORMAL, _("Scan"), wxEmptyString, NULL );
+	gui_tbScan = gui_toolBar->AddTool( ID_SCAN, wxEmptyString, wxArtProvider::GetBitmap( wxART_MISSING_IMAGE, wxART_TOOLBAR ), wxNullBitmap, wxITEM_NORMAL, _("Scan"), wxEmptyString, NULL );
 
-	gui_tbRepair = gui_mainToolBar->AddTool( ID_REPAIR, wxEmptyString, wxArtProvider::GetBitmap( wxART_MISSING_IMAGE, wxART_TOOLBAR ), wxNullBitmap, wxITEM_NORMAL, _("Repair"), wxEmptyString, NULL );
+	gui_tbRepair = gui_toolBar->AddTool( ID_REPAIR, wxEmptyString, wxArtProvider::GetBitmap( wxART_MISSING_IMAGE, wxART_TOOLBAR ), wxNullBitmap, wxITEM_NORMAL, _("Repair"), wxEmptyString, NULL );
 
-	gui_mainToolBar->AddSeparator();
+	gui_toolBar->AddSeparator();
 
-	gui_tbSettings = gui_mainToolBar->AddTool( ID_SETTINGS, wxEmptyString, wxArtProvider::GetBitmap( wxART_MISSING_IMAGE, wxART_TOOLBAR ), wxNullBitmap, wxITEM_NORMAL, _("Settings"), wxEmptyString, NULL );
+	gui_tbSettings = gui_toolBar->AddTool( ID_SETTINGS, wxEmptyString, wxArtProvider::GetBitmap( wxART_MISSING_IMAGE, wxART_TOOLBAR ), wxNullBitmap, wxITEM_NORMAL, _("Settings"), wxEmptyString, NULL );
 
-	gui_tbAbout = gui_mainToolBar->AddTool( ID_ABOUT, wxEmptyString, wxArtProvider::GetBitmap( wxART_MISSING_IMAGE, wxART_TOOLBAR ), wxNullBitmap, wxITEM_NORMAL, _("About"), wxEmptyString, NULL );
+	gui_tbAbout = gui_toolBar->AddTool( ID_ABOUT, wxEmptyString, wxArtProvider::GetBitmap( wxART_MISSING_IMAGE, wxART_TOOLBAR ), wxNullBitmap, wxITEM_NORMAL, _("About"), wxEmptyString, NULL );
 
-	gui_mainToolBar->Realize();
+	gui_toolBar->Realize();
 
-	gui_mainMenu = new wxMenu();
+	gui_menu = new wxMenu();
 	wxMenuItem* gui_mnuAddFolder;
-	gui_mnuAddFolder = new wxMenuItem( gui_mainMenu, ID_ADD_FOLDER, wxString( _("Add folder") ) , wxEmptyString, wxITEM_NORMAL );
-	gui_mainMenu->Append( gui_mnuAddFolder );
+	gui_mnuAddFolder = new wxMenuItem( gui_menu, ID_ADD_FOLDER, wxString( _("Add folder") ) , wxEmptyString, wxITEM_NORMAL );
+	gui_menu->Append( gui_mnuAddFolder );
 
 	wxMenuItem* gui_mnuAddFiles;
-	gui_mnuAddFiles = new wxMenuItem( gui_mainMenu, ID_ADD_FILES, wxString( _("Add files") ) , wxEmptyString, wxITEM_NORMAL );
-	gui_mainMenu->Append( gui_mnuAddFiles );
+	gui_mnuAddFiles = new wxMenuItem( gui_menu, ID_ADD_FILES, wxString( _("Add files") ) , wxEmptyString, wxITEM_NORMAL );
+	gui_menu->Append( gui_mnuAddFiles );
 
 	wxMenuItem* gui_mnuRemoveFiles;
-	gui_mnuRemoveFiles = new wxMenuItem( gui_mainMenu, ID_REMOVE_FILES, wxString( _("Remove files") ) , wxEmptyString, wxITEM_NORMAL );
-	gui_mainMenu->Append( gui_mnuRemoveFiles );
+	gui_mnuRemoveFiles = new wxMenuItem( gui_menu, ID_REMOVE_FILES, wxString( _("Remove files") ) , wxEmptyString, wxITEM_NORMAL );
+	gui_menu->Append( gui_mnuRemoveFiles );
 
 	wxMenuItem* gui_mnuClearList;
-	gui_mnuClearList = new wxMenuItem( gui_mainMenu, ID_CLEAR_LIST, wxString( _("Clear list") ) , wxEmptyString, wxITEM_NORMAL );
-	gui_mainMenu->Append( gui_mnuClearList );
+	gui_mnuClearList = new wxMenuItem( gui_menu, ID_CLEAR_LIST, wxString( _("Clear list") ) , wxEmptyString, wxITEM_NORMAL );
+	gui_menu->Append( gui_mnuClearList );
 
 	this->Connect( wxEVT_RIGHT_DOWN, wxMouseEventHandler( FrameMain::FrameMainOnContextMenu ), NULL, this );
 
@@ -187,10 +187,10 @@ FrameMain::FrameMain( wxWindow* parent, wxWindowID id, const wxString& title, co
 	this->Connect( gui_tbRepair->GetId(), wxEVT_COMMAND_TOOL_CLICKED, wxCommandEventHandler( FrameMain::mnuRepair ) );
 	this->Connect( gui_tbSettings->GetId(), wxEVT_COMMAND_TOOL_CLICKED, wxCommandEventHandler( FrameMain::mnuSettings ) );
 	this->Connect( gui_tbAbout->GetId(), wxEVT_COMMAND_TOOL_CLICKED, wxCommandEventHandler( FrameMain::mnuAbout ) );
-	gui_mainMenu->Bind(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( FrameMain::mnuAddDirectory ), this, gui_mnuAddFolder->GetId());
-	gui_mainMenu->Bind(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( FrameMain::mnuAddFiles ), this, gui_mnuAddFiles->GetId());
-	gui_mainMenu->Bind(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( FrameMain::mnuRemoveFiles ), this, gui_mnuRemoveFiles->GetId());
-	gui_mainMenu->Bind(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( FrameMain::mnuClearList ), this, gui_mnuClearList->GetId());
+	gui_menu->Bind(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( FrameMain::mnuAddDirectory ), this, gui_mnuAddFolder->GetId());
+	gui_menu->Bind(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( FrameMain::mnuAddFiles ), this, gui_mnuAddFiles->GetId());
+	gui_menu->Bind(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( FrameMain::mnuRemoveFiles ), this, gui_mnuRemoveFiles->GetId());
+	gui_menu->Bind(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( FrameMain::mnuClearList ), this, gui_mnuClearList->GetId());
 	this->Connect( wxID_ANY, wxEVT_TIMER, wxTimerEventHandler( FrameMain::OnTimer1Trigger ) );
 }
 
@@ -214,7 +214,7 @@ FrameMain::~FrameMain()
 	this->Disconnect( gui_tbAbout->GetId(), wxEVT_COMMAND_TOOL_CLICKED, wxCommandEventHandler( FrameMain::mnuAbout ) );
 	this->Disconnect( wxID_ANY, wxEVT_TIMER, wxTimerEventHandler( FrameMain::OnTimer1Trigger ) );
 
-	delete gui_mainMenu;
+	delete gui_menu;
 }
 
 DialogSettings::DialogSettings( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )

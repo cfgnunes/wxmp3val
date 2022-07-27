@@ -81,7 +81,7 @@ void GuiFrameMain::OnlstFilesItemRClick(wxListEvent &event) {
     if (!m_processRunning) {
         updateControls();
         // Displays the popup menu when you click a list item
-        gui_lstFiles->PopupMenu(gui_mainMenu);
+        gui_lstFiles->PopupMenu(gui_menu);
     }
     event.Skip();
 }
@@ -246,24 +246,24 @@ void GuiFrameMain::OnTimer1Trigger(wxTimerEvent &event) {
     strNFiles += _("files");
     gui_mainStatusBar->SetStatusText(strNFiles, 1);
 
-    for (size_t i = 0; i < gui_mainMenuBar->GetMenuCount(); i++)
-        gui_mainMenuBar->EnableTop(i, !m_processRunning);
+    for (size_t i = 0; i < gui_menuBar->GetMenuCount(); i++)
+        gui_menuBar->EnableTop(i, !m_processRunning);
 
-    gui_mainToolBar->Enable(!m_processRunning);
+    gui_toolBar->Enable(!m_processRunning);
 
-    gui_mainMenu->Enable(ID_REMOVE_FILES, gui_lstFiles->GetSelectedItemCount() > 0 && !m_processRunning);
-    gui_mainMenuBar->Enable(ID_REMOVE_FILES, gui_lstFiles->GetSelectedItemCount() > 0 && !m_processRunning);
-    gui_mainToolBar->EnableTool(ID_REMOVE_FILES, gui_lstFiles->GetSelectedItemCount() > 0 && !m_processRunning);
+    gui_menu->Enable(ID_REMOVE_FILES, gui_lstFiles->GetSelectedItemCount() > 0 && !m_processRunning);
+    gui_menuBar->Enable(ID_REMOVE_FILES, gui_lstFiles->GetSelectedItemCount() > 0 && !m_processRunning);
+    gui_toolBar->EnableTool(ID_REMOVE_FILES, gui_lstFiles->GetSelectedItemCount() > 0 && !m_processRunning);
 
-    gui_mainMenu->Enable(ID_CLEAR_LIST, gui_lstFiles->GetItemCount() > 0 && !m_processRunning);
-    gui_mainMenuBar->Enable(ID_CLEAR_LIST, gui_lstFiles->GetItemCount() > 0 && !m_processRunning);
-    gui_mainToolBar->EnableTool(ID_CLEAR_LIST, gui_lstFiles->GetItemCount() > 0 && !m_processRunning);
+    gui_menu->Enable(ID_CLEAR_LIST, gui_lstFiles->GetItemCount() > 0 && !m_processRunning);
+    gui_menuBar->Enable(ID_CLEAR_LIST, gui_lstFiles->GetItemCount() > 0 && !m_processRunning);
+    gui_toolBar->EnableTool(ID_CLEAR_LIST, gui_lstFiles->GetItemCount() > 0 && !m_processRunning);
 
-    gui_mainMenuBar->Enable(ID_SCAN, gui_lstFiles->GetItemCount() > 0 && !m_processRunning);
-    gui_mainToolBar->EnableTool(ID_SCAN, gui_lstFiles->GetItemCount() > 0 && !m_processRunning);
+    gui_menuBar->Enable(ID_SCAN, gui_lstFiles->GetItemCount() > 0 && !m_processRunning);
+    gui_toolBar->EnableTool(ID_SCAN, gui_lstFiles->GetItemCount() > 0 && !m_processRunning);
 
-    gui_mainMenuBar->Enable(ID_REPAIR, gui_lstFiles->GetItemCount() > 0 && !m_processRunning);
-    gui_mainToolBar->EnableTool(ID_REPAIR, gui_lstFiles->GetItemCount() > 0 && !m_processRunning);
+    gui_menuBar->Enable(ID_REPAIR, gui_lstFiles->GetItemCount() > 0 && !m_processRunning);
+    gui_toolBar->EnableTool(ID_REPAIR, gui_lstFiles->GetItemCount() > 0 && !m_processRunning);
 
     gui_btnStop->Enable(m_processRunning);
     event.Skip(false);
@@ -276,14 +276,14 @@ void GuiFrameMain::loadResources() {
     SetIcon(wxIcon(dataDir + _T("icons/app.ico"), wxBITMAP_TYPE_ICO));
 
     // Toolbar bitmaps
-    gui_mainToolBar->SetToolNormalBitmap(ID_ADD_FILES, wxBitmap(wxImage(dataDir + _T("toolbar/add-file.png"))));
-    gui_mainToolBar->SetToolNormalBitmap(ID_ADD_FOLDER, wxBitmap(wxImage(dataDir + _T("toolbar/add-folder.png"))));
-    gui_mainToolBar->SetToolNormalBitmap(ID_REMOVE_FILES, wxBitmap(wxImage(dataDir + _T("toolbar/remove.png"))));
-    gui_mainToolBar->SetToolNormalBitmap(ID_CLEAR_LIST, wxBitmap(wxImage(dataDir + _T("toolbar/clear.png"))));
-    gui_mainToolBar->SetToolNormalBitmap(ID_SCAN, wxBitmap(wxImage(dataDir + _T("toolbar/scan.png"))));
-    gui_mainToolBar->SetToolNormalBitmap(ID_REPAIR, wxBitmap(wxImage(dataDir + _T("toolbar/fix.png"))));
-    gui_mainToolBar->SetToolNormalBitmap(ID_SETTINGS, wxBitmap(wxImage(dataDir + _T("toolbar/settings.png"))));
-    gui_mainToolBar->SetToolNormalBitmap(ID_ABOUT, wxBitmap(wxImage(dataDir + _T("toolbar/about.png"))));
+    gui_toolBar->SetToolNormalBitmap(ID_ADD_FILES, wxBitmap(wxImage(dataDir + _T("toolbar/add-file.png"))));
+    gui_toolBar->SetToolNormalBitmap(ID_ADD_FOLDER, wxBitmap(wxImage(dataDir + _T("toolbar/add-folder.png"))));
+    gui_toolBar->SetToolNormalBitmap(ID_REMOVE_FILES, wxBitmap(wxImage(dataDir + _T("toolbar/remove.png"))));
+    gui_toolBar->SetToolNormalBitmap(ID_CLEAR_LIST, wxBitmap(wxImage(dataDir + _T("toolbar/clear.png"))));
+    gui_toolBar->SetToolNormalBitmap(ID_SCAN, wxBitmap(wxImage(dataDir + _T("toolbar/scan.png"))));
+    gui_toolBar->SetToolNormalBitmap(ID_REPAIR, wxBitmap(wxImage(dataDir + _T("toolbar/fix.png"))));
+    gui_toolBar->SetToolNormalBitmap(ID_SETTINGS, wxBitmap(wxImage(dataDir + _T("toolbar/settings.png"))));
+    gui_toolBar->SetToolNormalBitmap(ID_ABOUT, wxBitmap(wxImage(dataDir + _T("toolbar/about.png"))));
 }
 
 void GuiFrameMain::updateControls() {
