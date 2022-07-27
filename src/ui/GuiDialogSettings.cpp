@@ -3,11 +3,11 @@
  * http://www.gnu.org/licenses/gpl-3.0.html
  */
 
+#include "../Constants.hpp"
 #include "GuiDialogSettings.hpp"
-#include "Constants.hpp"
 
-GuiDialogSettings::GuiDialogSettings(wxWindow *parent, ConfigBase *configBase)
-    : DialogSettings(parent), mp_configBase(configBase) {
+GuiDialogSettings::GuiDialogSettings(wxWindow *parent, AppSettings *appSettings)
+    : DialogSettings(parent), mp_appSettings(appSettings) {
     // Updates the values controls according to the configuration file
     updateValueControls();
 }
@@ -33,14 +33,14 @@ void GuiDialogSettings::OnbtnCancelClick(wxCommandEvent &event) {
 
 void GuiDialogSettings::updateValueControls() {
     // General controls
-    gui_chkDeleteBackup->SetValue(mp_configBase->getDeleteBackup());
+    gui_chkDeleteBackup->SetValue(mp_appSettings->getDeleteBackup());
 }
 
 void GuiDialogSettings::saveValuesConfig() {
     // General controls
-    mp_configBase->setDeleteBackup(gui_chkDeleteBackup->GetValue());
+    mp_appSettings->setDeleteBackup(gui_chkDeleteBackup->GetValue());
 
-    mp_configBase->setConfigFlush();
+    mp_appSettings->setConfigFlush();
 }
 
 void GuiDialogSettings::defaultValueControls() {

@@ -3,8 +3,8 @@
  * http://www.gnu.org/licenses/gpl-3.0.html
  */
 
+#include "../Constants.hpp"
 #include "GuiFrameMain.hpp"
-#include "Constants.hpp"
 #include "GuiDialogSettings.hpp"
 
 #include <wx/aboutdlg.h>
@@ -39,7 +39,7 @@ GuiFrameMain::GuiFrameMain(wxWindow *parent)
     gui_mainStatusBar->SetStatusWidths(3, wxStatusBarWidths);
 
     // Configuration file
-    mp_configBase = new ConfigBase(APP_NAME);
+    mp_appSettings = new AppSettings(APP_NAME);
 
     // Window title
     SetTitle(APP_NAME_WITH_VERSION);
@@ -53,7 +53,7 @@ GuiFrameMain::GuiFrameMain(wxWindow *parent)
 
 GuiFrameMain::~GuiFrameMain() {
     delete mp_fileListManager;
-    delete mp_configBase;
+    delete mp_appSettings;
 }
 
 void GuiFrameMain::OnlstFilesDeleteItem(wxListEvent &event) {
@@ -107,13 +107,13 @@ void GuiFrameMain::mnuAddDirectory(wxCommandEvent &event) {
     wxDirDialog dirDialog(this, _("Select directory"), wxEmptyString, wxDD_DEFAULT_STYLE);
 
     // Read the last directory used
-    dirDialog.SetPath(mp_configBase->getLastOpenDir());
+    dirDialog.SetPath(mp_appSettings->getLastOpenDir());
     if (dirDialog.ShowModal() == wxID_OK) {
         SetCursor(wxCURSOR_WAIT);
         mp_fileListManager->insertDir(dirDialog.GetPath());
 
         // Remembers the last used directory
-        mp_configBase->setLastOpenDir(dirDialog.GetPath());
+        mp_appSettings->setLastOpenDir(dirDialog.GetPath());
         SetCursor(wxCURSOR_ARROW);
     }
     event.Skip(false);
@@ -125,7 +125,7 @@ void GuiFrameMain::mnuAddFiles(wxCommandEvent &event) {
                             wxFD_OPEN | wxFD_MULTIPLE);
 
     // Read the last directory used
-    fileDialog.SetDirectory(mp_configBase->getLastOpenDir());
+    fileDialog.SetDirectory(mp_appSettings->getLastOpenDir());
 
     if (fileDialog.ShowModal() == wxID_OK) {
         SetCursor(wxCURSOR_WAIT);
@@ -135,7 +135,7 @@ void GuiFrameMain::mnuAddFiles(wxCommandEvent &event) {
         mp_fileListManager->insertFiles(files);
 
         // Remembers the last used directory
-        mp_configBase->setLastOpenDir(fileDialog.GetDirectory());
+        mp_appSettings->setLastOpenDir(fileDialog.GetDirectory());
         SetCursor(wxCURSOR_ARROW);
     }
     event.Skip(false);
@@ -168,7 +168,7 @@ void GuiFrameMain::mnuClearList(wxCommandEvent &event) {
 
 void GuiFrameMain::mnuSettings(wxCommandEvent &event) {
     // Displays the "Settings" window
-    GuiDialogSettings guiSettings(this, mp_configBase);
+    GuiDialogSettings guiSettings(this, mp_appSettings);
     guiSettings.ShowModal();
 
     updateControls();
@@ -327,7 +327,7 @@ void GuiFrameMain::processFile(unsigned long int fileIterator) {
     wxCopyFile(filenameInput.GetFullPath(), filenameTemp, true);
 
     if (m_processType == TOOL_FIX)
-        fullCommand.append(_T(" -f ") + mp_configBase->getStringToolOptions());
+        fullCommand.append(_T(" -f ") + mp_appSettings->getStringToolOptions());
 
     // Execute external application
     wxExecute(fullCommand + _T(" \"") + filenameTemp + _T("\""), m_exeInputString,

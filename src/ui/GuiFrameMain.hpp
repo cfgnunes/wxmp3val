@@ -6,9 +6,9 @@
 #ifndef GUI_FRAME_MAIN_HPP
 #define GUI_FRAME_MAIN_HPP
 
-#include "ConfigBase.hpp"
-#include "DndFile.hpp"
-#include "FileListManager.hpp"
+#include "../AppSettings.hpp"
+#include "../DndFile.hpp"
+#include "../FileListManager.hpp"
 #include "Gui.h"
 
 class GuiFrameMain : public FrameMain {
@@ -45,7 +45,7 @@ class GuiFrameMain : public FrameMain {
     void processFile(unsigned long int fileIterator);
     int processOutputString(unsigned long int fileIterator);
 
-    ConfigBase *mp_configBase;
+    AppSettings *mp_appSettings;
     FileListManager *mp_fileListManager;
     DndFile *mp_dndFile;
     wxString m_exeTool;

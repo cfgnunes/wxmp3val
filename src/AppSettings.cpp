@@ -3,10 +3,10 @@
  * http://www.gnu.org/licenses/gpl-3.0.html
  */
 
-#include "ConfigBase.hpp"
+#include "AppSettings.hpp"
 #include "Constants.hpp"
 
-ConfigBase::ConfigBase(const wxString &appName) {
+AppSettings::AppSettings(const wxString &appName) {
     mp_config = new wxConfig(appName);
 
     // If there isn't a setting, writes a new one with default values
@@ -14,22 +14,22 @@ ConfigBase::ConfigBase(const wxString &appName) {
         setDefaultConfig();
 }
 
-ConfigBase::~ConfigBase() {
+AppSettings::~AppSettings() {
     delete mp_config;
 }
 
-void ConfigBase::setDefaultConfig() {
+void AppSettings::setDefaultConfig() {
     setAppVersion(APP_VERSION);
     setLastOpenDir(DEFAULT_VALUE_LastOpenDir);
 
     setDeleteBackup(DEFAULT_VALUE_DeleteBackup);
 }
 
-void ConfigBase::setConfigFlush() {
+void AppSettings::setConfigFlush() {
     mp_config->Flush();
 }
 
-wxString ConfigBase::getStringToolOptions() const {
+wxString AppSettings::getStringToolOptions() const {
     wxString toolOptions;
 
     if (getDeleteBackup())
@@ -41,19 +41,19 @@ wxString ConfigBase::getStringToolOptions() const {
 
 // Gets
 
-wxString ConfigBase::getAppVersion() const {
+wxString AppSettings::getAppVersion() const {
     wxString value = wxEmptyString;
     mp_config->Read(CONFIG_GROUP_SYSTEM + CONFIG_STR_AppVersion, &value);
     return value;
 }
 
-wxString ConfigBase::getLastOpenDir() const {
+wxString AppSettings::getLastOpenDir() const {
     wxString value = wxEmptyString;
     mp_config->Read(CONFIG_GROUP_SYSTEM + CONFIG_STR_LastOpenDir, &value);
     return value;
 }
 
-bool ConfigBase::getDeleteBackup() const {
+bool AppSettings::getDeleteBackup() const {
     bool value;
     mp_config->Read(CONFIG_GROUP_GENERAL + CONFIG_STR_DeleteBackup, &value);
     return value;
@@ -61,14 +61,14 @@ bool ConfigBase::getDeleteBackup() const {
 
 // Sets
 
-void ConfigBase::setAppVersion(wxString value) {
+void AppSettings::setAppVersion(wxString value) {
     mp_config->Write(CONFIG_GROUP_SYSTEM + CONFIG_STR_AppVersion, value);
 }
 
-void ConfigBase::setLastOpenDir(wxString value) {
+void AppSettings::setLastOpenDir(wxString value) {
     mp_config->Write(CONFIG_GROUP_SYSTEM + CONFIG_STR_LastOpenDir, value);
 }
 
-void ConfigBase::setDeleteBackup(bool value) {
+void AppSettings::setDeleteBackup(bool value) {
     mp_config->Write(CONFIG_GROUP_GENERAL + CONFIG_STR_DeleteBackup, value);
 }
