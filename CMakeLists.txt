@@ -65,7 +65,7 @@ set(CMAKE_PROJECT_AUTHOR "Cristiano Fraga G. Nunes")
 set(CMAKE_PROJECT_EMAIL "cfgnunes@gmail.com")
 
 # Set some strings for the templates: PPA distro
-set(CMAKE_PROJECT_S_DESCRIPTION "A free front-end for the MP3val.")
+set(CMAKE_PROJECT_S_DESCRIPTION "Free front-end for the MP3val.")
 
 # Get the current year
 string(TIMESTAMP CMAKE_CURRENT_YEAR "%Y")

@@ -1,7 +1,7 @@
 [Desktop Entry]
 Encoding=UTF-8
 Name=wxMP3val
-Comment=A free front-end for the MP3val.
+Comment=Free front-end for the MP3val.
 Exec=wxmp3val
 Icon=wxmp3val
 Categories=AudioVideo;Audio;
