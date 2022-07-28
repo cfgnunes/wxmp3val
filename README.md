@@ -8,7 +8,7 @@ wxMP3val is a free front-end for the MP3val.
 
 ### Install from binaries
 
-Link to download the binary files: <https://sourceforge.net/projects/wxmp3val/>
+Link to download the binary files: <https://sourceforge.net/projects/wxmp3val>
 
 This program has been tested on the following platforms:
 
