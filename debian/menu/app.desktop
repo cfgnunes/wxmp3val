@@ -1,4 +1,5 @@
 [Desktop Entry]
+Encoding=UTF-8
 Name=wxMP3val
 Comment=A free front-end for the MP3val.
 Exec=wxmp3val
@@ -6,3 +7,5 @@ Icon=wxmp3val
 Categories=AudioVideo;Audio;
 Terminal=false
 Type=Application
+Version=1.0
+Encoding=UTF-8
