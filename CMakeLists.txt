@@ -79,7 +79,7 @@ if(UNIX)
     set(CMAKE_DEBIAN_NAME "focal")
 
     # Set 'build depends'
-    set(CMAKE_DEBIAN_BUILD_DEPENDS "debhelper (>= 9), libwxgtk3.0-gtk3-dev | libwxgtk3.0-dev | libwxgtk2.8-dev, cmake")
+    set(CMAKE_DEBIAN_BUILD_DEPENDS "debhelper (>= 10), libwxgtk3.0-gtk3-dev | libwxgtk3.0-dev | libwxgtk2.8-dev, cmake")
 
     # Set 'depends'
     set(CMAKE_DEBIAN_DEPENDS "\${shlibs:Depends}, \${misc:Depends}, mp3val (>= 0.1.8)")
