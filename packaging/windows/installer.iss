@@ -3,7 +3,7 @@
 
 #define ApplicationName "wxMP3val"
 #define ApplicationSite "https://github.com/cfgnunes/wxmp3val"
-#define ApplicationVersion "4.0"
+#define ApplicationVersion "4.1"
 
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application.
@@ -47,7 +47,7 @@ Name: "{group}\License"; Filename: "{app}\License.txt"
 Name: "{group}\wxMP3val Website"; Filename: "https://github.com/cfgnunes/wxmp3val"
 Name: "{group}\MP3val Website"; Filename: "http://mp3val.sourceforge.net/"
 Name: "{group}\{cm:UninstallProgram,wxMP3val}"; Filename: "{uninstallexe}"
-Name: "{commondesktop}\wxMP3val"; Filename: "{app}\wxMP3val.exe"; Tasks: desktopicon
+Name: "{commondesktop}\wxMP3val"; Filename: "{app}\wxmp3val.exe"; Tasks: desktopicon
 
 [Run]
-Filename: "{app}\wxMP3val.exe"; Description: "{cm:LaunchProgram,wxMP3val}"; Flags: nowait postinstall skipifsilent
+Filename: "{app}\wxmp3val.exe"; Description: "{cm:LaunchProgram,wxMP3val}"; Flags: nowait postinstall skipifsilent
