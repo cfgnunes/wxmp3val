@@ -65,7 +65,7 @@ set(CMAKE_PROJECT_AUTHOR "Cristiano Fraga G. Nunes")
 set(CMAKE_PROJECT_EMAIL "cfgnunes@gmail.com")
 
 # Set some strings for the templates: PPA distro
-set(CMAKE_PROJECT_S_DESCRIPTION "Free front-end for the MP3val")
+set(CMAKE_PROJECT_S_DESCRIPTION "A free front-end for the MP3val.")
 
 # Get the current year
 string(TIMESTAMP CMAKE_CURRENT_YEAR "%Y")
@@ -99,6 +99,11 @@ configure_file(
 configure_file(
     "${PROJECT_SOURCE_DIR}/debian/control.in"
     "${PROJECT_SOURCE_DIR}/debian/control"
+)
+
+configure_file(
+    "${PROJECT_SOURCE_DIR}/debian/menu/app.desktop.in"
+    "${PROJECT_SOURCE_DIR}/debian/menu/app.desktop"
 )
 
 # =============================================================================
@@ -191,7 +196,7 @@ else()
     install(FILES "debian/menu/icon48x48.png" DESTINATION "share/icons/hicolor/48x48/apps/" RENAME "${CMAKE_BIN_NAME}.png")
     install(FILES "debian/menu/icon64x64.png" DESTINATION "share/icons/hicolor/64x64/apps/" RENAME "${CMAKE_BIN_NAME}.png")
     install(FILES "debian/menu/icon128x128.png" DESTINATION "share/icons/hicolor/128x128/apps/" RENAME "${CMAKE_BIN_NAME}.png")
-    install(FILES "debian/menu/${CMAKE_BIN_NAME}.desktop" DESTINATION "share/applications/")
+    install(FILES "debian/menu/app.desktop" DESTINATION "share/applications/" RENAME "${CMAKE_BIN_NAME}.desktop")
 endif()
 
 # =============================================================================

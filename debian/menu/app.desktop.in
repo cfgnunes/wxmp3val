@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=${CMAKE_PROJECT_NAME}
+Comment=${CMAKE_PROJECT_S_DESCRIPTION}
+Exec=${CMAKE_BIN_NAME}
+Icon=${CMAKE_BIN_NAME}
+Categories=AudioVideo;Audio;
+Terminal=false
+Type=Application
