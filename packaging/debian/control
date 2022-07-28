@@ -8,6 +8,6 @@ Homepage: https://github.com/cfgnunes/wxmp3val
 
 Package: wxmp3val
 Architecture: any
-Depends:  ${shlibs:Depends}, ${misc:Depends}, mp3val (>= 0.1.8)
+Depends: ${shlibs:Depends}, ${misc:Depends}, mp3val (>= 0.1.8)
 Description: Free front-end for the MP3val
  wxMP3val is a free front-end for the MP3val.

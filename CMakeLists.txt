@@ -46,65 +46,43 @@ find_package(Gettext)
 # =============================================================================
 
 # Set the root folder, where all sources are located in
-if(NOT DEFINED CMAKE_SOURCES_ROOT_DIR)
-    set(CMAKE_SOURCES_ROOT_DIR ${CMAKE_CURRENT_SOURCE_DIR})
-endif()
+set(CMAKE_SOURCES_ROOT_DIR ${CMAKE_CURRENT_SOURCE_DIR})
 
 # Set a folder for the data
-if(NOT DEFINED CMAKE_DATA_DIR)
-    set(CMAKE_DATA_DIR "data")
-endif()
+set(CMAKE_DATA_DIR "data")
 
 # Set a folder for the dcoumentation
-if(NOT DEFINED CMAKE_DOC_DIR)
-    set(CMAKE_DOC_DIR "doc")
-endif()
+set(CMAKE_DOC_DIR "doc")
 
 # =============================================================================
 # Configure templates
 # =============================================================================
 
 # Set some strings for the templates: author
-if(NOT DEFINED CMAKE_PROJECT_AUTHOR)
-    set(CMAKE_PROJECT_AUTHOR "Cristiano Fraga G. Nunes")
-endif()
+set(CMAKE_PROJECT_AUTHOR "Cristiano Fraga G. Nunes")
 
 # Set some strings for the templates: e-mail
-if(NOT DEFINED CMAKE_PROJECT_EMAIL)
-    set(CMAKE_PROJECT_EMAIL "cfgnunes@gmail.com")
-endif()
+set(CMAKE_PROJECT_EMAIL "cfgnunes@gmail.com")
 
 # Set some strings for the templates: PPA distro
-if(NOT DEFINED CMAKE_PROJECT_S_DESCRIPTION)
-    set(CMAKE_PROJECT_S_DESCRIPTION "Free front-end for the MP3val")
-endif()
+set(CMAKE_PROJECT_S_DESCRIPTION "Free front-end for the MP3val")
 
 # Get the current year
-if(NOT DEFINED CMAKE_CURRENT_YEAR)
-    string(TIMESTAMP CMAKE_CURRENT_YEAR "%Y")
-endif()
+string(TIMESTAMP CMAKE_CURRENT_YEAR "%Y")
 
 # Strings for Debian packaging
 if(UNIX)
     # Get the current timestamp
-    if(NOT DEFINED CMAKE_CURRENT_TIMESTAMP)
-        string(TIMESTAMP CMAKE_CURRENT_TIMESTAMP "%a, %d %b %Y %H:%M:%S" UTC)
-    endif()
+    string(TIMESTAMP CMAKE_CURRENT_TIMESTAMP "%a, %d %b %Y %H:%M:%S" UTC)
 
     # Set 'distro'
-    if(NOT DEFINED CMAKE_DEBIAN_NAME)
-        set(CMAKE_DEBIAN_NAME "focal")
-    endif()
+    set(CMAKE_DEBIAN_NAME "focal")
 
     # Set 'build depends'
-    if(NOT DEFINED CMAKE_DEBIAN_BUILD_DEPENDS)
-        set(CMAKE_DEBIAN_BUILD_DEPENDS "debhelper (>= 9), libwxgtk3.0-gtk3-dev | libwxgtk3.0-dev | libwxgtk2.8-dev, cmake")
-    endif()
+    set(CMAKE_DEBIAN_BUILD_DEPENDS "debhelper (>= 9), libwxgtk3.0-gtk3-dev | libwxgtk3.0-dev | libwxgtk2.8-dev, cmake")
 
     # Set 'depends'
-    if(NOT DEFINED CMAKE_DEBIAN_DEPENDS)
-        set(CMAKE_DEBIAN_DEPENDS "\${shlibs:Depends}, \${misc:Depends}, mp3val (>= 0.1.8)")
-    endif()
+    set(CMAKE_DEBIAN_DEPENDS "\${shlibs:Depends}, \${misc:Depends}, mp3val (>= 0.1.8)")
 endif()
 
 # Header template
