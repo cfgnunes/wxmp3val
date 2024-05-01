@@ -1,6 +1,6 @@
 # wxMP3val
 
-Copyright (C) 2011-2019 Cristiano Fraga G. Nunes
+Copyright (C) 2011-2024 Cristiano Fraga G. Nunes
 
 <https://github.com/cfgnunes/wxmp3val>
 
