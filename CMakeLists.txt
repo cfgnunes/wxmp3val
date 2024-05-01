@@ -7,7 +7,7 @@ cmake_minimum_required(VERSION 3.10)
 # Set the project name and version
 project(
     wxMP3val
-    VERSION 4.1.0.0
+    VERSION 4.2.0.0
     DESCRIPTION "wxMP3val is a free front-end for the MP3val."
     HOMEPAGE_URL "https://github.com/cfgnunes/wxmp3val"
 )
