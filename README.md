@@ -1,4 +1,4 @@
-# wxMP3val [![Actions Status](https://github.com/cfgnunes/wxmp3val/workflows/build/badge.svg)](https://github.com/cfgnunes/wxmp3val/actions)
+# wxMP3val - MP3 Validator [![Actions Status](https://github.com/cfgnunes/wxmp3val/workflows/build/badge.svg)](https://github.com/cfgnunes/wxmp3val/actions)
 
 wxMP3val is a free front-end for the [MP3val](https://mp3val.sourceforge.net).
 
